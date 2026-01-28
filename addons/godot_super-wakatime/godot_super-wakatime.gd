@@ -385,12 +385,13 @@ func get_bottom_dock_visible() -> Array[Node]:
 		# Find the bottom panel dock.
 		if waiting[0].name.contains("BottomPanel"):
 			var waiting2:Array[Node] = waiting[0].get_child(0).get_children()
-			while not waiting2.is_empty():
-				# Find all the visible docks within the bottom dock.
-				if waiting2[0].visible:
-					response.append(waiting2[0])
+			while not waiting2.is_empty(): 
+				var this := waiting2.pop_front()
 				
-				waiting2.pop_front()
+				if not this is CanvasItem: continue
+				 
+				# Find all the visible docks within the bottom dock.
+				if this.visible: response.append(this)
 			break
 		
 		waiting.append_array(waiting.pop_front().get_children())

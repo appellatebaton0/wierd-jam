@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://c83kcii5cge5" path="res://Scenes/SimpleRail.tscn" id="1_r150o"]
 
+[sub_resource type="GDScript" id="GDScript_r150o"]
+
 [node name="Main" type="Node" unique_id=1226045905]
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1697428059]
@@ -13,8 +15,11 @@ polygon = PackedVector2Array(9, 176, 303, 52, 588, 153, 1026, 145, 1309, 169, 13
 polygon = PackedVector2Array(9, 176, 303, 52, 588, 153, 1026, 145, 1309, 169, 1325, 319, 1054, 441, 203, 389, 36, 257)
 
 [node name="SimpleRail" parent="." unique_id=1357488898 instance=ExtResource("1_r150o")]
-position = Vector2(407, -258)
-start_position = Vector2(603, -190)
-start_rotation = 1.5707964
-end_position = Vector2(481, -88)
-end_rotation = null
+position = Vector2(-39.87506, -47.748814)
+velocity = Vector2(0.9946492, -0.10331187)
+points = Array[SubResource("GDScript_r150o")]([Object(RefCounted,"script":SubResource("GDScript_r150o"),"pos":Vector2(115, 42),"rot":0.0)
+, Object(RefCounted,"script":SubResource("GDScript_r150o"),"pos":Vector2(261, -79),"rot":0.0)
+, Object(RefCounted,"script":SubResource("GDScript_r150o"),"pos":Vector2(59.78788, -154.61597),"rot":0.0)
+])
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1220805860]

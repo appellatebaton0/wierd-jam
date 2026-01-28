@@ -50,6 +50,17 @@ func _ready() -> void:
 func _update() -> void:
 	_update_time()
 	
+	if not today_time:
+		today_time = {
+			"text": "Not Found",
+			"total_seconds": 0
+		}
+	if not overall_time:
+		overall_time = {
+			"text": "Not Found",
+			"total_seconds": 0
+		}
+	
 	# Left side.
 	
 	today.text = "Today: " + today_time["text"]
@@ -82,6 +93,8 @@ func _update_time():
 	OS.execute("curl", ["-H", "Authorization: Bearer " + api_key, "https://hackatime.hackclub.com/api/v1/users/my/stats?start_date="+Time.get_date_string_from_system()+"T06:00:00Z&features=projects&limit=100"], out)
 	
 	out = JSON.parse_string(out[0])
+	
+	if not out: return
 	
 	today_time = find_project_time(out["data"]["projects"])
 	
