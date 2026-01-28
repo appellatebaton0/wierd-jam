@@ -1,16 +1,28 @@
 @tool
-class_name Transform extends Resource
+class_name Transform extends Sprite2D
+
+@export var next_interpol_time := 1.0
 
 @export var pos:Vector2
 @export var rot:float
 
-@export var next_interpol_time := 1.0
+const DEBUG = true
 
-func _debug_draw(with:Rail, interpolation:float):
-	var real_pos := pos - with.global_position
+func _ready() -> void: 
+	visible = Engine.is_editor_hint() or DEBUG
+	if not Engine.is_editor_hint():
+		pos = global_position
+		rot = global_rotation
+
+func setup(with:Rail):
+	with.add_child(self)
 	
-	var color = lerp(Color(1,0,0), Color(0,1,0), interpolation)
+	pos = with.global_position
+	rot = with.rotation
 	
-	with.draw_texture(with.debug_texture, real_pos - with.debug_texture.get_size() / 2, Color(1,1,1, 0.3))
-	with.draw_line(real_pos, real_pos + Vector2(0,-20).rotated(rot), color, 2)
-	#with.draw_circle(real_pos, 10.0, color)
+	texture = with.debug_texture
+	owner = with.owner
+
+func _process(delta: float) -> void: if visible:
+	global_position = pos if pos else global_position
+	global_rotation = rot if rot else global_rotation

@@ -1,40 +1,17 @@
 [gd_scene format=3 uid="uid://p2tyqwglemqs"]
 
-[ext_resource type="PackedScene" uid="uid://c83kcii5cge5" path="res://Scenes/SimpleRail.tscn" id="1_r150o"]
-[ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="2_idj7w"]
+[ext_resource type="Script" uid="uid://dk81vtr7knsdu" path="res://Scripts/SimpleRail.gd" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="2_kln2b"]
+[ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="3_rgh2o"]
 
-[sub_resource type="Resource" id="Resource_idj7w"]
-script = ExtResource("2_idj7w")
-pos = Vector2(264, -89)
-next_interpol_time = null
+[sub_resource type="Gradient" id="Gradient_00egt"]
 
-[sub_resource type="Resource" id="Resource_kln2b"]
-script = ExtResource("2_idj7w")
-pos = Vector2(127, -87)
-rot = 3.1415927
-next_interpol_time = 3.0
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d4d1x"]
+gradient = SubResource("Gradient_00egt")
+height = 32
 
-[sub_resource type="Resource" id="Resource_rgh2o"]
-script = ExtResource("2_idj7w")
-pos = Vector2(209, -173)
-
-[sub_resource type="Resource" id="Resource_pbw6q"]
-script = ExtResource("2_idj7w")
-pos = Vector2(455, -109)
-rot = 1.5707964
-
-[sub_resource type="Resource" id="Resource_v1gob"]
-script = ExtResource("2_idj7w")
-pos = Vector2(377, -239)
-
-[sub_resource type="Resource" id="Resource_jw32o"]
-script = ExtResource("2_idj7w")
-pos = Vector2(301, 25)
-
-[sub_resource type="Resource" id="Resource_50glp"]
-script = ExtResource("2_idj7w")
-pos = Vector2(489, 6)
-rot = 0.05235988
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00egt"]
+size = Vector2(64, 32)
 
 [node name="Main" type="Node" unique_id=1226045905]
 
@@ -46,10 +23,65 @@ polygon = PackedVector2Array(9, 176, 303, 52, 588, 153, 1026, 145, 1309, 169, 13
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D" unique_id=694761493]
 polygon = PackedVector2Array(9, 176, 303, 52, 588, 153, 1026, 145, 1309, 169, 1325, 319, 1054, 441, 203, 389, 36, 257)
 
-[node name="SimpleRail" parent="." unique_id=1357488898 instance=ExtResource("1_r150o")]
-position = Vector2(331, -130)
+[node name="SimpleRail" type="CharacterBody2D" parent="." unique_id=1357488898 node_paths=PackedStringArray("points")]
+position = Vector2(459, -182)
 velocity = Vector2(-0.1391216, -0.9902754)
-easing = 0.4
-points = Array[ExtResource("2_idj7w")]([SubResource("Resource_idj7w"), SubResource("Resource_kln2b"), SubResource("Resource_rgh2o"), SubResource("Resource_pbw6q"), SubResource("Resource_v1gob"), SubResource("Resource_jw32o"), SubResource("Resource_50glp")])
+script = ExtResource("1_r150o")
+debug_texture = SubResource("GradientTexture2D_d4d1x")
+points = [NodePath("Transform"), NodePath("@Sprite2D@27637"), NodePath("@Sprite2D@27638"), NodePath("@Sprite2D@28674"), NodePath("@Sprite2D@28675"), NodePath("5")]
+
+[node name="Sprite2D" type="Sprite2D" parent="SimpleRail" unique_id=2124093363]
+texture = SubResource("GradientTexture2D_d4d1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SimpleRail" unique_id=1745674482]
+shape = SubResource("RectangleShape2D_00egt")
+
+[node name="Transform" type="Sprite2D" parent="SimpleRail" unique_id=514478884 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(-123, 19)
+texture = SubResource("GradientTexture2D_d4d1x")
+script = ExtResource("3_rgh2o")
+pos = Vector2(336, -163)
+
+[node name="@Sprite2D@27637" type="Sprite2D" parent="SimpleRail" unique_id=1905080347 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(-184, -60)
+texture = SubResource("GradientTexture2D_d4d1x")
+script = ExtResource("3_rgh2o")
+pos = Vector2(275, -242)
+
+[node name="@Sprite2D@27638" type="Sprite2D" parent="SimpleRail" unique_id=716297252 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(-53, -58)
+texture = SubResource("GradientTexture2D_d4d1x")
+script = ExtResource("3_rgh2o")
+pos = Vector2(406, -240)
+
+[node name="@Sprite2D@28674" type="Sprite2D" parent="SimpleRail" unique_id=527882941 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(-394, -5)
+rotation = 1.7104226
+texture = SubResource("GradientTexture2D_d4d1x")
+script = ExtResource("3_rgh2o")
+pos = Vector2(65, -187)
+rot = 1.7104226
+
+[node name="@Sprite2D@28675" type="Sprite2D" parent="SimpleRail" unique_id=1310612233 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(-261, 115)
+rotation = -0.31415927
+texture = SubResource("GradientTexture2D_d4d1x")
+script = ExtResource("3_rgh2o")
+pos = Vector2(198, -67)
+rot = -0.31415927
+
+[node name="5" type="Sprite2D" parent="SimpleRail" unique_id=397262626 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(-83, 121)
+rotation = -0.7853982
+texture = SubResource("GradientTexture2D_d4d1x")
+script = ExtResource("3_rgh2o")
+pos = Vector2(376, -61)
+rot = -0.7853982
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1220805860]
