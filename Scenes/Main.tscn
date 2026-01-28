@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://p2tyqwglemqs"]
+
+[ext_resource type="PackedScene" uid="uid://c83kcii5cge5" path="res://Scenes/SimpleRail.tscn" id="1_r150o"]
+
+[node name="Main" type="Node" unique_id=1226045905]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1697428059]
+polygon = PackedVector2Array(9, 176, 303, 52, 588, 153, 1026, 145, 1309, 169, 1325, 319, 1054, 441, 203, 389, 36, 257)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Polygon2D" unique_id=226855967]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D" unique_id=694761493]
+polygon = PackedVector2Array(9, 176, 303, 52, 588, 153, 1026, 145, 1309, 169, 1325, 319, 1054, 441, 203, 389, 36, 257)
+
+[node name="SimpleRail" parent="." unique_id=1357488898 instance=ExtResource("1_r150o")]
+position = Vector2(407, -258)
+start_position = Vector2(603, -190)
+start_rotation = 1.5707964
+end_position = Vector2(481, -88)
+end_rotation = null
