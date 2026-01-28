@@ -13,6 +13,8 @@ size = Vector2(64, 32)
 
 [node name="SimpleRail" type="CharacterBody2D" unique_id=1357488898]
 script = ExtResource("1_w1t0f")
+easing = null
+debug_texture = SubResource("GradientTexture2D_d4d1x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]
 texture = SubResource("GradientTexture2D_d4d1x")

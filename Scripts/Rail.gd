@@ -1,26 +1,15 @@
 @tool
 @abstract class_name Rail extends CharacterBody2D
 
+@export var easing := 0.4
+
+@export var debug_texture:Texture2D
+
 @warning_ignore("unused_private_class_variable")
 @export_tool_button("New Transform") var _new_transform := _add_transform
 @warning_ignore("unused_private_class_variable")
 @export_tool_button("Clear Transforms") var _rem_transforms := _clear_transforms
 
-class Transform:
-	var pos:Vector2
-	var rot:float
-	
-	func _init(set_pos, set_rot) -> void:
-		pos = set_pos
-		rot = set_rot
-	
-	func _debug_draw(with:Rail, interpolation:float):
-		var real_pos := pos - with.position
-		
-		var color = lerp(Color(1,0,0), Color(0,1,0), interpolation)
-		
-		with.draw_line(real_pos, real_pos + Vector2(0,-20).rotated(rot), color, 2)
-		with.draw_circle(real_pos, 10.0, color)
 
 ## Lerp from one transform to another.
 @warning_ignore("shadowed_variable")
@@ -29,49 +18,79 @@ func interpolate(from:Transform, to:Transform, lerp_amnt:float, ease_amnt := 1.0
 	var pos = lerp(from.pos, to.pos, ease(lerp_amnt, ease_amnt))
 	var rot = lerp(from.rot, to.rot, ease(lerp_amnt, ease_amnt))
 	
-	return Transform.new(pos, rot)
+	var new = Transform.new()
+	new.pos = pos
+	new.rot = rot
+	
+	return new
 
-@export_storage var points:Array[Transform]
+@export var points:Array[Transform]
 var current := 0
 var next := 1
 var lerp_amnt = 0.0
 
-func _ready() -> void:
-	print(points)
-	pass
-
+var form:Transform
 func _physics_process(delta: float) -> void:
+	
+	if Engine.is_editor_hint() or not len(points): return
+	
 	
 	var a = points[current]
 	var b = points[next]
 	
-	var form = interpolate(a, b, lerp_amnt)
+	form = interpolate(a, b, ease(lerp_amnt, easing))
 	
-	velocity = position.direction_to(form.pos) * delta * 60
+	velocity = (form.pos - global_position) / delta
 	
-	lerp_amnt = move_toward(lerp_amnt, 1.0, delta)
+	rotation = form.rot
+	
+	lerp_amnt = move_toward(lerp_amnt, 1.0, delta / points[current].next_interpol_time)
+	
+	if lerp_amnt == 1 and next != current:
+		current = next
+		next = min(next + 1, len(points) - 1)
+		lerp_amnt = 0.0
+		
 	
 	move_and_slide()
 	
 	pass
 
+func mag(a:Vector2, b:Vector2) -> Vector2:
+	return (b - a) / a.direction_to(b)
 
 ## Tool Functionality.
 
 
 func _clear_transforms(): 
-	points.clear()
+	var unre := EditorInterface.get_editor_undo_redo()
 	
-	queue_redraw()
+	unre.create_action("Clear Rail Points")
+	points.clear()
+	unre.add_do_method(self, "queue_redraw")
+	
+	unre.commit_action()
+	#points.clear()
+	
+	#queue_redraw()
 
 func _add_transform():
-	points.append(Transform.new(position, rotation))
+	var unre := EditorInterface.get_editor_undo_redo()
 	
-	rotation = 0.0
+	unre.create_action("Make Rail Point")
+	unre.add_do_method(self, "queue_redraw")
 	
-	queue_redraw()
+	var new = Transform.new()
+	new.pos = global_position
+	new.rot = rotation
+	
+	points.append(new)
+	
+	unre.add_do_property(self, "rotation", 0.0)
+	
+	unre.commit_action()
 
-func _draw() -> void: if Engine.is_editor_hint():
+func _draw() -> void: #if Engine.is_editor_hint():
 	
 	var length = len(points)
 	for i in range(length):
@@ -79,6 +98,8 @@ func _draw() -> void: if Engine.is_editor_hint():
 		var interpol = float(i) / float(length)
 		
 		point._debug_draw(self, interpol)
+	
+	if form: form._debug_draw(self, 1.0)
 
 var last:Vector2
 func _process(_delta: float) -> void: if Engine.is_editor_hint():
