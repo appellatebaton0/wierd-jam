@@ -3,8 +3,16 @@
 
 const TRANSFORM = preload("res://Scenes/Transform.tscn")
 
+@onready var player:Player = get_tree().get_first_node_in_group("Player")
+
 @export var easing := 0.4 ## How much to ease the movement from one point to another.
 @export var debug_texture:Texture2D ## The texture to apply to the Transforms in the debug view.
+
+@onready var rail_snap := get_rail_snap()
+func get_rail_snap() -> Area2D:
+	for child in get_children():
+		if child is Area2D: return child
+	return null
 
 @warning_ignore("unused_private_class_variable") @export_tool_button("New Transform") 
 var _new_transform := _add_transform
@@ -25,28 +33,39 @@ func _ready() -> void:
 	
 	for child in get_children(): if child is Transform: points.append(child)
 	
-	curr = points[0]
-	next = points[1]
+	if len(points) > 1:
+		curr = points[0]
+		next = points[1]
+	
 
 func _physics_process(delta: float) -> void:
 	
 	# IF anything's gone wrong or this just shouldn't be done, then don't do it.
-	if Engine.is_editor_hint() or not len(points): return
+	if Engine.is_editor_hint(): return
 	
-	var pos = lerp_ease(curr.pos, next.pos, lerp_amnt, easing)
-	var rot = lerp_ease(curr.rot, next.rot, lerp_amnt, easing)
+	if len(points) > 1:
 	
-	velocity = (pos - global_position) / delta
-	
-	rotation = rot
-	
-	lerp_amnt = move_toward(lerp_amnt, 1.0, delta / curr.next_interpol_time)
-	
-	if lerp_amnt == 1 and next != curr:
-		curr = next
-		next = points[min(points.find(next) + 1, len(points) - 1)]
-		lerp_amnt = 0.0
+		var pos = lerp_ease(curr.pos, next.pos, lerp_amnt, easing)
+		var rot = lerp_ease(curr.rot, next.rot, lerp_amnt, easing)
 		
+		velocity = (pos - global_position) / delta
+		
+		rotation = rot
+		
+		lerp_amnt = move_toward(lerp_amnt, 1.0, delta / curr.next_interpol_time)
+		
+		if lerp_amnt == 1 and next != curr:
+			curr = next
+			next = points[min(points.find(next) + 1, len(points) - 1)]
+			lerp_amnt = 0.0
+		
+	var rail_bodies := rail_snap.get_overlapping_bodies()
+	print(rail_bodies, " - ", player.snapped_to)
+	if       rail_bodies.has(player) and player.snapped_to == null:
+		print("!!")
+		player.snapped_to = self
+	elif not rail_bodies.has(player) and player.snapped_to == self:
+		player.snapped_to = null
 	
 	move_and_slide()
 

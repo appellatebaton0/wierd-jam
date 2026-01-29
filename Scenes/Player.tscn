@@ -12,7 +12,9 @@ gradient = SubResource("Gradient_s7307")
 width = 32
 height = 32
 
-[node name="Player" type="CharacterBody2D" unique_id=993666105]
+[node name="Player" type="CharacterBody2D" unique_id=993666105 groups=["Player"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_rpqav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571296389]
