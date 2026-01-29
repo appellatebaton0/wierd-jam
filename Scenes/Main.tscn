@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://p2tyqwglemqs"]
 
+[ext_resource type="Script" uid="uid://c10cndcu33lm7" path="res://Scripts/Camera.gd" id="1_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://c83kcii5cge5" path="res://Scenes/SimpleRail.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="2_kln2b"]
 [ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="3_rgh2o"]
@@ -13,7 +14,12 @@ height = 32
 
 [node name="Main" type="Node" unique_id=1226045905]
 
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1070006029]
+color = Color(0.12, 0.12, 0.12, 1)
+polygon = PackedVector2Array(-524, -32, -216, -307, -106, -183, 27, -391, 138, -284, 213, -26, 268, -187, 342, -118, 525, -259, 699, -99, 730, 170, 645, 419, -711, 407, -682, -407, -535, -38)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1220805860]
+script = ExtResource("1_pbw6q")
 
 [node name="Player" parent="." unique_id=993666105 instance=ExtResource("4_rgh2o")]
 position = Vector2(142, -250)
@@ -48,6 +54,8 @@ modulate = Color(1, 1, 1, 0.62352943)
 position = Vector2(222, 403)
 texture = SubResource("GradientTexture2D_d4d1x")
 script = ExtResource("3_rgh2o")
+next_interpol_time = 1.5
+next_ease = -2.0
 pos = Vector2(0, -23)
 
 [node name="Point 4" type="Sprite2D" parent="SimpleRail" unique_id=370792900 instance=ExtResource("2_kln2b")]
