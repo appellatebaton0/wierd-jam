@@ -24,6 +24,7 @@ func setup(with:Rail):
 	texture = with.debug_texture
 	owner = with.owner
 
-func _process(delta: float) -> void: if visible:
+func _process(delta: float) -> void:
+	if not visible: return
 	global_position = pos if pos else global_position
 	global_rotation = rot if rot else global_rotation
