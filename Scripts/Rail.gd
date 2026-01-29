@@ -5,7 +5,8 @@ const TRANSFORM = preload("res://Scenes/Transform.tscn")
 
 @onready var player:Player = get_tree().get_first_node_in_group("Player")
 
-@export var easing := 0.4 ## How much to ease the movement from one point to another.
+@export var facing_right = true
+
 @export var debug_texture:Texture2D ## The texture to apply to the Transforms in the debug view.
 
 @onready var rail_snap := get_rail_snap()
@@ -45,8 +46,8 @@ func _physics_process(delta: float) -> void:
 	
 	if len(points) > 1:
 	
-		var pos = lerp_ease(curr.pos, next.pos, lerp_amnt, easing)
-		var rot = lerp_ease(curr.rot, next.rot, lerp_amnt, easing)
+		var pos = lerp_ease(curr.pos, next.pos, lerp_amnt, curr.next_ease)
+		var rot = lerp_ease(curr.rot, next.rot, lerp_amnt, curr.next_ease)
 		
 		velocity = (pos - global_position) / delta
 		
@@ -60,9 +61,8 @@ func _physics_process(delta: float) -> void:
 			lerp_amnt = 0.0
 		
 	var rail_bodies := rail_snap.get_overlapping_bodies()
-	print(rail_bodies, " - ", player.snapped_to)
 	if       rail_bodies.has(player) and player.snapped_to == null:
-		print("!!")
+			 
 		player.snapped_to = self
 	elif not rail_bodies.has(player) and player.snapped_to == self:
 		player.snapped_to = null

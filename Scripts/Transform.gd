@@ -2,11 +2,12 @@
 class_name Transform extends Sprite2D
 
 @export var next_interpol_time := 1.0
+@export var next_ease := 0.4
 
 @export var pos:Vector2
 @export var rot:float
 
-const DEBUG = true
+const DEBUG = false #true
 
 func _ready() -> void: 
 	visible = Engine.is_editor_hint() or DEBUG

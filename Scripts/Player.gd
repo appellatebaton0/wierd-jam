@@ -3,19 +3,41 @@ class_name Player extends CharacterBody2D
 
 var snapped_to:Rail 
 
+var jump_velo := 0.0
+
 func _physics_process(delta: float) -> void:
 	
-	
 	if snapped_to:
+		# Match the rotation
 		rotation = lerp(rotation, snapped_to.rotation, 0.7)
 		
-		velocity = snapped_to.velocity
+		# Match the velocity / grind on the rail
+		var grind_vel = Vector2(230 * (1 if snapped_to.facing_right else -1), 0).rotated(rotation)
+		var inert_vel = snapped_to.velocity
+		
+		if mag(grind_vel) > mag(inert_vel):
+			velocity = grind_vel
+		else: 
+			velocity = inert_vel
+		
+		if Input.is_action_just_pressed("JumpPerp"):
+			print("!")
+			jump_velo = -500
+		
+		velocity += Vector2(0, jump_velo).rotated(rotation)
+		jump_velo /= 1.1
+		#	print("!")
+		#	velocity += Vector2(0, -100).rotated(rotation)
 		
 	else:
-		#velocity += get_gravity() * delta
 		rotation += 0.2
 		
-		velocity += get_gravity() * delta
-		velocity.x /= 1.1
+		jump_velo = 0.0
+		
+		velocity.x /= 1.01
+	velocity += get_gravity() * delta * (1 if not snapped_to else 3)
 	
 	move_and_slide()
+
+## The magnitude of a vector2
+func mag(a:Vector2) -> float: return sqrt(pow(a.x,2) + pow(a.y, 2))

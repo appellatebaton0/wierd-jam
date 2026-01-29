@@ -12,11 +12,13 @@ height = 32
 size = Vector2(64, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1t0f"]
-size = Vector2(64, 19.5)
+size = Vector2(64, 8.5)
 
 [node name="SimpleRail" type="CharacterBody2D" unique_id=1357488898]
 collision_mask = 0
 script = ExtResource("1_w1t0f")
+facing_right = null
+easing = 0.4
 debug_texture = SubResource("GradientTexture2D_d4d1x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]
@@ -31,5 +33,5 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RailSnap" unique_id=567593294]
-position = Vector2(0, -34.25)
+position = Vector2(0, -28.75)
 shape = SubResource("RectangleShape2D_w1t0f")
