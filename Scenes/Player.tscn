@@ -2,15 +2,20 @@
 
 [ext_resource type="Script" uid="uid://dmc7nasewcrt7" path="res://Scripts/Player.gd" id="1_rpqav"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q5h1"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpqav"]
+radius = 16.0
 
 [sub_resource type="Gradient" id="Gradient_s7307"]
+offsets = PackedFloat32Array(0.9219653, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_av2a1"]
 gradient = SubResource("Gradient_s7307")
 width = 32
 height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.6858974, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=993666105 groups=["Player"]]
 collision_layer = 2
@@ -20,7 +25,7 @@ platform_floor_layers = 4294967040
 script = ExtResource("1_rpqav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571296389]
-shape = SubResource("RectangleShape2D_5q5h1")
+shape = SubResource("CircleShape2D_rpqav")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=500600916]
 texture = SubResource("GradientTexture2D_av2a1")

@@ -21,21 +21,17 @@ func _physics_process(delta: float) -> void:
 			velocity = inert_vel
 		
 		if Input.is_action_just_pressed("JumpPerp"):
-			print("!")
 			jump_velo = -500
 		
 		velocity += Vector2(0, jump_velo).rotated(rotation)
 		jump_velo /= 1.1
-		#	print("!")
-		#	velocity += Vector2(0, -100).rotated(rotation)
-		
 	else:
 		rotation += 0.2
 		
 		jump_velo = 0.0
 		
 		velocity.x /= 1.01
-	velocity += get_gravity() * delta * (1 if not snapped_to else 3)
+		velocity += get_gravity() * delta * 0.6
 	
 	move_and_slide()
 

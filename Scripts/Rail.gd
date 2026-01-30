@@ -1,5 +1,5 @@
 @tool
-@abstract class_name Rail extends CharacterBody2D
+class_name Rail extends CharacterBody2D
 
 const TRANSFORM = preload("res://Scenes/Transform.tscn")
 
@@ -26,6 +26,7 @@ var _rem_transforms := _clear_transforms
 var curr:Transform  # The transform to lerp to currently
 var next:Transform  # The transform to lerp to next
 
+@export var wait = 0.0 # How long to wait before the next interpolation.
 var lerp_amnt = 0.0 # How close this rail is to curr. 0.0 - 1.0
 
 func _ready() -> void:
@@ -37,14 +38,20 @@ func _ready() -> void:
 	if len(points) > 1:
 		curr = points[0]
 		next = points[1]
-	
+		
+		global_position = curr.pos
 
 func _physics_process(delta: float) -> void:
 	
 	# IF anything's gone wrong or this just shouldn't be done, then don't do it.
 	if Engine.is_editor_hint(): return
 	
-	if len(points) > 1:
+	wait = move_toward(wait, 0, delta)
+	if wait: 
+		lerp_amnt = 0.0
+		velocity = Vector2.ZERO
+		print(self, wait)
+	if len(points) > 1 and wait == 0.0:
 	
 		var pos = lerp_ease(curr.pos, next.pos, lerp_amnt, curr.next_ease)
 		var rot = lerp_ease(curr.rot, next.rot, lerp_amnt, curr.next_ease)
@@ -56,8 +63,11 @@ func _physics_process(delta: float) -> void:
 		lerp_amnt = move_toward(lerp_amnt, 1.0, delta / curr.next_interpol_time)
 		
 		if lerp_amnt == 1 and next != curr:
+			wait = curr.next_wait
+			
 			curr = next
 			next = points[min(points.find(next) + 1, len(points) - 1)]
+			
 			lerp_amnt = 0.0
 		
 	var rail_bodies := rail_snap.get_overlapping_bodies()
@@ -66,6 +76,8 @@ func _physics_process(delta: float) -> void:
 		player.snapped_to = self
 	elif not rail_bodies.has(player) and player.snapped_to == self:
 		player.snapped_to = null
+	
+	if velocity.x: facing_right = velocity.x > 0
 	
 	move_and_slide()
 

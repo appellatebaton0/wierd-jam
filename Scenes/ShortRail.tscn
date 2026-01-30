@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c83kcii5cge5"]
 
-[ext_resource type="Script" uid="uid://dk81vtr7knsdu" path="res://Scripts/SimpleRail.gd" id="1_w1t0f"]
+[ext_resource type="Script" uid="uid://bxrcj1e4vvs30" path="res://Scripts/Rail.gd" id="1_n1dup"]
 
-[sub_resource type="Gradient" id="Gradient_00egt"]
+[sub_resource type="Gradient" id="Gradient_pbw6q"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d4d1x"]
-gradient = SubResource("Gradient_00egt")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v1gob"]
+gradient = SubResource("Gradient_pbw6q")
 height = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00egt"]
@@ -14,15 +14,12 @@ size = Vector2(64, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1t0f"]
 size = Vector2(64, 8.5)
 
-[node name="SimpleRail" type="CharacterBody2D" unique_id=1357488898]
+[node name="ShortRail" type="CharacterBody2D" unique_id=1357488898]
 collision_mask = 0
-script = ExtResource("1_w1t0f")
-facing_right = null
-easing = 0.4
-debug_texture = SubResource("GradientTexture2D_d4d1x")
+script = ExtResource("1_n1dup")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]
-texture = SubResource("GradientTexture2D_d4d1x")
+texture = SubResource("GradientTexture2D_v1gob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745674482]
 shape = SubResource("RectangleShape2D_00egt")

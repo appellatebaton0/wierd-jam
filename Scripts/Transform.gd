@@ -3,6 +3,7 @@ class_name Transform extends Sprite2D
 
 @export var next_interpol_time := 1.0
 @export var next_ease := 0.4
+@export var next_wait := 0.0
 
 @export var pos:Vector2
 @export var rot:float
