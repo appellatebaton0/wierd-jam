@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dffj877vhhx4u"]
+
+[ext_resource type="Script" uid="uid://bxrcj1e4vvs30" path="res://Scripts/Rail.gd" id="1_1u1rq"]
+
+[sub_resource type="Gradient" id="Gradient_2n6a2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l1a1e"]
+gradient = SubResource("Gradient_2n6a2")
+width = 512
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u1rq"]
+size = Vector2(512, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n6a2"]
+size = Vector2(512, 8.5)
+
+[node name="LongRail" type="CharacterBody2D" unique_id=1357488898]
+collision_mask = 0
+script = ExtResource("1_1u1rq")
+debug_texture = SubResource("GradientTexture2D_l1a1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]
+texture = SubResource("GradientTexture2D_l1a1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745674482]
+shape = SubResource("RectangleShape2D_1u1rq")
+
+[node name="RailSnap" type="Area2D" parent="." unique_id=12025911]
+position = Vector2(0, 8)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RailSnap" unique_id=567593294]
+position = Vector2(0, -28.75)
+shape = SubResource("RectangleShape2D_2n6a2")

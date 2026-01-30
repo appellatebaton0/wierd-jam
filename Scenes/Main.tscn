@@ -2,19 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c10cndcu33lm7" path="res://Scripts/Camera.gd" id="1_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="2_kln2b"]
-[ext_resource type="PackedScene" uid="uid://c8owosjuwdc1g" path="res://Scenes/MediumRail.tscn" id="3_kln2b"]
+[ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dsu8ksqadgaqx" path="res://Scenes/Player.tscn" id="4_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="5_pbw6q"]
 
-[sub_resource type="Gradient" id="Gradient_x23er"]
+[sub_resource type="Gradient" id="Gradient_2n6a2"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pbw6q"]
-gradient = SubResource("Gradient_x23er")
-width = 192
-height = 32
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lkt02"]
-gradient = SubResource("Gradient_x23er")
-width = 192
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l1a1e"]
+gradient = SubResource("Gradient_2n6a2")
+width = 512
 height = 32
 
 [node name="Main" type="Node" unique_id=1226045905]
@@ -24,80 +20,66 @@ color = Color(0.12, 0.12, 0.12, 1)
 polygon = PackedVector2Array(-524, -32, -216, -307, -106, -183, 27, -391, 138, -284, 213, -26, 268, -187, 342, -118, 525, -259, 699, -99, 730, 170, 645, 419, -711, 407, -682, -407, -535, -38)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1220805860]
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("1_pbw6q")
 
 [node name="Player" parent="." unique_id=993666105 instance=ExtResource("4_rgh2o")]
-position = Vector2(142, -250)
+position = Vector2(217, -906)
 
-[node name="MediumRail" parent="." unique_id=1357488898 node_paths=PackedStringArray("points") instance=ExtResource("3_kln2b")]
-position = Vector2(207, -209)
-facing_right = false
-points = [NodePath("Point 0"), NodePath("Point 1"), NodePath("Point 2"), NodePath("Point 3"), NodePath("Point 4"), NodePath("Point 5"), NodePath("Point 6")]
-
-[node name="Point 0" parent="MediumRail" unique_id=514478884 instance=ExtResource("2_kln2b")]
-texture = SubResource("GradientTexture2D_pbw6q")
-next_ease = -2.0
-next_wait = 0.2
-pos = Vector2(207, -209)
-
-[node name="Point 1" parent="MediumRail" unique_id=725862126 instance=ExtResource("2_kln2b")]
-position = Vector2(192, -191)
-texture = SubResource("GradientTexture2D_lkt02")
-next_ease = -2.0
-pos = Vector2(399, -400)
-
-[node name="Point 2" parent="MediumRail" unique_id=569361823 instance=ExtResource("2_kln2b")]
-position = Vector2(396.81, 0)
-rotation = -1.02
-texture = SubResource("GradientTexture2D_lkt02")
-next_ease = -2.0
-pos = Vector2(603.81, -209)
-rot = -1.02
-
-[node name="Point 3" parent="MediumRail" unique_id=1554955512 instance=ExtResource("2_kln2b")]
-position = Vector2(380, 198)
-rotation = -0.6066315
-texture = SubResource("GradientTexture2D_lkt02")
-next_interpol_time = 0.6
-next_ease = -2.0
-pos = Vector2(587, -11)
-rot = -0.6066315
-
-[node name="Point 4" parent="MediumRail" unique_id=296186354 instance=ExtResource("2_kln2b")]
-position = Vector2(-107, 409)
-texture = SubResource("GradientTexture2D_lkt02")
-next_interpol_time = 0.3
-next_ease = -2.0
-next_wait = 1.0
-pos = Vector2(100, 200)
-
-[node name="Point 5" parent="MediumRail" unique_id=631491222 instance=ExtResource("2_kln2b")]
-position = Vector2(-41, 554)
-texture = SubResource("GradientTexture2D_lkt02")
-next_interpol_time = 2.0
-next_ease = -2.0
-pos = Vector2(166, 345)
-
-[node name="Point 6" parent="MediumRail" unique_id=1545856886 instance=ExtResource("2_kln2b")]
-position = Vector2(747, 244)
-texture = SubResource("GradientTexture2D_lkt02")
-pos = Vector2(954, 35)
-
-[node name="MediumRail2" parent="." unique_id=942503002 node_paths=PackedStringArray("points") instance=ExtResource("3_kln2b")]
-position = Vector2(-247, 203)
-facing_right = false
+[node name="LongRail" parent="." unique_id=117091569 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
+position = Vector2(862, 313)
 points = [NodePath("Point 0"), NodePath("Point 1")]
-wait = 4.0
+wait = 12.0
 
-[node name="Point 0" parent="MediumRail2" unique_id=448524720 instance=ExtResource("2_kln2b")]
-texture = SubResource("GradientTexture2D_lkt02")
-next_interpol_time = 0.6
-next_ease = -2.0
-pos = Vector2(-247, 203)
+[node name="Point 0" type="Sprite2D" parent="LongRail" unique_id=514478884 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(-482, -464)
+texture = SubResource("GradientTexture2D_l1a1e")
+script = ExtResource("3_rgh2o")
+pos = Vector2(380, -151)
 
-[node name="Point 1" parent="MediumRail2" unique_id=1589962517 instance=ExtResource("2_kln2b")]
-position = Vector2(-153, -153)
-rotation = 1.5696635
-texture = SubResource("GradientTexture2D_lkt02")
-pos = Vector2(-400, 50)
-rot = 1.5696635
+[node name="Point 1" type="Sprite2D" parent="LongRail" unique_id=1988744084 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+texture = SubResource("GradientTexture2D_l1a1e")
+script = ExtResource("3_rgh2o")
+pos = Vector2(862, 313)
+
+[node name="LongRail2" parent="." unique_id=1804509669 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
+position = Vector2(270, 271)
+points = [NodePath("Point 0"), NodePath("Point 1")]
+wait = 9.0
+
+[node name="Point 0" type="Sprite2D" parent="LongRail2" unique_id=2044346428 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(627, -420)
+texture = SubResource("GradientTexture2D_l1a1e")
+script = ExtResource("3_rgh2o")
+pos = Vector2(897, -149)
+
+[node name="Point 1" type="Sprite2D" parent="LongRail2" unique_id=1828786347 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+texture = SubResource("GradientTexture2D_l1a1e")
+script = ExtResource("3_rgh2o")
+pos = Vector2(270, 271)
+
+[node name="LongRail3" parent="." unique_id=423940435 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
+position = Vector2(-607, -257)
+rotation = 0.59642553
+points = [NodePath("Point 0"), NodePath("Point 1")]
+wait = 5.0
+
+[node name="Point 0" type="Sprite2D" parent="LongRail3" unique_id=1867147917 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(1628.7155, -1145.6248)
+rotation = -1.2512639
+texture = SubResource("GradientTexture2D_l1a1e")
+script = ExtResource("3_rgh2o")
+pos = Vector2(1384, -290)
+rot = -0.6548383
+
+[node name="Point 1" type="Sprite2D" parent="LongRail3" unique_id=1952560676 instance=ExtResource("2_kln2b")]
+modulate = Color(1, 1, 1, 0.62352943)
+texture = SubResource("GradientTexture2D_l1a1e")
+script = ExtResource("3_rgh2o")
+pos = Vector2(-607, -257)
+rot = 0.59642553

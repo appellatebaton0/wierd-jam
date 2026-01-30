@@ -18,10 +18,10 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.6858974, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=993666105 groups=["Player"]]
+rotation = 3.1381004
 collision_layer = 2
 collision_mask = 5
-platform_on_leave = 2
-platform_floor_layers = 4294967040
+platform_floor_layers = 4294967041
 script = ExtResource("1_rpqav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571296389]
@@ -29,3 +29,15 @@ shape = SubResource("CircleShape2D_rpqav")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=500600916]
 texture = SubResource("GradientTexture2D_av2a1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1113959996]
+position = Vector2(13, 0)
+scale = Vector2(1.046875, 0.140625)
+texture = SubResource("GradientTexture2D_av2a1")
+
+[node name="Label" type="Label" parent="." unique_id=269856078]
+offset_left = 21.0
+offset_top = -27.0
+offset_right = 61.0
+offset_bottom = -4.0
+text = "asd"

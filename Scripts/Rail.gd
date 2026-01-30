@@ -40,6 +40,7 @@ func _ready() -> void:
 		next = points[1]
 		
 		global_position = curr.pos
+		rotation = curr.rot
 
 func _physics_process(delta: float) -> void:
 	
@@ -50,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	if wait: 
 		lerp_amnt = 0.0
 		velocity = Vector2.ZERO
-		#print(self, wait)
+		# print(self, wait)
 	if len(points) > 1 and wait == 0.0:
 	
 		var pos = lerp_ease(curr.pos, next.pos, lerp_amnt, curr.next_ease)
@@ -101,8 +102,7 @@ func _add_transform():
 	points.append(new)
 	
 	# Fix the rotation.
-	
-	rotation = 0.0
+	# rotation = 0.0
 
 var last:Vector2
 func _process(_delta: float) -> void: if Engine.is_editor_hint():
