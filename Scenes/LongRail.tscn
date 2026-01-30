@@ -13,7 +13,7 @@ height = 32
 size = Vector2(512, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n6a2"]
-size = Vector2(512, 8.5)
+size = Vector2(512, 48)
 
 [node name="LongRail" type="CharacterBody2D" unique_id=1357488898]
 collision_mask = 0
@@ -32,5 +32,5 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RailSnap" unique_id=567593294]
-position = Vector2(0, -28.75)
+position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_2n6a2")

@@ -17,6 +17,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.6858974, 0)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
+radius = 18.027758
+
 [node name="Player" type="CharacterBody2D" unique_id=993666105 groups=["Player"]]
 rotation = 3.1381004
 collision_layer = 2
@@ -41,3 +44,11 @@ offset_top = -27.0
 offset_right = 61.0
 offset_bottom = -4.0
 text = "asd"
+
+[node name="RailDetector" type="Area2D" parent="." unique_id=1744867002]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RailDetector" unique_id=894251576]
+shape = SubResource("CircleShape2D_kyqiw")
+
+[connection signal="body_entered" from="RailDetector" to="." method="_on_rail_enter"]
+[connection signal="body_exited" from="RailDetector" to="." method="_on_rail_exit"]

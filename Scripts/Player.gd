@@ -1,63 +1,48 @@
 class_name Player extends CharacterBody2D
 # The class for the player. Snaps(?) to the nearest rail.
 
-const JUMP_BUFFER := 0.1
-const COYOTE_TIME := 0.1
+@export var grind_speed := 500
 
-var jump_buffering := 0.0
-var coyote_timer   := 0.0
-var last_rotation  := 0.0
-var snap_buffer = 0.0
+var snapped_to:Rail
+var snap_queue:Array[Rail]
 
-var snapped_to:Rail 
+var direction:Vector2 : set =_set_dir
 
-var jump_velo := 0.0
+func _set_dir(to:Vector2): direction = to.normalized()
+
+func _ready():
+	direction = Vector2.DOWN#.slide()
 
 func _physics_process(delta: float) -> void:
 	
-	look_at(global_position + velocity)
-	
-	jump_buffering = move_toward(jump_buffering, 0, delta)
-	coyote_timer = move_toward(coyote_timer, 0, delta)
-	snap_buffer = move_toward(snap_buffer, 0, delta)
-	
-	if Input.is_action_just_pressed("Jump"): jump_buffering = JUMP_BUFFER
-	
-	if jump_buffering and coyote_timer:
-		
-		velocity = Vector2(400 * (1 if velocity.y < 0 else -1), -400).rotated(rotation)
-		snap_buffer = 0.2
-		
-		print("!!")
-		
-		jump_buffering = 0.0
-		coyote_timer = 0.0
-	
-	$Label.text = str(velocity.x >= 0.0) + " | " + str(floor(rad_to_deg(rotation))) + " | " + str(velocity)
-	if snapped_to:
-		coyote_timer = COYOTE_TIME
-		## Match the rotation
-		#rotation = lerp(rotation, snapped_to.rotation, 0.7)
-		#last_rotation = rotation
-		
-		if not snap_buffer:
-			# Match the velocity / grind on the rail
-			var grind_vel = Vector2(450, 0).rotated(snapped_to.rotation)
-			
-			if mag(grind_vel) > mag(velocity):
-				velocity = grind_vel
-			
-		
-		jump_velo /= 1.02
+	if snapped_to: velocity = direction * grind_speed
 	else:
-		rotation += 0.2
-		
-		jump_velo = 0.0
-		
-		
-		velocity += get_gravity() * delta #* 0.6
+		velocity += get_gravity() * delta
 	
 	move_and_slide()
+	pass
 
-## The magnitude of a vector2
-func mag(a:Vector2) -> float: return sqrt(pow(a.x,2) + pow(a.y, 2))
+#func _process(delta: float) -> void:
+	#if not snap_queue.has(snapped_to): snapped_to = null
+	#if not snap_queue.is_empty() and not snapped_to:
+		#snap_to(snap_queue[0])
+
+func _on_rail_enter(rail:Node2D): if rail is Rail: snap_to(rail)
+func _on_rail_exit (rail:Node2D): if rail is Rail: if snapped_to == rail: snapped_to = null
+
+func snap_to(rail:Rail):
+	print("snapped to ", rail)
+	snapped_to = rail
+	
+	# Create a vector rotated to mimic the rail's rotation.
+	var rail_vector = Vector2.ONE.rotated(rail.rotation)
+	
+	# Find the two vectors parallel to the rail.
+	var a = rail_vector.rotated(deg_to_rad(-90))
+	var b = rail_vector.rotated(deg_to_rad(90))
+	
+	# Figure out which direction is closer to the current direction, and set to that.
+	var a_dot = a.dot(direction)
+	var b_dot = b.dot(direction)
+	
+	direction = a if a_dot > b_dot else b

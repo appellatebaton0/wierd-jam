@@ -1,17 +1,8 @@
 [gd_scene format=3 uid="uid://p2tyqwglemqs"]
 
 [ext_resource type="Script" uid="uid://c10cndcu33lm7" path="res://Scripts/Camera.gd" id="1_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="2_kln2b"]
-[ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dsu8ksqadgaqx" path="res://Scenes/Player.tscn" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="5_pbw6q"]
-
-[sub_resource type="Gradient" id="Gradient_2n6a2"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l1a1e"]
-gradient = SubResource("Gradient_2n6a2")
-width = 512
-height = 32
 
 [node name="Main" type="Node" unique_id=1226045905]
 
@@ -26,60 +17,21 @@ script = ExtResource("1_pbw6q")
 [node name="Player" parent="." unique_id=993666105 instance=ExtResource("4_rgh2o")]
 position = Vector2(217, -906)
 
-[node name="LongRail" parent="." unique_id=117091569 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
-position = Vector2(862, 313)
-points = [NodePath("Point 0"), NodePath("Point 1")]
+[node name="LongRail4" parent="." unique_id=1357488898 instance=ExtResource("5_pbw6q")]
+position = Vector2(68.00001, -344.99997)
+rotation = 1.3460813
+flat = false
+
+[node name="LongRail" parent="." unique_id=117091569 instance=ExtResource("5_pbw6q")]
+position = Vector2(380, -151)
 wait = 12.0
 
-[node name="Point 0" type="Sprite2D" parent="LongRail" unique_id=514478884 instance=ExtResource("2_kln2b")]
-modulate = Color(1, 1, 1, 0.62352943)
-position = Vector2(-482, -464)
-texture = SubResource("GradientTexture2D_l1a1e")
-script = ExtResource("3_rgh2o")
-pos = Vector2(380, -151)
-
-[node name="Point 1" type="Sprite2D" parent="LongRail" unique_id=1988744084 instance=ExtResource("2_kln2b")]
-modulate = Color(1, 1, 1, 0.62352943)
-texture = SubResource("GradientTexture2D_l1a1e")
-script = ExtResource("3_rgh2o")
-pos = Vector2(862, 313)
-
-[node name="LongRail2" parent="." unique_id=1804509669 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
-position = Vector2(270, 271)
-points = [NodePath("Point 0"), NodePath("Point 1")]
+[node name="LongRail2" parent="." unique_id=1804509669 instance=ExtResource("5_pbw6q")]
+position = Vector2(897, -149)
 wait = 9.0
 
-[node name="Point 0" type="Sprite2D" parent="LongRail2" unique_id=2044346428 instance=ExtResource("2_kln2b")]
-modulate = Color(1, 1, 1, 0.62352943)
-position = Vector2(627, -420)
-texture = SubResource("GradientTexture2D_l1a1e")
-script = ExtResource("3_rgh2o")
-pos = Vector2(897, -149)
-
-[node name="Point 1" type="Sprite2D" parent="LongRail2" unique_id=1828786347 instance=ExtResource("2_kln2b")]
-modulate = Color(1, 1, 1, 0.62352943)
-texture = SubResource("GradientTexture2D_l1a1e")
-script = ExtResource("3_rgh2o")
-pos = Vector2(270, 271)
-
-[node name="LongRail3" parent="." unique_id=423940435 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
-position = Vector2(-607, -257)
-rotation = 0.59642553
-points = [NodePath("Point 0"), NodePath("Point 1")]
+[node name="LongRail3" parent="." unique_id=423940435 instance=ExtResource("5_pbw6q")]
+position = Vector2(1211, -320)
+rotation = -1.375
+flat = false
 wait = 5.0
-
-[node name="Point 0" type="Sprite2D" parent="LongRail3" unique_id=1867147917 instance=ExtResource("2_kln2b")]
-modulate = Color(1, 1, 1, 0.62352943)
-position = Vector2(1628.7155, -1145.6248)
-rotation = -1.2512639
-texture = SubResource("GradientTexture2D_l1a1e")
-script = ExtResource("3_rgh2o")
-pos = Vector2(1384, -290)
-rot = -0.6548383
-
-[node name="Point 1" type="Sprite2D" parent="LongRail3" unique_id=1952560676 instance=ExtResource("2_kln2b")]
-modulate = Color(1, 1, 1, 0.62352943)
-texture = SubResource("GradientTexture2D_l1a1e")
-script = ExtResource("3_rgh2o")
-pos = Vector2(-607, -257)
-rot = 0.59642553
