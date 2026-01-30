@@ -38,13 +38,6 @@ position = Vector2(13, 0)
 scale = Vector2(1.046875, 0.140625)
 texture = SubResource("GradientTexture2D_av2a1")
 
-[node name="Label" type="Label" parent="." unique_id=269856078]
-offset_left = 21.0
-offset_top = -27.0
-offset_right = 61.0
-offset_bottom = -4.0
-text = "asd"
-
 [node name="RailDetector" type="Area2D" parent="." unique_id=1744867002]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RailDetector" unique_id=894251576]
