@@ -31,9 +31,16 @@ func _physics_process(delta: float) -> void:
 		
 		if jump_buffering: # Jump
 			
-			print("YUMP")
+			# Get the two options for jump directions. (Perpendiculars to current dir).
+			var a = direction.rotated(deg_to_rad(90))
+			var b = direction.rotated(deg_to_rad(-90))
 			
-			velocity += Vector2(0, jump_height).rotated(direction.angle())
+			# Compare them to the direction from the rail to the player.
+			var rail_to_player = snapped_to.global_position.direction_to(global_position)
+			
+			var jump_direction = a if a.dot(rail_to_player) > b.dot(rail_to_player) else b
+			
+			velocity += jump_direction * jump_height
 			
 			snap_buffering = SNAP_BUFFER
 			
@@ -72,8 +79,18 @@ func snap_to(rail:Rail):
 ## DEBUG
 func _draw() -> void:
 	# Debug lines to show the direction and plane parallel. NOTE: Doesn't show correctly with rotation.
-	draw_line(Vector2.ZERO, -direction * 250, Color.RED, 15)
-	draw_line(Vector2.ZERO, Vector2(0, -jump_height).rotated(direction.angle()), Color.BLUE, 15)
+	draw_line(Vector2.ZERO, -direction * 250, Color.RED, 15) 
 	
 	if snapped_to:
+		# Get the two options for jump directions. (Perpendiculars to current dir).
+		var a = direction.rotated(deg_to_rad(90))
+		var b = direction.rotated(deg_to_rad(-90))
+		
+		# Compare them to the direction from the rail to the player.
+		var rail_to_player = snapped_to.global_position.direction_to(global_position)
+		
+		var jump_direction = a if a.dot(rail_to_player) > b.dot(rail_to_player) else b
+		 
+		draw_line(Vector2.ZERO, -jump_direction * jump_height, Color.BLUE, 15)
+		
 		draw_line(to_local(snapped_to.global_position), (Vector2.DOWN.rotated(snapped_to.rotation) * 250) + to_local(snapped_to.global_position), Color.GREEN, 15)

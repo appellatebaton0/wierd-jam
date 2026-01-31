@@ -19,7 +19,7 @@ position = Vector2(217, -906)
 
 [node name="LongRail4" parent="." unique_id=1357488898 instance=ExtResource("5_pbw6q")]
 position = Vector2(68.00001, -344.99997)
-rotation = 1.3460813
+rotation = 4.3993664
 flat = false
 
 [node name="LongRail" parent="." unique_id=117091569 instance=ExtResource("5_pbw6q")]
