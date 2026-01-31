@@ -5,8 +5,6 @@ const TRANSFORM = preload("res://Scenes/Transform.tscn")
 
 @onready var player:Player = get_tree().get_first_node_in_group("Player")
 
-@export var flat = true
-
 @export var debug_texture:Texture2D ## The texture to apply to the Transforms in the debug view.
 
 @onready var rail_snap := get_rail_snap()
@@ -74,7 +72,7 @@ func _physics_process(delta: float) -> void:
 	#var rail_bodies := rail_snap.get_overlapping_bodies()
 	#if       rail_bodies.has(player) and player.snapped_to == null:
 		#player.snapped_to = self
-	#elif not rail_bodies.has(player) and player.snapped_to == self:
+	1#elif not rail_bodies.has(player) and player.snapped_to == self:
 		#player.snapped_to = null
 	
 	move_and_slide()
