@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 # The class for the player. Snaps(?) to the nearest rail.
 
-const DEBUG := true
+const DEBUG := false
 
 @onready var spawn_position = global_position
 
@@ -49,12 +49,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Freefall
 	else: 
-		if not DEBUG: rotation += 0.1
+		
 		
 		velocity += get_gravity() * delta
 		
 		# Set the current direction to the velocity (automatically normalized).
 		direction = velocity
+	
+	if not DEBUG: rotation += deg_to_rad(sqrt(pow(velocity.x,2) + pow(velocity.y, 2)) / 40)
 	
 	move_and_slide()
 
