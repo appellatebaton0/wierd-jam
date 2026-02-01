@@ -6,13 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cpmtq8gc01ggx" path="res://Scenes/MediumDeathRail.tscn" id="5_v1gob"]
 
-[sub_resource type="Gradient" id="Gradient_2n6a2"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l1a1e"]
-gradient = SubResource("Gradient_2n6a2")
-width = 512
-height = 32
-
 [node name="Main" type="Node" unique_id=1226045905]
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1070006029]
@@ -29,64 +22,35 @@ position = Vector2(217, -906)
 [node name="LongRail4" parent="." unique_id=1357488898 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
 position = Vector2(68.00001, -344.99997)
 rotation = 4.3993664
-points = [NodePath("Point 0"), NodePath("Point 1"), NodePath("Point 2")]
+points = [null, null, null]
 
 [node name="Point 0" parent="LongRail4" unique_id=514478884 instance=ExtResource("4_pbw6q")]
-texture = SubResource("GradientTexture2D_l1a1e")
-next_interpol_time = 1.0
-pos = Vector2(68.00001, -344.99997)
-rot = 4.3993664
 
 [node name="Point 1" parent="LongRail4" unique_id=2017487573 instance=ExtResource("4_pbw6q")]
 rotation = 3.1316862
-texture = SubResource("GradientTexture2D_l1a1e")
-next_interpol_time = 1.0
-pos = Vector2(68.00001, -344.99997)
-rot = 7.5310526
 
 [node name="Point 2" parent="LongRail4" unique_id=269923609 instance=ExtResource("4_pbw6q")]
 position = Vector2(5.9348145, -479.4715)
 rotation = 2.7581716
-texture = SubResource("GradientTexture2D_l1a1e")
-next_interpol_time = 1.0
-pos = Vector2(-390.00006, -202.99997)
-rot = 7.157538
 
 [node name="LongRail" parent="." unique_id=117091569 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
 position = Vector2(380, -151)
-points = [NodePath("Point 0"), NodePath("Point 1"), NodePath("Point 2"), NodePath("Point 4"), NodePath("Point 3")]
+points = [null, null, null, null, null]
 
 [node name="Point 0" parent="LongRail" unique_id=1216517577 instance=ExtResource("4_pbw6q")]
-texture = SubResource("GradientTexture2D_l1a1e")
-next_interpol_time = 0.9
-pos = Vector2(380, -151)
 
 [node name="Point 1" parent="LongRail" unique_id=598624803 instance=ExtResource("4_pbw6q")]
 position = Vector2(13, -359)
-texture = SubResource("GradientTexture2D_l1a1e")
-next_interpol_time = 0.9
-pos = Vector2(393, -510)
 
 [node name="Point 2" parent="LongRail" unique_id=1621749486 instance=ExtResource("4_pbw6q")]
 position = Vector2(342, -582)
 rotation = 1.373916
-texture = SubResource("GradientTexture2D_l1a1e")
-next_interpol_time = 0.3
-pos = Vector2(722, -733)
-rot = 1.373916
 
 [node name="Point 4" parent="LongRail" unique_id=1073201783 instance=ExtResource("4_pbw6q")]
 position = Vector2(1035, 224)
-texture = SubResource("GradientTexture2D_l1a1e")
-next_interpol_time = 0.4
-pos = Vector2(1415, 73)
 
 [node name="Point 3" parent="LongRail" unique_id=634647429 instance=ExtResource("4_pbw6q")]
 position = Vector2(2044, -102)
-texture = SubResource("GradientTexture2D_l1a1e")
-next_interpol_time = 0.5
-next_ease = 1.0
-pos = Vector2(2424, -253)
 
 [node name="LongRail2" parent="." unique_id=1804509669 instance=ExtResource("5_pbw6q")]
 position = Vector2(0, 8)

@@ -1,5 +1,5 @@
 @tool
-class_name Transform extends Sprite2D
+class_name Transform extends Polygon2D
 
 @export var next_interpol_time := 1.2
 @export var next_ease := -2.0
@@ -22,10 +22,13 @@ func setup(with:Rail):
 	pos = with.global_position
 	rot = with.rotation
 	
-	texture = with.debug_texture
+	polygon = with.poly.polygon
+	color = with.color()
+	
 	owner = with.owner
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	#setup(get_parent())
 	if not visible: return
 	global_position = pos if pos else global_position
 	global_rotation = rot if rot else global_rotation

@@ -1,7 +1,4 @@
 [gd_scene format=3 uid="uid://b46f20mibw1h3"]
 
-[ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="1_18jfi"]
-
-[node name="Transform" type="Sprite2D" unique_id=514478884]
+[node name="Transform" type="Polygon2D" unique_id=616858566]
 modulate = Color(1, 1, 1, 0.62352943)
-script = ExtResource("1_18jfi")

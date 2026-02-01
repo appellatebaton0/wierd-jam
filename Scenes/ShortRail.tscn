@@ -2,12 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bxrcj1e4vvs30" path="res://Scripts/Rail.gd" id="1_n1dup"]
 
-[sub_resource type="Gradient" id="Gradient_pbw6q"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_v1gob"]
-gradient = SubResource("Gradient_pbw6q")
-height = 32
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00egt"]
 size = Vector2(64, 32)
 
@@ -18,8 +12,8 @@ size = Vector2(64, 48)
 collision_mask = 0
 script = ExtResource("1_n1dup")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]
-texture = SubResource("GradientTexture2D_v1gob")
+[node name="Poly" type="Polygon2D" parent="." unique_id=1046514691]
+polygon = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745674482]
 shape = SubResource("RectangleShape2D_00egt")

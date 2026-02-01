@@ -3,9 +3,8 @@ class_name Rail extends CharacterBody2D
 
 const TRANSFORM = preload("res://Scenes/Transform.tscn")
 
+@onready var poly := $Poly
 @onready var player:Player = get_tree().get_first_node_in_group("Player")
-
-@export var debug_texture:Texture2D ## The texture to apply to the Transforms in the debug view.
 
 @onready var rail_snap := get_rail_snap()
 func get_rail_snap() -> Area2D:
@@ -28,14 +27,20 @@ var next:Transform  # The transform to lerp to next
 var wait = 0.0
 var lerp_amnt = 0.0 # How close this rail is to curr. 0.0 - 1.0
 
-func _ready() -> void: if not Engine.is_editor_hint():
-	# Set up the points.
-	points.clear()
+func _ready() -> void: 
 	
-	for child in get_children(): if child is Transform: points.append(child)
+	poly.color = color()
 	
-	Global.reset_level.connect(_on_reset)
-	_on_reset()
+	if not Engine.is_editor_hint():
+		# Set up the points.
+		points.clear()
+		
+		
+		
+		for child in get_children(): if child is Transform: points.append(child)
+		
+		Global.reset_level.connect(_on_reset)
+		_on_reset()
 
 func _physics_process(delta: float) -> void:
 	
@@ -83,6 +88,8 @@ func _on_reset():
 ## Lerp, but the amount is eased.
 func lerp_ease(a:Variant, b:Variant, l:float, e:float) -> Variant:
 	return lerp(a, b, ease(l, e))
+
+func color() -> Color: return Color(0.378, 0.647, 0.237, 1.0)
 
 ## Tool Functions.
 

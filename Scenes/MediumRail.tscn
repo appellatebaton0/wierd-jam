@@ -2,13 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bxrcj1e4vvs30" path="res://Scripts/Rail.gd" id="1_ko3ml"]
 
-[sub_resource type="Gradient" id="Gradient_x23er"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lkt02"]
-gradient = SubResource("Gradient_x23er")
-width = 192
-height = 32
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y37nw"]
 size = Vector2(192, 32)
 
@@ -18,10 +11,9 @@ size = Vector2(192, 48)
 [node name="MediumRail" type="CharacterBody2D" unique_id=1357488898]
 collision_mask = 0
 script = ExtResource("1_ko3ml")
-debug_texture = SubResource("GradientTexture2D_lkt02")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]
-texture = SubResource("GradientTexture2D_lkt02")
+[node name="Poly" type="Polygon2D" parent="." unique_id=1117229113]
+polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745674482]
 shape = SubResource("RectangleShape2D_y37nw")

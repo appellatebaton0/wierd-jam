@@ -2,13 +2,6 @@
 
 [ext_resource type="Script" uid="uid://df28r2hf2g07x" path="res://Scripts/DeathRail.gd" id="1_dskik"]
 
-[sub_resource type="Gradient" id="Gradient_2n6a2"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l1a1e"]
-gradient = SubResource("Gradient_2n6a2")
-width = 512
-height = 32
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u1rq"]
 size = Vector2(512, 32)
 
@@ -18,10 +11,9 @@ size = Vector2(512, 48)
 [node name="LongDeathRail" type="CharacterBody2D" unique_id=1357488898]
 collision_mask = 0
 script = ExtResource("1_dskik")
-debug_texture = SubResource("GradientTexture2D_l1a1e")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]
-texture = SubResource("GradientTexture2D_l1a1e")
+[node name="Poly" type="Polygon2D" parent="." unique_id=2041395979]
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745674482]
 shape = SubResource("RectangleShape2D_1u1rq")
