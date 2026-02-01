@@ -60,11 +60,9 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _on_rail_enter(rail:Node2D): if rail is Rail: 
-	snap_to(rail)
-	
-	print(rail is DeathRail)
-	if rail is DeathRail: Global.reset_level.emit() # Die.
+func _on_rail_enter(rail:Node2D): 
+	if   rail is DeathRail: Global.reset_level.emit() # Die.
+	elif rail is Rail:      snap_to(rail) # Snap to this rail.
 func _on_rail_exit (rail:Node2D): if snapped_to == rail: snapped_to = null
 
 func snap_to(rail:Rail):

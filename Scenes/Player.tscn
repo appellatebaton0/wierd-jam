@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dmc7nasewcrt7" path="res://Scripts/Player.gd" id="1_rpqav"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rpqav"]
-radius = 16.0
+radius = 24.0
 
 [sub_resource type="Shader" id="Shader_rpqav"]
 code = "shader_type canvas_item;
@@ -40,12 +40,12 @@ colors = PackedColorArray(0, 0.17254902, 0.8039216, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_av2a1"]
 gradient = SubResource("Gradient_s7307")
-width = 32
-height = 32
+width = 48
+height = 48
 fill_to = Vector2(0.6495727, 0.7307692)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
-radius = 18.027758
+radius = 28.000002
 
 [node name="Player" type="CharacterBody2D" unique_id=993666105 groups=["Player"]]
 rotation = 3.1381004
