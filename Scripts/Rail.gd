@@ -24,21 +24,18 @@ var _rem_transforms := _clear_transforms
 var curr:Transform  # The transform to lerp to currently
 var next:Transform  # The transform to lerp to next
 
-@export var wait = 0.0 # How long to wait before the next interpolation.
+@export var initial_wait = 0.0 # How long to wait before the next interpolation.
+var wait = 0.0
 var lerp_amnt = 0.0 # How close this rail is to curr. 0.0 - 1.0
 
-func _ready() -> void:
+func _ready() -> void: if not Engine.is_editor_hint():
 	# Set up the points.
 	points.clear()
 	
 	for child in get_children(): if child is Transform: points.append(child)
 	
-	if len(points) > 1:
-		curr = points[0]
-		next = points[1]
-		
-		global_position = curr.pos
-		rotation = curr.rot
+	Global.reset_level.connect(_on_reset)
+	_on_reset()
 
 func _physics_process(delta: float) -> void:
 	
@@ -70,6 +67,18 @@ func _physics_process(delta: float) -> void:
 			lerp_amnt = 0.0
 	
 	move_and_slide()
+
+func _on_reset():
+	wait = initial_wait
+	
+	if len(points) > 1:
+		curr = points[0]
+		next = points[1]
+		
+		global_position = curr.pos
+		rotation = curr.rot
+	lerp_amnt = 0.0
+	
 
 ## Lerp, but the amount is eased.
 func lerp_ease(a:Variant, b:Variant, l:float, e:float) -> Variant:

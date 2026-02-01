@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="4_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://dsu8ksqadgaqx" path="res://Scenes/Player.tscn" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://cpmtq8gc01ggx" path="res://Scenes/MediumDeathRail.tscn" id="5_v1gob"]
 
 [sub_resource type="Gradient" id="Gradient_2n6a2"]
 
@@ -88,9 +89,14 @@ next_ease = 1.0
 pos = Vector2(2424, -253)
 
 [node name="LongRail2" parent="." unique_id=1804509669 instance=ExtResource("5_pbw6q")]
-position = Vector2(897, -149)
+position = Vector2(0, 8)
 
 [node name="LongRail3" parent="." unique_id=423940435 instance=ExtResource("5_pbw6q")]
 position = Vector2(1211, -320)
 rotation = -1.375
-wait = 5.0
+
+[node name="Level" type="Node" parent="." unique_id=490863187]
+
+[node name="MediumDeathRail" parent="." unique_id=1921707485 instance=ExtResource("5_v1gob")]
+position = Vector2(1359, -660)
+rotation = -0.9168811

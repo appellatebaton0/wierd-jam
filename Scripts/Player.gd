@@ -3,6 +3,8 @@ class_name Player extends CharacterBody2D
 
 const DEBUG := true
 
+@onready var spawn_position = global_position
+
 @export var grind_speed := 700.0
 @export var jump_height := 700.0
 
@@ -14,6 +16,8 @@ var snapped_to:Rail
 # A normalized vector of the direction the player is grinding in.
 var direction:Vector2 : set =_set_dir
 func _set_dir(to:Vector2): direction = to.normalized()
+
+func _ready(): Global.reset_level.connect(_on_reset)
 
 func _physics_process(delta: float) -> void:
 	# For the line debugging.
@@ -54,8 +58,12 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _on_rail_enter(rail:Node2D): if rail is Rail: snap_to(rail)
-func _on_rail_exit (rail:Node2D): if rail is Rail: if snapped_to == rail: snapped_to = null
+func _on_rail_enter(rail:Node2D): if rail is Rail: 
+	snap_to(rail)
+	
+	print(rail is DeathRail)
+	if rail is DeathRail: Global.reset_level.emit() # Die.
+func _on_rail_exit (rail:Node2D): if snapped_to == rail: snapped_to = null
 
 func snap_to(rail:Rail):
 	snapped_to = rail
@@ -85,6 +93,11 @@ func closest(of:Array[Vector2], compared_to:Vector2):
 			continue
 	
 	return best
+
+func _on_reset() -> void:
+	velocity = Vector2.ZERO
+	global_position = spawn_position
+	snapped_to = null
 
 ## DEBUG DATA
 func _draw() -> void: 

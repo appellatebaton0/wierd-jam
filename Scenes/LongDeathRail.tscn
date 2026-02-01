@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dffj877vhhx4u"]
+[gd_scene format=3 uid="uid://b4b2jimd8tib1"]
 
-[ext_resource type="Script" uid="uid://bxrcj1e4vvs30" path="res://Scripts/Rail.gd" id="1_1u1rq"]
+[ext_resource type="Script" uid="uid://df28r2hf2g07x" path="res://Scripts/DeathRail.gd" id="1_dskik"]
 
 [sub_resource type="Gradient" id="Gradient_2n6a2"]
 
@@ -15,10 +15,9 @@ size = Vector2(512, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n6a2"]
 size = Vector2(512, 48)
 
-[node name="LongRail" type="CharacterBody2D" unique_id=1357488898]
+[node name="LongDeathRail" type="CharacterBody2D" unique_id=1357488898]
 collision_mask = 0
-script = ExtResource("1_1u1rq")
-deadly = null
+script = ExtResource("1_dskik")
 debug_texture = SubResource("GradientTexture2D_l1a1e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]

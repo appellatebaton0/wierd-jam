@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ciaq70g5pq0dm"]
+
+[ext_resource type="Script" uid="uid://df28r2hf2g07x" path="res://Scripts/DeathRail.gd" id="1_5bc1x"]
+
+[sub_resource type="Gradient" id="Gradient_pbw6q"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v1gob"]
+gradient = SubResource("Gradient_pbw6q")
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00egt"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1t0f"]
+size = Vector2(64, 48)
+
+[node name="ShortDeathRail" type="CharacterBody2D" unique_id=1357488898]
+collision_mask = 0
+script = ExtResource("1_5bc1x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124093363]
+texture = SubResource("GradientTexture2D_v1gob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745674482]
+shape = SubResource("RectangleShape2D_00egt")
+
+[node name="RailSnap" type="Area2D" parent="." unique_id=12025911]
+position = Vector2(0, 8)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RailSnap" unique_id=567593294]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_w1t0f")

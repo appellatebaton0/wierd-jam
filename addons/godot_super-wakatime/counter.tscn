@@ -1,23 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4t47uj61wtu5"]
+[gd_scene format=3 uid="uid://c4t47uj61wtu5"]
 
 [ext_resource type="Script" uid="uid://bgwfqxprhwkev" path="res://addons/godot_super-wakatime/counter.gd" id="1_yp2cc"]
 [ext_resource type="Texture2D" uid="uid://bi21lnxqhc40y" path="res://addons/godot_super-wakatime/pie_cutout.svg" id="2_vc57w"]
 
-[sub_resource type="Theme" id="Theme_hx316"]
-PanelContainer/styles/panel = null
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx316"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.365, 0.365, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_detail = 1
 
-[node name="Counter" type="Panel"]
-anchors_preset = 15
+[sub_resource type="Theme" id="Theme_c2cay"]
+Button/styles/normal = SubResource("StyleBoxFlat_hx316")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_hx316")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_hx316")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_hx316")
+
+[sub_resource type="DPITexture" id="DPITexture_vc57w"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
+"
+
+[node name="Counter" type="Panel" unique_id=1181684335]
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 380.0
 grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 8
-theme = SubResource("Theme_hx316")
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme = SubResource("Theme_c2cay")
 script = ExtResource("1_yp2cc")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1742126834]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=504643819]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 5
@@ -33,41 +52,42 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=247113715]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1754562744]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ProjectName" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ProjectName" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1683610819]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-text = "Project: testing"
+text = "Project: wierd-jam"
 
-[node name="Today" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Today" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=532635745]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-text = "Today: 10m"
+text = "Today: Not Found"
 
-[node name="AllTime" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="AllTime" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=786980752]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-text = "AllTime: 10h 10m"
+text = "All Time: Not Found"
 
-[node name="ID" type="LineEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ID" type="LineEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=566377189]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 18
+text = "U097YRW97D3"
 placeholder_text = "Slack ID"
 
-[node name="Control" type="Control" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1627012956]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control" unique_id=24598659]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 8
@@ -86,16 +106,16 @@ size_flags_vertical = 4
 texture = ExtResource("2_vc57w")
 stretch_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control/TextureRect"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control/TextureRect" unique_id=1967853133]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.3764706, 1, 1)
+color = Color(0.11932373, 0.167334, 0.359375, 1)
 
-[node name="DailyRatio" type="TextureProgressBar" parent="HBoxContainer/MarginContainer/VBoxContainer/Control"]
+[node name="DailyRatio" type="TextureProgressBar" parent="HBoxContainer/MarginContainer/VBoxContainer/Control" unique_id=931736676]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 8
@@ -110,49 +130,52 @@ offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
-value = 21.0
+max_value = 0.0
 fill_mode = 4
 texture_progress = ExtResource("2_vc57w")
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control/DailyRatio"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control/DailyRatio" unique_id=978455044]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.32363892, 0.44088295, 0.7890625, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=852893360]
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/PanelContainer" unique_id=454164378]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer3"]
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer3" unique_id=630071929]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer" unique_id=643921680]
 layout_mode = 2
 size_flags_horizontal = 4
+texture = SubResource("DPITexture_vc57w")
 stretch_mode = 2
 
-[node name="UnderColor" type="ColorPickerButton" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer"]
+[node name="UnderColor" type="ColorPickerButton" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer" unique_id=155898027]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
+color = Color(0.11932373, 0.167334, 0.359375, 1)
 
-[node name="OverColor" type="ColorPickerButton" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer"]
+[node name="OverColor" type="ColorPickerButton" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer" unique_id=446109931]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.62352943, 0, 0, 1)
+color = Color(0.32363892, 0.44088295, 0.7890625, 1)
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=960829848]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 5
@@ -160,42 +183,42 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer2"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer2" unique_id=28458006]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2" unique_id=301114278]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer" unique_id=1740078059]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer" unique_id=11549914]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1934763181]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "Goal Format:"
 
-[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=299552094]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "Total Hours:"
 
-[node name="Label3" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1149643631]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "End Date:"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer" unique_id=513479522]
 layout_mode = 2
 
-[node name="GoalFormat" type="OptionButton" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="GoalFormat" type="OptionButton" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1497900154]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -206,33 +229,35 @@ item_count = 1
 popup/item_0/text = "Total"
 popup/item_0/id = 0
 
-[node name="Total" type="LineEdit" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Total" type="LineEdit" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1295069849]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 19
+text = "5"
 placeholder_text = "10.5"
 
-[node name="EndDate" type="LineEdit" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="EndDate" type="LineEdit" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1789672561]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 19
+text = "2026-01-04"
 placeholder_text = "yyyy-mm-dd"
 
-[node name="Update" type="Button" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer"]
+[node name="Update" type="Button" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer" unique_id=1923628775]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 text = "Update Statistics"
 
-[node name="Control" type="Control" parent="HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="Control" type="Control" parent="HBoxContainer/MarginContainer2/VBoxContainer2" unique_id=722419957]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control" unique_id=149201853]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 8
@@ -251,16 +276,16 @@ size_flags_vertical = 4
 texture = ExtResource("2_vc57w")
 stretch_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control/TextureRect"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control/TextureRect" unique_id=890362023]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.3764706, 1, 1)
+color = Color(0.11932373, 0.167334, 0.359375, 1)
 
-[node name="RightProgress" type="TextureProgressBar" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control"]
+[node name="RightProgress" type="TextureProgressBar" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control" unique_id=546865618]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 8
@@ -275,19 +300,20 @@ offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
-value = 21.0
+max_value = 0.0
 fill_mode = 4
 texture_progress = ExtResource("2_vc57w")
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control/RightProgress"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control/RightProgress" unique_id=1125302132]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.32363892, 0.44088295, 0.7890625, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1381057849]
 
 [connection signal="text_changed" from="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/ID" to="." method="_on_text_changed"]
 [connection signal="color_changed" from="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer/UnderColor" to="." method="_on_color_changed"]
