@@ -68,12 +68,6 @@ func _physics_process(delta: float) -> void:
 			next = points[min(points.find(next) + 1, len(points) - 1)]
 			
 			lerp_amnt = 0.0
-		
-	#var rail_bodies := rail_snap.get_overlapping_bodies()
-	#if       rail_bodies.has(player) and player.snapped_to == null:
-		#player.snapped_to = self
-	1#elif not rail_bodies.has(player) and player.snapped_to == self:
-		#player.snapped_to = null
 	
 	move_and_slide()
 

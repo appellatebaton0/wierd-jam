@@ -1,6 +1,8 @@
 class_name Player extends CharacterBody2D
 # The class for the player. Snaps(?) to the nearest rail.
 
+const DEBUG := true
+
 @export var grind_speed := 700.0
 @export var jump_height := 700.0
 
@@ -15,7 +17,7 @@ func _set_dir(to:Vector2): direction = to.normalized()
 
 func _physics_process(delta: float) -> void:
 	# For the line debugging.
-	queue_redraw()
+	if DEBUG: queue_redraw()
 	
 	# Buffer the jump input.
 	jump_buffering = move_toward(jump_buffering, 0, delta)
@@ -43,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Freefall
 	else: 
-		#rotation += 0.1
+		if not DEBUG: rotation += 0.1
 		
 		velocity += get_gravity() * delta
 		
@@ -84,8 +86,9 @@ func closest(of:Array[Vector2], compared_to:Vector2):
 	
 	return best
 
-## DEBUG
-func _draw() -> void:
+## DEBUG DATA
+func _draw() -> void: 
+	if not DEBUG: return
 	# Debug lines to show the direction and plane parallel. NOTE: Doesn't show correctly with rotation.
 	draw_line(Vector2.ZERO, -direction * 250, Color.RED, 15) 
 	
