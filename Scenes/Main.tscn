@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dsu8ksqadgaqx" path="res://Scenes/Player.tscn" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="5_pbw6q"]
 [ext_resource type="Script" uid="uid://2fbsksjmy0sx" path="res://Scripts/RunTimer.gd" id="7_jw32o"]
+[ext_resource type="Script" uid="uid://5v4fcc34jkgn" path="res://Scripts/DeathBorder.gd" id="8_50glp"]
 
 [node name="Main" type="Node" unique_id=1226045905]
 
@@ -100,40 +101,37 @@ next_interpol_time = 0.6
 pos = Vector2(-425.99994, -312)
 rot = 1.498
 
-[node name="LongRail" parent="." unique_id=117091569 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
-position = Vector2(1226, -800)
-rotation = -1.4087766
-points = [null, null, null, null, null, NodePath("Point 5")]
+[node name="LongRail2" parent="." unique_id=1804509669 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
+position = Vector2(996, -363)
+rotation = -0.6090429
+points = [NodePath("Point 0"), NodePath("Point 1"), NodePath("Point 2")]
+initial_wait = 6.0
 
-[node name="Point 0" parent="LongRail" unique_id=1216517577 instance=ExtResource("4_pbw6q")]
-pos = Vector2(1226, -800)
-rot = -1.4087766
-
-[node name="Point 1" parent="LongRail" unique_id=598624803 instance=ExtResource("4_pbw6q")]
-position = Vector2(12.999695, -359.02655)
-pos = Vector2(873.77246, -870.7446)
-rot = -1.4087766
-
-[node name="Point 2" parent="LongRail" unique_id=1621749486 instance=ExtResource("4_pbw6q")]
-position = Vector2(342.0083, -582.01965)
-rotation = 1.373916
-pos = Vector2(706.77277, -1231.4158)
-rot = -0.034860592
-
-[node name="Point 3" parent="LongRail" unique_id=1073201783 instance=ExtResource("4_pbw6q")]
-position = Vector2(1035.0303, 223.9961)
-pos = Vector2(1614.0251, -1785.3418)
-rot = -1.4087766
-
-[node name="Point 5" parent="LongRail" unique_id=53344681 instance=ExtResource("4_pbw6q")]
-rotation = -0.53022337
+[node name="Point 0" parent="LongRail2" unique_id=2044964264 instance=ExtResource("4_pbw6q")]
+position = Vector2(-929.45264, -165.47726)
+rotation = 0.84640086
 color = Color(0.426, 0.49, 0.392, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-pos = Vector2(1226, -800)
-rot = -1.939
+next_wait = 3.0
+pos = Vector2(139, 32.99997)
+rot = 0.23735796
 
-[node name="LongRail2" parent="." unique_id=1804509669 instance=ExtResource("5_pbw6q")]
-position = Vector2(0, 8)
+[node name="Point 1" parent="LongRail2" unique_id=503530027 instance=ExtResource("4_pbw6q")]
+position = Vector2(118.032364, 85.984665)
+rotation = -0.13390423
+color = Color(0.426, 0.49, 0.392, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+next_wait = 3.0
+pos = Vector2(1142, -360)
+rot = -0.7429471
+
+[node name="Point 2" parent="LongRail2" unique_id=195668118 instance=ExtResource("4_pbw6q")]
+position = Vector2(-979.5682, -104.114365)
+rotation = 0.7382525
+color = Color(0.426, 0.49, 0.392, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+pos = Vector2(133.00012, 111.99982)
+rot = 0.12920965
 
 [node name="LongRail3" parent="." unique_id=423940435 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
 position = Vector2(407.99997, -335)
@@ -150,10 +148,10 @@ pos = Vector2(1210.9999, -320)
 rot = -1.375
 
 [node name="Point 1" parent="LongRail3" unique_id=1922042399 instance=ExtResource("4_pbw6q")]
-position = Vector2(42.755066, 4.583374)
+position = Vector2(300.8141, -0.941514)
 color = Color(0.426, 0.49, 0.392, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-pos = Vector2(451, -335)
+pos = Vector2(707, -368)
 rot = -0.10679316
 
 [node name="Level" type="Node" parent="." unique_id=490863187]
@@ -177,3 +175,8 @@ size_flags_vertical = 1
 theme_override_font_sizes/font_size = 28
 text = "0:00.00"
 script = ExtResource("7_jw32o")
+
+[node name="DeathBorder" type="Node2D" parent="." unique_id=2014227966]
+position = Vector2(27, 1112)
+script = ExtResource("8_50glp")
+metadata/_custom_type_script = "uid://5v4fcc34jkgn"

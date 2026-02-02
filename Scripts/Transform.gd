@@ -29,5 +29,6 @@ func setup(with:Rail):
 
 func _process(_delta: float) -> void:
 	if not visible: return
+	
 	pos = global_position
 	rot = global_rotation
