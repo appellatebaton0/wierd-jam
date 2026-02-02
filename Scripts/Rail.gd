@@ -89,7 +89,7 @@ func _on_reset():
 func lerp_ease(a:Variant, b:Variant, l:float, e:float) -> Variant:
 	return lerp(a, b, ease(l, e))
 
-func color() -> Color: return Color(0.378, 0.647, 0.237, 1.0)
+func color() -> Color: return Color(0.426, 0.49, 0.392, 1.0)
 
 ## Tool Functions.
 
