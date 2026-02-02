@@ -48,9 +48,7 @@ func _physics_process(delta: float) -> void:
 			jump_buffering = 0.0
 	
 	# Freefall
-	else: 
-		
-		
+	else:
 		velocity += get_gravity() * delta
 		
 		# Set the current direction to the velocity (automatically normalized).

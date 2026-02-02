@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dsu8ksqadgaqx" path="res://Scenes/Player.tscn" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cpmtq8gc01ggx" path="res://Scenes/MediumDeathRail.tscn" id="5_v1gob"]
+[ext_resource type="Script" uid="uid://2fbsksjmy0sx" path="res://Scripts/RunTimer.gd" id="7_jw32o"]
 
 [node name="Main" type="Node" unique_id=1226045905]
 
@@ -103,3 +104,23 @@ rotation = -1.375
 [node name="MediumDeathRail" parent="." unique_id=1921707485 instance=ExtResource("5_v1gob")]
 position = Vector2(1359, -660)
 rotation = -0.9168811
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=798780182]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1590804873]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer" unique_id=1960889108]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 28
+text = "0:00.00"
+script = ExtResource("7_jw32o")

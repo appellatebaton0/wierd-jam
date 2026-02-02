@@ -28,7 +28,6 @@ func setup(with:Rail):
 	owner = with.owner
 
 func _process(_delta: float) -> void:
-	#setup(get_parent())
 	if not visible: return
 	global_position = pos if pos else global_position
 	global_rotation = rot if rot else global_rotation
