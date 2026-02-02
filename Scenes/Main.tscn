@@ -11,6 +11,7 @@
 [node name="Main" type="Node" unique_id=1226045905]
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1506512909]
+z_index = -2
 scroll_scale = Vector2(0.85, 0.85)
 
 [node name="Polygon2D" type="Polygon2D" parent="Parallax2D2" unique_id=1123582824]
@@ -25,6 +26,7 @@ spike_range_x_min = 120.0
 spike_range_x_max = 400.0
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1238806027]
+z_index = -2
 scroll_scale = Vector2(0.9, 0.9)
 
 [node name="Polygon2D" type="Polygon2D" parent="Parallax2D" unique_id=1070006029]
@@ -39,6 +41,7 @@ spike_range_x_min = 120.0
 spike_range_x_max = 400.0
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=200755897]
+z_index = -2
 scroll_scale = Vector2(0.95, 0.95)
 
 [node name="Polygon2D" type="Polygon2D" parent="Parallax2D3" unique_id=1894209403]
@@ -59,100 +62,50 @@ script = ExtResource("1_pbw6q")
 [node name="Player" parent="." unique_id=993666105 instance=ExtResource("4_rgh2o")]
 position = Vector2(217, -906)
 
-[node name="LongRail4" parent="." unique_id=1357488898 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
-position = Vector2(-425.99994, -312)
-rotation = 4.6579547
-points = [null, null, null, NodePath("Point 3"), NodePath("Point 4"), null, NodePath("Point 6"), NodePath("Point 7")]
+[node name="LongRail4" parent="." unique_id=1357488898 instance=ExtResource("5_pbw6q")]
+position = Vector2(210, -209)
+rotation = 6.3486896
 initial_wait = 2.0
+effect_interval = 0.2
 
-[node name="Point 3" parent="LongRail4" unique_id=616858566 instance=ExtResource("4_pbw6q")]
-position = Vector2(2.8094177, 554.97485)
-rotation = -1.3889546
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-next_interpol_time = 0.7
-next_wait = 1.5
-pos = Vector2(128.00006, -345)
-rot = -3.0141852
+[node name="LongRail5" parent="." unique_id=1238590221 instance=ExtResource("5_pbw6q")]
+position = Vector2(739, -184.00002)
+rotation = 6.3486896
+initial_wait = 2.0
+effect_interval = 0.2
 
-[node name="Point 4" parent="LongRail4" unique_id=1432234188 instance=ExtResource("4_pbw6q")]
-position = Vector2(-573.09344, 1272.7046)
-rotation = -1.634449
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-next_interpol_time = 0.3
-pos = Vector2(876.00006, 191)
-rot = 3.0235057
+[node name="LongRail6" parent="." unique_id=945736736 instance=ExtResource("5_pbw6q")]
+position = Vector2(1291, -158.00002)
+rotation = 6.3486896
+initial_wait = 2.0
+effect_interval = 0.2
 
-[node name="Point 6" parent="LongRail4" unique_id=1181065603 instance=ExtResource("4_pbw6q")]
-position = Vector2(-704.5508, -284.75458)
-rotation = -0.88096344
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-next_interpol_time = 0.6
-pos = Vector2(-671.99994, 406.99994)
-rot = -2.506194
+[node name="LongRail7" parent="." unique_id=611211246 instance=ExtResource("5_pbw6q")]
+position = Vector2(953, -713.99994)
+rotation = 7.980708
+initial_wait = 2.0
+effect_interval = 0.2
 
-[node name="Point 7" parent="LongRail4" unique_id=289718062 instance=ExtResource("4_pbw6q")]
-rotation = 3.1232307
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-next_interpol_time = 0.6
-pos = Vector2(-425.99994, -312)
-rot = 1.498
-
-[node name="LongRail2" parent="." unique_id=1804509669 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
-position = Vector2(996, -363)
-rotation = -0.6090429
-points = [NodePath("Point 0"), NodePath("Point 1"), NodePath("Point 2")]
-initial_wait = 6.0
-
-[node name="Point 0" parent="LongRail2" unique_id=2044964264 instance=ExtResource("4_pbw6q")]
-position = Vector2(-929.45264, -165.47726)
-rotation = 0.84640086
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-next_wait = 3.0
-pos = Vector2(139, 32.99997)
-rot = 0.23735796
-
-[node name="Point 1" parent="LongRail2" unique_id=503530027 instance=ExtResource("4_pbw6q")]
-position = Vector2(118.032364, 85.984665)
-rotation = -0.13390423
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-next_wait = 3.0
-pos = Vector2(1142, -360)
-rot = -0.7429471
-
-[node name="Point 2" parent="LongRail2" unique_id=195668118 instance=ExtResource("4_pbw6q")]
-position = Vector2(-979.5682, -104.114365)
-rotation = 0.7382525
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-pos = Vector2(133.00012, 111.99982)
-rot = 0.12920965
-
-[node name="LongRail3" parent="." unique_id=423940435 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
-position = Vector2(407.99997, -335)
-rotation = -0.106793165
+[node name="LongRail8" parent="." unique_id=197543685 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
+position = Vector2(1526, -576.00006)
+rotation = 7.980708
 points = [NodePath("Point 0"), NodePath("Point 1")]
-initial_wait = 4.0
+initial_wait = 2.0
+effect_interval = 0.2
 
-[node name="Point 0" parent="LongRail3" unique_id=598634466 instance=ExtResource("4_pbw6q")]
-position = Vector2(796.8264, 100.50653)
-rotation = -1.2682068
+[node name="Point 0" parent="LongRail8" unique_id=616858566 instance=ExtResource("4_pbw6q")]
 color = Color(0.426, 0.49, 0.392, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-pos = Vector2(1210.9999, -320)
-rot = -1.375
+pos = Vector2(1526, -576.00006)
+rot = 1.6975229
 
-[node name="Point 1" parent="LongRail3" unique_id=1922042399 instance=ExtResource("4_pbw6q")]
-position = Vector2(300.8141, -0.941514)
+[node name="Point 1" parent="LongRail8" unique_id=1595053393 instance=ExtResource("4_pbw6q")]
+position = Vector2(422.612, 1631.6715)
+rotation = 1.8569036
 color = Color(0.426, 0.49, 0.392, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-pos = Vector2(707, -368)
-rot = -0.10679316
+pos = Vector2(-146, -363.00003)
+rot = -2.728759
 
 [node name="Level" type="Node" parent="." unique_id=490863187]
 

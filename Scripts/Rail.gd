@@ -1,9 +1,11 @@
 @tool
 class_name Rail extends CharacterBody2D
 
-const TRANSFORM = preload("res://Scenes/Transform.tscn")
 
 @onready var poly := $Poly
+
+## RAIL SNAPPING
+
 @onready var player:Player = get_tree().get_first_node_in_group("Player")
 
 @onready var rail_snap := get_rail_snap()
@@ -12,20 +14,32 @@ func get_rail_snap() -> Area2D:
 		if child is Area2D: return child
 	return null
 
+## TRANSFORMS
+
+const TRANSFORM = preload("res://Scenes/Transform.tscn")
+
 @warning_ignore("unused_private_class_variable") @export_tool_button("New Transform") 
 var _new_transform := _add_transform
 @warning_ignore("unused_private_class_variable") @export_tool_button("Clear Transforms") 
 var _rem_transforms := _clear_transforms
 
-## All the Transforms this rail will interpolate between.
 @export var points:Array[Transform]
 
 var curr:Transform  # The transform to lerp to currently
 var next:Transform  # The transform to lerp to next
 
-@export var initial_wait = 0.0 # How long to wait before the next interpolation.
+@export 
+var initial_wait = 0.0 # How long to wait before the next interpolation.
 var wait = 0.0
 var lerp_amnt = 0.0 # How close this rail is to curr. 0.0 - 1.0
+
+## AFTEREFFECTS
+
+const AFTEREFFECT = preload("res://Scenes/AfterEffects.tscn")
+
+var effect_pool:Array[AfterEffect]
+@export var effect_interval := 0.2
+var effect_timer := 0.0
 
 func _ready() -> void: 
 	
@@ -46,6 +60,17 @@ func _physics_process(delta: float) -> void:
 	
 	# IF anything's gone wrong or this just shouldn't be done, then don't do it.
 	if Engine.is_editor_hint(): return
+	
+	if len(points) > 1 and curr != points.back():
+		effect_timer = move_toward(effect_timer, 0, delta)
+		if effect_timer == 0:
+			aftereffect()
+			effect_timer = effect_interval
+	elif len(effect_pool):
+		for effect in effect_pool: if not effect.in_use:
+			effect_pool.erase(effect)
+			effect.queue_free()
+			
 	
 	wait = move_toward(wait, 0, delta)
 	if wait: 
@@ -73,7 +98,27 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _on_reset():
+## Creating an aftereffect.
+func aftereffect() -> void:
+	
+	var target:AfterEffect
+	
+	# Check existing effects.
+	for effect in effect_pool: if not effect.in_use:
+		target = effect
+		break
+	
+	# If all in use / none exist, make a new one.
+	if not target:
+		target = AFTEREFFECT.instantiate()
+		get_parent().add_child(target)
+		
+		effect_pool.append(target)
+	
+	target.use(self)
+
+## Reseting
+func _on_reset() -> void:
 	wait = initial_wait
 	
 	if len(points) > 1:
@@ -83,7 +128,6 @@ func _on_reset():
 		global_position = curr.pos
 		rotation = curr.rot
 	lerp_amnt = 0.0
-	
 
 ## Lerp, but the amount is eased.
 func lerp_ease(a:Variant, b:Variant, l:float, e:float) -> Variant:

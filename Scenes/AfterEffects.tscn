@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://pvg1c482ffsj"]
+
+[ext_resource type="Script" uid="uid://cs580iy6qm7f7" path="res://Scripts/AfterEffect.gd" id="1_yjbts"]
+
+[node name="AfterEffects" type="Polygon2D" unique_id=1899747952]
+z_index = -1
+script = ExtResource("1_yjbts")
