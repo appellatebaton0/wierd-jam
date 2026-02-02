@@ -26,9 +26,8 @@ func time_as_display() -> String:
 	
 	return digi(minu) + ":" + digi(seco) + "." + digi(mili)
 
-func digi(num:int) -> String:
-	if num < 10:
-		return "0" + str(num)
-	else: return str(num)
+# Returns the num as a string, in 00 format regardless of value (below 100)
+func digi(num:int) -> String: return ("0" if num < 10 else "") + str(num)
 
+# Reset the timer when the player dies.
 func _on_reset() -> void: time = 0
