@@ -179,4 +179,8 @@ script = ExtResource("7_jw32o")
 [node name="DeathBorder" type="Node2D" parent="." unique_id=2014227966]
 position = Vector2(27, 1112)
 script = ExtResource("8_50glp")
+LINE_COLOR = Color(1, 0, 0.22352941, 1)
+LINE_WIDTH = 10.0
+MAIN_LENGTH = 15000
+TYPE_LENGTH = 80
 metadata/_custom_type_script = "uid://5v4fcc34jkgn"

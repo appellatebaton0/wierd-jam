@@ -1,6 +1,12 @@
 @tool
 class_name DeathBorder extends Node2D
 
+@export var LINE_COLOR := Color(0.802, 0.078, 0.086, 1.0)
+@export var LINE_WIDTH := 20.0
+
+@export var MAIN_LENGTH := 1000
+@export var TYPE_LENGTH := 100
+
 enum ORI {VERTICAL, HORIZONTAL}
 @export var orientation := ORI.HORIZONTAL : set = set_ori
 func set_ori(to:ORI):
@@ -19,16 +25,15 @@ func set_type(to:TYPE):
 func _draw() -> void: if Engine.is_editor_hint():
 	match orientation:
 		ORI.VERTICAL:   
-			draw_line(Vector2(0, -1000), Vector2(0, 1000), Color.AQUAMARINE, 20)
-			print(type)
+			draw_line(Vector2(0, -MAIN_LENGTH), Vector2(0, MAIN_LENGTH), LINE_COLOR, LINE_WIDTH)
 			match type:
-				TYPE.MORE: draw_line(Vector2(0, 0), Vector2(100,  0), Color.AQUAMARINE, 20)
-				TYPE.LESS: draw_line(Vector2(0, 0), Vector2(-100, 0), Color.AQUAMARINE, 20)
+				TYPE.MORE: draw_line(Vector2(0, 0), Vector2( TYPE_LENGTH, 0), LINE_COLOR, LINE_WIDTH)
+				TYPE.LESS: draw_line(Vector2(0, 0), Vector2(-TYPE_LENGTH, 0), LINE_COLOR, LINE_WIDTH)
 		ORI.HORIZONTAL: 
-			draw_line(Vector2(-1000, 0), Vector2(1000, 0), Color.AQUAMARINE, 20)
+			draw_line(Vector2(-MAIN_LENGTH, 0), Vector2(MAIN_LENGTH, 0), LINE_COLOR, LINE_WIDTH)
 			match type:
-				TYPE.MORE: draw_line(Vector2(0, 0), Vector2(0,  100), Color.AQUAMARINE, 20)
-				TYPE.LESS: draw_line(Vector2(0, 0), Vector2(0, -100), Color.AQUAMARINE, 20)
+				TYPE.MORE: draw_line(Vector2(0, 0), Vector2(0,  TYPE_LENGTH), LINE_COLOR, LINE_WIDTH)
+				TYPE.LESS: draw_line(Vector2(0, 0), Vector2(0, -TYPE_LENGTH), LINE_COLOR, LINE_WIDTH)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void: if not Engine.is_editor_hint():
