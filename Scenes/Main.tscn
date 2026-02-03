@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://p2tyqwglemqs"]
 
 [ext_resource type="Script" uid="uid://bekv7j6pldbj" path="res://Scripts/Animator.gd" id="3_kln2b"]
+[ext_resource type="Script" uid="uid://b8n7go8ccxjco" path="res://Scripts/AnimationOverlay.gd" id="3_rgh2o"]
 [ext_resource type="Script" uid="uid://2fbsksjmy0sx" path="res://Scripts/RunTimer.gd" id="7_jw32o"]
 [ext_resource type="Script" uid="uid://kq22o1w8r82l" path="res://Scripts/LevelScreeen.gd" id="8_vy5pj"]
 
@@ -34,9 +35,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationOverlay:progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_kln2b"]
 resource_name = "Level -> Game"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,7 +58,7 @@ tracks/0/path = NodePath("AnimationPlayer:activate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -56,10 +70,34 @@ tracks/1/path = NodePath("LevelScreen:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationOverlay:progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationOverlay:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_rgh2o"]
@@ -87,6 +125,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationOverlay:progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationOverlay:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pbw6q"]
@@ -233,6 +295,93 @@ layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
+
+[node name="AnimationOverlay" type="Control" parent="CanvasLayer/UI" unique_id=1872492812]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.3577925
+pivot_offset = Vector2(576, 324)
+script = ExtResource("3_rgh2o")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1648922954]
+layout_mode = 0
+offset_left = -2205.0
+offset_right = -205.0
+offset_bottom = 100.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1328896008]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = 100.0
+offset_right = -204.99878
+offset_bottom = 200.0
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1979328002]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = 199.90837
+offset_right = -205.00049
+offset_bottom = 299.9084
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1272388131]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = 300.0
+offset_right = -205.00244
+offset_bottom = 400.0
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=69962391]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = 400.0
+offset_right = -204.99927
+offset_bottom = 500.0
+
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=752622378]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = 500.0
+offset_right = -204.99854
+offset_bottom = 600.0
+
+[node name="ColorRect7" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=423978635]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = 600.0
+offset_right = -205.00244
+offset_bottom = 700.0
+
+[node name="ColorRect10" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=603353770]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = 700.0
+offset_right = -204.99951
+offset_bottom = 800.0
+
+[node name="ColorRect8" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1346804784]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = -100.0
+offset_right = -205.00146
+
+[node name="ColorRect9" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1685246883]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = -200.0
+offset_right = -204.99976
+offset_bottom = -100.0
+
+[node name="ColorRect11" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1882738010]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = 800.0
+offset_right = -204.99902
+offset_bottom = 900.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI" unique_id=964604758 node_paths=PackedStringArray("main") groups=["Animator"]]
 libraries/ = SubResource("AnimationLibrary_pbw6q")
