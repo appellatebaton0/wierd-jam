@@ -14,12 +14,14 @@ const ATTEMPT_ENTRY_SCENE := preload("res://Scenes/AttemptEntry.tscn")
 @onready var best_time_lab   := %BestTime
 @onready var attempt_box     := %AttemptBox
 
-@export var main:Node # Where to put the levels.
+@onready var animator:Animator = get_tree().get_first_node_in_group("Animator")
 
 var level_data:Array[LevelData]
 var selected_level:LevelData
 
-func _ready() -> void: load_levels()
+func _ready() -> void: 
+	load_levels()
+		
 
 ## Loads all the levels into LevelData, and makes entries for each of them.
 func load_levels() -> void:
@@ -40,7 +42,7 @@ func create_data_from(path:StringName) -> LevelData:
 	var new = LevelData.new()
 	
 	new.scene = load(path)
-	new.level_name = path.replace(LEVEL_PATH, "").replace(".tscn", "")
+	new.level_name = path.replace(LEVEL_PATH, "").replace(".tscn", "").right(-1)
 	
 	level_data.append(new)
 	
@@ -87,10 +89,5 @@ func _on_level_selected(data:LevelData) -> void:
 func _on_play_pressed() -> void:
 	if not selected_level: return
 	
-	# Load up the currently selected level, and do something about the screens.
-	
-	var level = selected_level.scene.instantiate()
-	
-	main.add_child(level)
-	
-	hide() # Make this activate an animationplayer eventually.
+	# Load up the currently selected level
+	animator._start_level(selected_level)

@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 Player=""
+Animator=""
 
 [input]
 
@@ -48,6 +49,7 @@ Jump={
 2d_physics/layer_1="Environment"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="RailSnap"
+2d_physics/layer_4="Goal"
 
 [physics]
 

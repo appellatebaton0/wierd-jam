@@ -1,11 +1,100 @@
 [gd_scene format=3 uid="uid://p2tyqwglemqs"]
 
+[ext_resource type="Script" uid="uid://bekv7j6pldbj" path="res://Scripts/Animator.gd" id="3_kln2b"]
 [ext_resource type="Script" uid="uid://2fbsksjmy0sx" path="res://Scripts/RunTimer.gd" id="7_jw32o"]
 [ext_resource type="Script" uid="uid://kq22o1w8r82l" path="res://Scripts/LevelScreeen.gd" id="8_vy5pj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kln2b"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rgh2o"]
+
+[sub_resource type="Animation" id="Animation_pbw6q"]
+resource_name = "Game -> Level"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer:activate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.44),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kln2b"]
+resource_name = "Level -> Game"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer:activate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rgh2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer:activate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbw6q"]
+_data = {
+&"Game -> Level": SubResource("Animation_pbw6q"),
+&"Level -> Game": SubResource("Animation_kln2b"),
+&"RESET": SubResource("Animation_rgh2o")
+}
 
 [node name="Main" type="Node" unique_id=1226045905]
 
@@ -37,7 +126,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LevelScreen" type="Panel" parent="CanvasLayer/UI" unique_id=1735410670 node_paths=PackedStringArray("main")]
+[node name="LevelScreen" type="Panel" parent="CanvasLayer/UI" unique_id=1735410670]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +134,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_vy5pj")
-main = NodePath("../../..")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/LevelScreen" unique_id=1682128092]
 layout_mode = 1
@@ -146,4 +234,11 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI" unique_id=964604758 node_paths=PackedStringArray("main") groups=["Animator"]]
+libraries/ = SubResource("AnimationLibrary_pbw6q")
+script = ExtResource("3_kln2b")
+main = NodePath("../../..")
+activate = true
+
 [connection signal="pressed" from="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/Button" to="CanvasLayer/UI/LevelScreen" method="_on_play_pressed"]
+[connection signal="animation_finished" from="CanvasLayer/UI/AnimationPlayer" to="CanvasLayer/UI/AnimationPlayer" method="_on_animation_finished"]
