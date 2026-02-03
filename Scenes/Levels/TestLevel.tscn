@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bp4ot4t75mw16"]
+
+[ext_resource type="Script" uid="uid://b3w1juegcjptq" path="res://Scripts/BackgroundPolygon.gd" id="1_dqpvo"]
+[ext_resource type="Script" uid="uid://c10cndcu33lm7" path="res://Scripts/Camera.gd" id="2_gyeg4"]
+[ext_resource type="PackedScene" uid="uid://dsu8ksqadgaqx" path="res://Scenes/Player.tscn" id="3_1mv4x"]
+[ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="4_a7u0l"]
+[ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="5_qhub5"]
+[ext_resource type="Script" uid="uid://5v4fcc34jkgn" path="res://Scripts/DeathBorder.gd" id="6_cuare"]
+
+[node name="Level" type="Node" unique_id=1515485159]
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1941711672]
+z_index = -2
+scroll_scale = Vector2(0.85, 0.85)
+
+[node name="Polygon2D" type="Polygon2D" parent="Parallax2D2" unique_id=1754250498]
+position = Vector2(-20, 1044)
+color = Color(0.12, 0.12, 0.12, 1)
+polygon = PackedVector2Array(3000, -1500, 3000, 1500, -3000, 1500, -3000, -1500, -3000, -1382.0564, -2834.5354, -1649.397, -2624.9014, -1379.2249, -2319.357, -1747.8907, -1923.484, -1378.4326, -1790.3934, -1681.5806, -1416.6787, -1352.8291, -1070.2838, -1692.9219, -802.5632, -1312.6702, -645.38947, -1625.4025, -490.86337, -1321.3125, -291.22147, -1707.5497, 81.40343, -1397.5741, 336.183, -1673.5658, 520.13324, -1288.561, 672.3675, -1618.0251, 961.4735, -1345.5612, 1127.0894, -1670.9834, 1458.4973, -1250.7876, 1708.4785, -1729.1398, 2041.5912, -1374.1941, 2285.6265, -1707.4276, 2570.9087, -1379.6332, 2857.896, -1691.6133)
+script = ExtResource("1_dqpvo")
+box_dimensions = Vector2(6000, 3000)
+spike_range_y_min = 100.0
+spike_range_y_max = 250.0
+spike_range_x_min = 120.0
+spike_range_x_max = 400.0
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=27294607]
+z_index = -2
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="Polygon2D" type="Polygon2D" parent="Parallax2D" unique_id=1216577211]
+position = Vector2(-47, 1427)
+color = Color(0.2159017, 0.21590173, 0.21590167, 1)
+polygon = PackedVector2Array(3000, -1500, 3000, 1500, -3000, 1500, -3000, -1500, -3000, -1373.3546, -2674.7417, -1698.694, -2548.6626, -1329.4005, -2426.336, -1673.6405, -2246.6655, -1286.7589, -2003.9823, -1684.6627, -1736.9421, -1376.2018, -1426.9982, -1651.6134, -1069.6991, -1262.0806, -816.3137, -1668.0043, -640.82947, -1358.8168, -314.97812, -1693.6783, -172.2763, -1304.1829, 163.80331, -1700.3756, 509.88498, -1355.2845, 775.12805, -1603.6759, 944.4943, -1277.2034, 1303.4209, -1720.0715, 1529.7908, -1277.8767, 1789.8328, -1736.1355, 2152.7942, -1303.6014, 2458.5234, -1623.1075, 2741.4312, -1322.5118)
+script = ExtResource("1_dqpvo")
+box_dimensions = Vector2(6000, 3000)
+spike_range_y_min = 100.0
+spike_range_y_max = 250.0
+spike_range_x_min = 120.0
+spike_range_x_max = 400.0
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=291028766]
+z_index = -2
+scroll_scale = Vector2(0.95, 0.95)
+
+[node name="Polygon2D" type="Polygon2D" parent="Parallax2D3" unique_id=1980736197]
+position = Vector2(-54, 2086)
+color = Color(0.34509805, 0.34509805, 0.34509805, 1)
+polygon = PackedVector2Array(3000, -1500, 3000, 1500, -3000, 1500, -3000, -1500, -3000, -1310.9717, -2858.442, -1628.0731, -2618.6418, -1326.2899, -2282.0544, -1712.4053, -1965.1056, -1321.1353, -1838.5431, -1736.5818, -1688.578, -1282.8676, -1383.0514, -1732.1437, -1064.9878, -1381.6022, -772.1808, -1742.9636, -553.6924, -1253.5964, -167.50946, -1698.0978, 179.12447, -1308.5724, 435.53668, -1729.1653, 598.30225, -1282.4661, 966.0184, -1681.9111, 1331.2164, -1351.8259, 1629.3092, -1666.7574, 1777.0692, -1270.7526, 1977.1396, -1660.0702, 2222.676, -1329.3237, 2534.3562, -1617.9965, 2926.5286, -1319.8853)
+script = ExtResource("1_dqpvo")
+box_dimensions = Vector2(6000, 3000)
+spike_range_y_min = 100.0
+spike_range_y_max = 250.0
+spike_range_x_min = 120.0
+spike_range_x_max = 400.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1231667601]
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("2_gyeg4")
+
+[node name="Player" parent="." unique_id=993666105 instance=ExtResource("3_1mv4x")]
+position = Vector2(217, -906)
+
+[node name="LongRail4" parent="." unique_id=1357488898 instance=ExtResource("4_a7u0l")]
+position = Vector2(210, -209)
+rotation = 0.065504245
+initial_wait = 2.0
+effect_interval = 0.2
+
+[node name="LongRail5" parent="." unique_id=697715579 instance=ExtResource("4_a7u0l")]
+position = Vector2(739, -184.00002)
+rotation = 0.065504245
+initial_wait = 2.0
+effect_interval = 0.2
+
+[node name="LongRail6" parent="." unique_id=649903761 instance=ExtResource("4_a7u0l")]
+position = Vector2(1291, -158.00002)
+rotation = 0.065504245
+initial_wait = 2.0
+effect_interval = 0.2
+
+[node name="LongRail7" parent="." unique_id=1183184072 instance=ExtResource("4_a7u0l")]
+position = Vector2(953, -713.99994)
+rotation = 1.6975229
+scale = Vector2(0.99999994, 0.99999994)
+initial_wait = 2.0
+effect_interval = 0.2
+
+[node name="LongRail8" parent="." unique_id=17637703 node_paths=PackedStringArray("points") instance=ExtResource("4_a7u0l")]
+position = Vector2(1526, -576.00006)
+rotation = 1.6975229
+scale = Vector2(0.99999994, 0.99999994)
+points = [NodePath("Point 0"), NodePath("Point 1")]
+initial_wait = 2.0
+effect_interval = 0.2
+
+[node name="Point 0" parent="LongRail8" unique_id=616858566 instance=ExtResource("5_qhub5")]
+color = Color(0.426, 0.49, 0.392, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+pos = Vector2(1526, -576.00006)
+rot = 1.6975229
+
+[node name="Point 1" parent="LongRail8" unique_id=218664479 instance=ExtResource("5_qhub5")]
+position = Vector2(422.612, 1631.6715)
+rotation = 1.8569036
+color = Color(0.426, 0.49, 0.392, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+pos = Vector2(-145.99988, -363.00012)
+rot = -2.7287588
+
+[node name="DeathBorder" type="Node2D" parent="." unique_id=197261714]
+position = Vector2(26.999756, 1112)
+scale = Vector2(1.0000001, 1.0000001)
+script = ExtResource("6_cuare")
+LINE_COLOR = Color(1, 0, 0.22352941, 1)
+LINE_WIDTH = 10.0
+MAIN_LENGTH = 15000
+TYPE_LENGTH = 80
+metadata/_custom_type_script = "uid://5v4fcc34jkgn"

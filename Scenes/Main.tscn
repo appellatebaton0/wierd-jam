@@ -1,125 +1,13 @@
 [gd_scene format=3 uid="uid://p2tyqwglemqs"]
 
-[ext_resource type="Script" uid="uid://c10cndcu33lm7" path="res://Scripts/Camera.gd" id="1_pbw6q"]
-[ext_resource type="Script" uid="uid://b3w1juegcjptq" path="res://Scripts/BackgroundPolygon.gd" id="1_v1gob"]
-[ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="4_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://dsu8ksqadgaqx" path="res://Scenes/Player.tscn" id="4_rgh2o"]
-[ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="5_pbw6q"]
 [ext_resource type="Script" uid="uid://2fbsksjmy0sx" path="res://Scripts/RunTimer.gd" id="7_jw32o"]
-[ext_resource type="Script" uid="uid://5v4fcc34jkgn" path="res://Scripts/DeathBorder.gd" id="8_50glp"]
+[ext_resource type="Script" uid="uid://kq22o1w8r82l" path="res://Scripts/LevelScreeen.gd" id="8_vy5pj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kln2b"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rgh2o"]
 
 [node name="Main" type="Node" unique_id=1226045905]
-
-[node name="Level" type="Node" parent="." unique_id=490863187]
-
-[node name="Parallax2D2" type="Parallax2D" parent="Level" unique_id=1506512909]
-z_index = -2
-scroll_scale = Vector2(0.85, 0.85)
-
-[node name="Polygon2D" type="Polygon2D" parent="Level/Parallax2D2" unique_id=1123582824]
-position = Vector2(-20, 1044)
-color = Color(0.12, 0.12, 0.12, 1)
-polygon = PackedVector2Array(3000, -1500, 3000, 1500, -3000, 1500, -3000, -1500, -3000, -1382.0564, -2834.5354, -1649.397, -2624.9014, -1379.2249, -2319.357, -1747.8907, -1923.484, -1378.4326, -1790.3934, -1681.5806, -1416.6787, -1352.8291, -1070.2838, -1692.9219, -802.5632, -1312.6702, -645.38947, -1625.4025, -490.86337, -1321.3125, -291.22147, -1707.5497, 81.40343, -1397.5741, 336.183, -1673.5658, 520.13324, -1288.561, 672.3675, -1618.0251, 961.4735, -1345.5612, 1127.0894, -1670.9834, 1458.4973, -1250.7876, 1708.4785, -1729.1398, 2041.5912, -1374.1941, 2285.6265, -1707.4276, 2570.9087, -1379.6332, 2857.896, -1691.6133)
-script = ExtResource("1_v1gob")
-box_dimensions = Vector2(6000, 3000)
-spike_range_y_min = 100.0
-spike_range_y_max = 250.0
-spike_range_x_min = 120.0
-spike_range_x_max = 400.0
-
-[node name="Parallax2D" type="Parallax2D" parent="Level" unique_id=1238806027]
-z_index = -2
-scroll_scale = Vector2(0.9, 0.9)
-
-[node name="Polygon2D" type="Polygon2D" parent="Level/Parallax2D" unique_id=1070006029]
-position = Vector2(-47, 1427)
-color = Color(0.2159017, 0.21590173, 0.21590167, 1)
-polygon = PackedVector2Array(3000, -1500, 3000, 1500, -3000, 1500, -3000, -1500, -3000, -1373.3546, -2674.7417, -1698.694, -2548.6626, -1329.4005, -2426.336, -1673.6405, -2246.6655, -1286.7589, -2003.9823, -1684.6627, -1736.9421, -1376.2018, -1426.9982, -1651.6134, -1069.6991, -1262.0806, -816.3137, -1668.0043, -640.82947, -1358.8168, -314.97812, -1693.6783, -172.2763, -1304.1829, 163.80331, -1700.3756, 509.88498, -1355.2845, 775.12805, -1603.6759, 944.4943, -1277.2034, 1303.4209, -1720.0715, 1529.7908, -1277.8767, 1789.8328, -1736.1355, 2152.7942, -1303.6014, 2458.5234, -1623.1075, 2741.4312, -1322.5118)
-script = ExtResource("1_v1gob")
-box_dimensions = Vector2(6000, 3000)
-spike_range_y_min = 100.0
-spike_range_y_max = 250.0
-spike_range_x_min = 120.0
-spike_range_x_max = 400.0
-
-[node name="Parallax2D3" type="Parallax2D" parent="Level" unique_id=200755897]
-z_index = -2
-scroll_scale = Vector2(0.95, 0.95)
-
-[node name="Polygon2D" type="Polygon2D" parent="Level/Parallax2D3" unique_id=1894209403]
-position = Vector2(-54, 2086)
-color = Color(0.34509805, 0.34509805, 0.34509805, 1)
-polygon = PackedVector2Array(3000, -1500, 3000, 1500, -3000, 1500, -3000, -1500, -3000, -1310.9717, -2858.442, -1628.0731, -2618.6418, -1326.2899, -2282.0544, -1712.4053, -1965.1056, -1321.1353, -1838.5431, -1736.5818, -1688.578, -1282.8676, -1383.0514, -1732.1437, -1064.9878, -1381.6022, -772.1808, -1742.9636, -553.6924, -1253.5964, -167.50946, -1698.0978, 179.12447, -1308.5724, 435.53668, -1729.1653, 598.30225, -1282.4661, 966.0184, -1681.9111, 1331.2164, -1351.8259, 1629.3092, -1666.7574, 1777.0692, -1270.7526, 1977.1396, -1660.0702, 2222.676, -1329.3237, 2534.3562, -1617.9965, 2926.5286, -1319.8853)
-script = ExtResource("1_v1gob")
-box_dimensions = Vector2(6000, 3000)
-spike_range_y_min = 100.0
-spike_range_y_max = 250.0
-spike_range_x_min = 120.0
-spike_range_x_max = 400.0
-
-[node name="Camera2D" type="Camera2D" parent="Level" unique_id=1220805860]
-zoom = Vector2(0.5, 0.5)
-script = ExtResource("1_pbw6q")
-
-[node name="Player" parent="Level" unique_id=993666105 instance=ExtResource("4_rgh2o")]
-position = Vector2(217, -906)
-
-[node name="LongRail4" parent="Level" unique_id=1357488898 instance=ExtResource("5_pbw6q")]
-position = Vector2(210, -209)
-rotation = 0.065504245
-initial_wait = 2.0
-effect_interval = 0.2
-
-[node name="LongRail5" parent="Level" unique_id=1238590221 instance=ExtResource("5_pbw6q")]
-position = Vector2(739, -184.00002)
-rotation = 0.065504245
-initial_wait = 2.0
-effect_interval = 0.2
-
-[node name="LongRail6" parent="Level" unique_id=945736736 instance=ExtResource("5_pbw6q")]
-position = Vector2(1291, -158.00002)
-rotation = 0.065504245
-initial_wait = 2.0
-effect_interval = 0.2
-
-[node name="LongRail7" parent="Level" unique_id=611211246 instance=ExtResource("5_pbw6q")]
-position = Vector2(953, -713.99994)
-rotation = 1.6975229
-scale = Vector2(0.99999994, 0.99999994)
-initial_wait = 2.0
-effect_interval = 0.2
-
-[node name="LongRail8" parent="Level" unique_id=197543685 node_paths=PackedStringArray("points") instance=ExtResource("5_pbw6q")]
-position = Vector2(1526, -576.00006)
-rotation = 1.6975229
-scale = Vector2(0.99999994, 0.99999994)
-points = [NodePath("Point 0"), NodePath("Point 1")]
-initial_wait = 2.0
-effect_interval = 0.2
-
-[node name="Point 0" parent="Level/LongRail8" unique_id=616858566 instance=ExtResource("4_pbw6q")]
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-pos = Vector2(1526, -576.00006)
-rot = 1.6975229
-
-[node name="Point 1" parent="Level/LongRail8" unique_id=1595053393 instance=ExtResource("4_pbw6q")]
-position = Vector2(422.612, 1631.6715)
-rotation = 1.8569036
-color = Color(0.426, 0.49, 0.392, 1)
-polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-pos = Vector2(-146, -363.00003)
-rot = -2.728759
-
-[node name="DeathBorder" type="Node2D" parent="Level" unique_id=2014227966]
-position = Vector2(26.999756, 1112)
-scale = Vector2(1.0000001, 1.0000001)
-script = ExtResource("8_50glp")
-LINE_COLOR = Color(1, 0, 0.22352941, 1)
-LINE_WIDTH = 10.0
-MAIN_LENGTH = 15000
-TYPE_LENGTH = 80
-metadata/_custom_type_script = "uid://5v4fcc34jkgn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=798780182]
 
@@ -149,13 +37,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LevelScreen" type="Panel" parent="CanvasLayer/UI" unique_id=1735410670]
+[node name="LevelScreen" type="Panel" parent="CanvasLayer/UI" unique_id=1735410670 node_paths=PackedStringArray("main")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("8_vy5pj")
+main = NodePath("../../..")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/LevelScreen" unique_id=1682128092]
 layout_mode = 1
@@ -177,58 +67,11 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 
 [node name="LevelEntryBox" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer" unique_id=926743874]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=1096156570]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=1418110820]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=27035026]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=606834656]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=883816913]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer6" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=909150295]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer7" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=1157240984]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer8" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=2098164426]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer9" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=1306623741]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer10" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=1279598020]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer11" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=1731093933]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="PanelContainer12" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer/LevelEntryBox" unique_id=1464762486]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer" unique_id=1041819252]
 layout_mode = 2
@@ -250,101 +93,57 @@ theme_override_constants/margin_bottom = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer" unique_id=821861414]
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=413606277]
-custom_minimum_size = Vector2(0, 50)
+[node name="LevelTitle" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=413606277]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Level 1"
+text = "None Selected"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=499479269]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=301272904]
+[node name="Attempts" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=301272904]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "ATTEMPTS: 1"
+text = "ATTEMPTS: N/A"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=877053442]
+[node name="BestTime" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=877053442]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "BEST TIME: 00:00.00"
+text = "BEST TIME: N/A"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=1826753539]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=498477705]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=870739509]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label2" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2132746516]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label3" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1473304597]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label4" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=748934493]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label5" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=975988654]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label6" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2047779454]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label7" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1457197600]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label8" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1178811187]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label9" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=959252854]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label10" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1443331289]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label11" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1451221185]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Label12" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=420073113]
-layout_mode = 2
-text = "ATTEMPT 1 TIME 00:00.00 DEATHS 05"
-horizontal_alignment = 3
-
-[node name="Button" type="Button" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=295172067]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=1843851674]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1826753539]
+layout_mode = 2
+theme_override_colors/scroll_hint_horizontal_color = Color(0.53453815, 0.5277463, 0.5232288, 1)
+theme_override_constants/scrollbar_h_separation = 10
+theme_override_constants/scrollbar_v_separation = 20
+theme_override_icons/scroll_hint_vertical = SubResource("PlaceholderTexture2D_kln2b")
+theme_override_icons/scroll_hint_horizontal = SubResource("PlaceholderTexture2D_rgh2o")
+horizontal_scroll_mode = 0
+
+[node name="AttemptBox" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer" unique_id=498477705]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=295172067]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
+
+[connection signal="pressed" from="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/Button" to="CanvasLayer/UI/LevelScreen" method="_on_play_pressed"]

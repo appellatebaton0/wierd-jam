@@ -5,29 +5,26 @@ class_name RunTimer extends Label
 var time := 0.0
 var paused = false
 
+var deaths := 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.reset_level.connect(_on_reset)
+	Global.run_timer = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time += delta
 	
-	text = time_as_display()
+	text = Global.time_as_display(time)
 
-# Returns the time formatted as xx:xx.xx
-func time_as_display() -> String:
-	var t:float = floor(time * 100) / 100
-	
-	# Get the num of milliseconds, seconds, and minutes.
-	var mili:int = (t - floor(t)) * 100
-	var seco:int = int(t - (mili / 100.0)) % 60
-	var minu:int = floor((t - seco) / 60)
-	
-	return digi(minu) + ":" + digi(seco) + "." + digi(mili)
 
-# Returns the num as a string, in 00 format regardless of value (below 100)
-func digi(num:int) -> String: return ("0" if num < 10 else "") + str(num)
 
 # Reset the timer when the player dies.
-func _on_reset() -> void: time = 0
+func _on_reset() -> void: 
+	time = 0
+	deaths += 1
+
+# NOTE: NOT HOOKED UP.
+func _on_level_selected() -> void:
+	deaths = 0

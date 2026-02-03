@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cs75o2g2afvgy"]
+
+[ext_resource type="Script" uid="uid://b8f7djd6nvqag" path="res://Scripts/LevelEntry.gd" id="1_re8m5"]
+
+[node name="LevelEntry" type="Button" unique_id=502237417]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 3
+focus_mode = 0
+script = ExtResource("1_re8m5")
+
+[connection signal="pressed" from="." to="." method="_this_selected"]
