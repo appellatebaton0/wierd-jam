@@ -6,12 +6,13 @@ const DEBUG := false
 @onready var spawn_position = global_position
 
 @export var grind_speed := 700.0
-@export var jump_height := 700.0
+@export var jump_height := 670.0
 
 const JUMP_BUFFER := 0.1
 var jump_buffering := 0.0
 
 var snapped_to:Rail
+var on_snap_mag:float
 
 # A normalized vector of the direction the player is grinding in.
 var direction:Vector2 : set =_set_dir
@@ -27,12 +28,9 @@ func _physics_process(delta: float) -> void:
 	jump_buffering = move_toward(jump_buffering, 0, delta)
 	if Input.is_action_just_pressed("Jump"): jump_buffering = JUMP_BUFFER
 	
-	if snapped_to and velocity != direction * grind_speed:
-		print("! -> ", velocity)
-	
 	# Grinding
-	if snapped_to: 
-		velocity = direction * grind_speed
+	if snapped_to:
+		velocity = direction * max(grind_speed, on_snap_mag)
 		
 		if jump_buffering: # Jump
 			
@@ -62,9 +60,6 @@ func _physics_process(delta: float) -> void:
 	if not DEBUG: rotation += deg_to_rad(sqrt(pow(velocity.x,2) + pow(velocity.y, 2)) / 40)
 	
 	move_and_slide()
-	
-	%Label.rotation = -rotation
-	%Label.text = str(snapped_to)
 
 func _on_rail_enter(rail:Node2D): 
 	if   rail is DeathRail: Global.reset_level.emit() # Die.
@@ -73,6 +68,7 @@ func _on_rail_exit (rail:Node2D): if snapped_to == rail: snapped_to = null
 
 func snap_to(rail:Rail):
 	snapped_to = rail
+	
 	
 	# Create a vector rotated to mimic the rail's rotation.
 	var rail_vector = Vector2.DOWN.rotated(rail.rotation)
@@ -83,6 +79,8 @@ func snap_to(rail:Rail):
 	
 	# Figure out which direction is closer to the current direction, and set to that.
 	direction = closest([a,b], direction)
+	
+	on_snap_mag = mag(velocity.project(direction))
 
 # Returns the Vector2 that is most similar to the comparator out of the given array.
 func closest(of:Array[Vector2], compared_to:Vector2):
@@ -104,6 +102,8 @@ func _on_reset() -> void:
 	velocity = Vector2.ZERO
 	global_position = spawn_position
 	snapped_to = null
+
+func mag(of:Vector2): return sqrt(pow(of.x, 2) + pow(of.y, 2))
 
 ## DEBUG DATA
 func _draw() -> void: 

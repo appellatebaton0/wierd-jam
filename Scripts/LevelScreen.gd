@@ -42,11 +42,10 @@ func load_levels() -> void:
 	# Sort.
 	var real_files:Array[StringName]
 	
-	var ran = range(len(files))
-	var index = 0
-	
 	var instances:Array[Level]
 	for file in files: instances.append(load(LEVEL_PATH + file).instantiate())
+	
+	var index = 0
 	
 	while len(files) > 0: 
 		for level in instances:
@@ -98,7 +97,7 @@ func _on_level_selected(data:LevelData) -> void:
 	level_title_lab.text = data.level_name
 	attempts_lab.text = "ATTEMPTS: " + str(len(data.attempts))
 	
-	var best_time := 0
+	var best_time := 0.0
 	for attempt in data.attempts:
 		if attempt.time < best_time or best_time == 0:
 			best_time = attempt.time

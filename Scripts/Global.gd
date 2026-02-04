@@ -1,8 +1,8 @@
 extends Node
 
 @warning_ignore("unused_signal")
-signal reset_level # Resets the level. (Duh.)
 signal loaded_level # Emitted when a new level is loaded.
+signal reset_level # Resets the level. (Duh.)
 
 var run_timer:RunTimer
 
@@ -19,3 +19,5 @@ func time_as_display(amnt:float) -> String:
 
 # Returns the num as a string, in 00 format regardless of value (below 100)
 func digi(num:int) -> String: return ("0" if num < 10 else "") + str(num)
+
+func _process(_delta: float) -> void: if Input.is_action_just_pressed("Reset"): reset_level.emit()

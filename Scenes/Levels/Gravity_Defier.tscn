@@ -7,6 +7,7 @@
 index = 2
 
 [node name="Polygon2D" parent="Parallax2D2" parent_id_path=PackedInt32Array(1941711672) index="0" unique_id=1754250498]
+position = Vector2(8, 425)
 polygon = PackedVector2Array(7500, -1500, 7500, 1500, -7500, 1500, -7500, -1500, -7500, -1369.1631, -7291.2515, -1689.9088, -6925.3403, -1318.1835, -6532.5537, -1708.1188, -6354.739, -1398.4438, -5991.551, -1615.5929, -5775.858, -1345.7217, -5536.2573, -1649.6554, -5213.6343, -1395.3041, -4928.953, -1670.0394, -4598.5024, -1272.9858, -4397.7217, -1745.7389, -4079.5107, -1372.1521, -3843.916, -1708.1233, -3701.501, -1385.4279, -3352.5667, -1729.2258, -3213.2874, -1333.27, -2884.8179, -1670.2943, -2610.0325, -1259.7015, -2270.9717, -1647.8674, -1873.5967, -1392.4412, -1494.7609, -1639.6752, -1236.1754, -1311.3834, -1081.6514, -1658.8054, -735.8763, -1338.3531, -555.045, -1653.4633, -191.7799, -1362.4758, 142.79243, -1650.1652, 452.18607, -1358.5292, 745.5095, -1638.225, 988.8013, -1361.4674, 1143.5072, -1683.4324, 1339.6827, -1318.8176, 1685.7909, -1740.338, 2068.1106, -1389.6736, 2273.1396, -1737.0065, 2428.4678, -1314.2233, 2783.4722, -1696.3826, 3047.7473, -1359.0552, 3232.2583, -1746.8905, 3355.7993, -1316.4996, 3678.2288, -1711.9923, 3908.491, -1307.8256, 4176.8994, -1625.4891, 4505.3037, -1370.1532, 4828.4497, -1644.2977, 5164.6167, -1332.3629, 5523.211, -1721.6016, 5736.023, -1310.7549, 5955.3667, -1668.1007, 6255.5576, -1287.1927, 6428.101, -1634.1588, 6751.648, -1305.8395, 7108.1895, -1676.4911, 7348.351, -1381.1525)
 
 [node name="Polygon2D" parent="Parallax2D" parent_id_path=PackedInt32Array(27294607) index="0" unique_id=1216577211]
@@ -44,18 +45,30 @@ position = Vector2(-665, 198)
 position = Vector2(-162, 198)
 
 [node name="LongRail8" parent="." index="14" unique_id=120112712 instance=ExtResource("2_msm3a")]
-position = Vector2(-1595, 20)
-rotation = 0.7963524
+position = Vector2(-1612.9999, 38)
+rotation = 0.6981317
 
-[node name="LongRail9" parent="." index="15" unique_id=310490164 instance=ExtResource("2_msm3a")]
+[node name="LongRail13" parent="." index="15" unique_id=723667965 instance=ExtResource("2_msm3a")]
+position = Vector2(-1612.9999, 38)
+rotation = 0.6981317
+
+[node name="LongRail9" parent="." index="16" unique_id=310490164 instance=ExtResource("2_msm3a")]
 position = Vector2(279, 39)
 rotation = 2.4486346
 
-[node name="LongRail10" parent="." index="16" unique_id=523359656 instance=ExtResource("2_msm3a")]
+[node name="LongRail14" parent="." index="17" unique_id=2021702591 instance=ExtResource("2_msm3a")]
+position = Vector2(514, -365)
+rotation = 1.7453293
+
+[node name="LongRail15" parent="." index="18" unique_id=227900782 instance=ExtResource("2_msm3a")]
+position = Vector2(433.00006, -826)
+rotation = 1.0471976
+
+[node name="LongRail10" parent="." index="19" unique_id=523359656 instance=ExtResource("2_msm3a")]
 position = Vector2(384, 555)
 
-[node name="LongRail11" parent="." index="17" unique_id=915853296 instance=ExtResource("2_msm3a")]
+[node name="LongRail11" parent="." index="20" unique_id=915853296 instance=ExtResource("2_msm3a")]
 position = Vector2(892, 555)
 
-[node name="LongRail12" parent="." index="18" unique_id=2122256474 instance=ExtResource("2_msm3a")]
+[node name="LongRail12" parent="." index="21" unique_id=2122256474 instance=ExtResource("2_msm3a")]
 position = Vector2(1395, 555)

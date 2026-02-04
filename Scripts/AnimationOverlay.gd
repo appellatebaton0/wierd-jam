@@ -16,8 +16,6 @@ func _ready() -> void:
 		rect_seeds.append(randf_range(-3, -1.25))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	for i in range(len(rects)):
 		rects[i].position.x = (ease(progress, rect_seeds[i]) - 0.63) * 3500
-	
-	pass

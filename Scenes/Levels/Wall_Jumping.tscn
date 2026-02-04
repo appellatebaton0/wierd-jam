@@ -50,4 +50,4 @@ offset_top = 168.0
 offset_right = 962.0
 offset_bottom = 237.0
 theme_override_font_sizes/font_size = 50
-text = "[TAP JUMP] - SPACE"
+text = "[TAP SPACE] - JUMP"

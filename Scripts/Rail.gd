@@ -49,12 +49,6 @@ func _ready() -> void:
 		
 		Global.reset_level.connect(_on_reset)
 		_on_reset()
-		
-		rail_snap.body_entered.connect(_on_player_ente)
-		rail_snap.body_exited.connect(_on_player_exit)
-
-func _on_player_ente(player:Node2D): if player is Player: player._on_rail_enter(self)
-func _on_player_exit(player:Node2D): if player is Player: player._on_rail_exit(self)
 
 func _physics_process(delta: float) -> void:
 	
