@@ -26,6 +26,8 @@ func _ready() -> void:
 
 ## Loads all the levels into LevelData, and makes entries for each of them.
 func load_levels() -> void:
+	var files:Array[StringName]
+	
 	var dir = DirAccess.open(LEVEL_PATH)
 	if dir:
 		dir.list_dir_begin()
@@ -33,17 +35,34 @@ func load_levels() -> void:
 		while file_name != "":
 			if not dir.current_is_dir():
 				file_name.replace(".remap", "") # NO.
-		
-				var data = create_data_from(LEVEL_PATH + file_name)
-				create_entry_from(data)
+				files.append(file_name)
 			file_name = dir.get_next()
 	else: print("An error occurred when trying to access the path.")
+	
+	# Sort.
+	var real_files:Array[StringName]
+	
+	var ran = range(len(files))
+	var index = 0
+	while len(files) > 0 and index < 100:
+		for file in files:
+			var instance = load(LEVEL_PATH + file).instantiate()
+			
+			print(instance)
+			if instance is Level: if instance.index == index: 
+				real_files.append(files.pop_at(files.find(file)))
+		
+		index += 1
+	
+	for file in real_files:
+		var data = create_data_from(LEVEL_PATH + file)
+		create_entry_from(data)
 
 func create_data_from(path:StringName) -> LevelData:
 	var new = LevelData.new()
 	
 	new.scene = load(path)
-	new.level_name = path.replace(LEVEL_PATH, "").replace(".tscn", "").right(-1)
+	new.level_name = path.replace(LEVEL_PATH, "").replace(".tscn", "").replace("_", " ")
 	
 	level_data.append(new)
 	
@@ -65,7 +84,7 @@ func create_attempt_from(data:LevelData, index:int) -> void:
 	
 	attempt_box.add_child(new)
 	
-	new.text = "ATTEMPT %s | TIME %s | DEATHS %s" % [index + 1, Global.time_as_display(attempt.time), Global.digi(attempt.deaths)]
+	new.text = "ATTEMPT %s | TIME %s | DEATHS %s" % [Global.digi(index + 1), Global.time_as_display(attempt.time), Global.digi(attempt.deaths)]
 
 func _on_level_selected(data:LevelData) -> void:
 	

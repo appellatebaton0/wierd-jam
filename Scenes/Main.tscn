@@ -397,7 +397,14 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_pbw6q")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1826753539]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1999244]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1826753539]
 layout_mode = 2
 theme_override_colors/scroll_hint_horizontal_color = Color(0.53453815, 0.5277463, 0.5232288, 1)
 theme_override_constants/scrollbar_h_separation = 10
@@ -406,7 +413,7 @@ theme_override_icons/scroll_hint_vertical = SubResource("PlaceholderTexture2D_kl
 theme_override_icons/scroll_hint_horizontal = SubResource("PlaceholderTexture2D_rgh2o")
 horizontal_scroll_mode = 0
 
-[node name="AttemptBox" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer" unique_id=498477705]
+[node name="AttemptBox" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer" unique_id=498477705]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

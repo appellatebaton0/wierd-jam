@@ -110,9 +110,10 @@ texture = SubResource("GradientTexture2D_ye8jc")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1935391813]
 material = SubResource("ShaderMaterial_6nn83")
-amount = 7
+amount = 6
 texture = SubResource("GradientTexture2D_l0ixq")
-lifetime = 5.0
+lifetime = 8.0
+speed_scale = 4.6
 process_material = SubResource("ParticleProcessMaterial_ttkpa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2116650374]
