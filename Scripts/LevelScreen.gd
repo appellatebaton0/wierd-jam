@@ -13,6 +13,7 @@ const ATTEMPT_ENTRY_SCENE := preload("res://Scenes/AttemptEntry.tscn")
 @onready var attempts_lab    := %Attempts
 @onready var best_time_lab   := %BestTime
 @onready var attempt_box     := %AttemptBox
+@onready var play_button     := %PlayButton
 
 @onready var animator:Animator = get_tree().get_first_node_in_group("Animator")
 
@@ -85,6 +86,8 @@ func _on_level_selected(data:LevelData) -> void:
 	for i in range(len(data.attempts)): create_attempt_from(data, i) 
 	
 	selected_level = data
+	
+	play_button.disabled = false
 
 func _on_play_pressed() -> void:
 	if not selected_level: return

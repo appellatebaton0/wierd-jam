@@ -5,12 +5,64 @@
 [ext_resource type="Script" uid="uid://2fbsksjmy0sx" path="res://Scripts/RunTimer.gd" id="7_jw32o"]
 [ext_resource type="Script" uid="uid://kq22o1w8r82l" path="res://Scripts/LevelScreen.gd" id="8_vy5pj"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmxlf"]
+bg_color = Color(0.17641908, 0.17641911, 0.17641899, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rgh2o"]
+color = Color(0.446777, 0.44677705, 0.44677705, 1)
+thickness = 6
+vertical = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgh2o"]
+bg_color = Color(0.2702219, 0.27022195, 0.27022177, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1gob"]
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+skew = Vector2(0.2, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pbw6q"]
+color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbw6q"]
+bg_color = Color(0.14044756, 0.14044741, 0.1404475, 1)
+corner_detail = 9
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kln2b"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rgh2o"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jw32o"]
+bg_color = Color(0.1584723, 0.15847233, 0.15847224, 1)
+border_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50glp"]
+bg_color = Color(0.10747979, 0.107479714, 0.107479684, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vy5pj"]
+bg_color = Color(0.2051174, 0.20511746, 0.20511737, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.36282945, 0.36282954, 0.36282924, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kpch"]
+bg_color = Color(0.13682574, 0.13682574, 0.13682568, 1)
+border_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
+
 [sub_resource type="Animation" id="Animation_pbw6q"]
 resource_name = "Game -> Level"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,7 +70,7 @@ tracks/0/path = NodePath("AnimationPlayer:activate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.44),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -30,7 +82,7 @@ tracks/1/path = NodePath("LevelScreen:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -42,10 +94,22 @@ tracks/2/path = NodePath("AnimationOverlay:progress")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationOverlay:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_kln2b"]
@@ -195,6 +259,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bmxlf")
 script = ExtResource("8_vy5pj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/LevelScreen" unique_id=1682128092]
@@ -210,13 +275,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 30
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer" unique_id=372175382]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer" unique_id=2126364643]
 layout_mode = 2
+theme_override_constants/separation = 7
 
-[node name="LevelEntryBox" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/ScrollContainer" unique_id=926743874]
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/HBoxContainer" unique_id=1805255091]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rgh2o")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/HBoxContainer" unique_id=372175382]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelEntryBox" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer/HBoxContainer/ScrollContainer" unique_id=926743874]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -226,13 +301,14 @@ theme_override_constants/separation = 10
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer" unique_id=1041819252]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 30
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2" unique_id=1469834780]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgh2o")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer" unique_id=1781786695]
 layout_mode = 2
@@ -253,27 +329,73 @@ theme_override_font_sizes/font_size = 40
 text = "None Selected"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=499479269]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=299660109]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=499479269]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="Attempts" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=301272904]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1124873297]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=364568779]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1gob")
+
+[node name="Attempts" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/PanelContainer" unique_id=301272904]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ATTEMPTS: N/A"
 horizontal_alignment = 1
 
-[node name="BestTime" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=877053442]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=131692570]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1052679804]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1gob")
+
+[node name="BestTime" type="Label" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/PanelContainer2" unique_id=877053442]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "BEST TIME: N/A"
 horizontal_alignment = 1
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1359414249]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=392505213]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_pbw6q")
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1274865568]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_pbw6q")
+
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=1843851674]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbw6q")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1826753539]
 layout_mode = 2
@@ -288,12 +410,19 @@ horizontal_scroll_mode = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=295172067]
+[node name="PlayButton" type="Button" parent="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer" unique_id=295172067]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_jw32o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_50glp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vy5pj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4kpch")
+disabled = true
 text = "PLAY"
 
 [node name="AnimationOverlay" type="Control" parent="CanvasLayer/UI" unique_id=1872492812]
@@ -308,11 +437,27 @@ rotation = 0.3577925
 pivot_offset = Vector2(576, 324)
 script = ExtResource("3_rgh2o")
 
+[node name="ColorRect9" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1685246883]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = -200.00006
+offset_right = -204.99951
+offset_bottom = -100.00006
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1346804784]
+layout_mode = 0
+offset_left = -2205.0
+offset_top = -100.0
+offset_right = -205.00171
+color = Color(0.51718444, 0.5171845, 0.51718444, 1)
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1648922954]
 layout_mode = 0
 offset_left = -2205.0
 offset_right = -205.0
 offset_bottom = 100.0
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1328896008]
 layout_mode = 0
@@ -320,6 +465,7 @@ offset_left = -2205.0
 offset_top = 100.0
 offset_right = -204.99878
 offset_bottom = 200.0
+color = Color(0.51718444, 0.5171845, 0.51718444, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1979328002]
 layout_mode = 0
@@ -327,6 +473,7 @@ offset_left = -2205.0
 offset_top = 199.90837
 offset_right = -205.00049
 offset_bottom = 299.9084
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1272388131]
 layout_mode = 0
@@ -334,13 +481,15 @@ offset_left = -2205.0
 offset_top = 300.0
 offset_right = -205.00244
 offset_bottom = 400.0
+color = Color(0.51718444, 0.5171845, 0.51718444, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=69962391]
 layout_mode = 0
 offset_left = -2205.0
 offset_top = 400.0
-offset_right = -204.99927
+offset_right = -204.99902
 offset_bottom = 500.0
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=752622378]
 layout_mode = 0
@@ -348,6 +497,7 @@ offset_left = -2205.0
 offset_top = 500.0
 offset_right = -204.99854
 offset_bottom = 600.0
+color = Color(0.51718444, 0.5171845, 0.51718444, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=423978635]
 layout_mode = 0
@@ -355,6 +505,7 @@ offset_left = -2205.0
 offset_top = 600.0
 offset_right = -205.00244
 offset_bottom = 700.0
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=603353770]
 layout_mode = 0
@@ -362,19 +513,7 @@ offset_left = -2205.0
 offset_top = 700.0
 offset_right = -204.99951
 offset_bottom = 800.0
-
-[node name="ColorRect8" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1346804784]
-layout_mode = 0
-offset_left = -2205.0
-offset_top = -100.0
-offset_right = -205.00146
-
-[node name="ColorRect9" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1685246883]
-layout_mode = 0
-offset_left = -2205.0
-offset_top = -200.0
-offset_right = -204.99976
-offset_bottom = -100.0
+color = Color(0.51718444, 0.5171845, 0.51718444, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="CanvasLayer/UI/AnimationOverlay" unique_id=1882738010]
 layout_mode = 0
@@ -382,6 +521,7 @@ offset_left = -2205.0
 offset_top = 800.0
 offset_right = -204.99902
 offset_bottom = 900.0
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI" unique_id=964604758 node_paths=PackedStringArray("main", "level_screen") groups=["Animator"]]
 libraries/ = SubResource("AnimationLibrary_pbw6q")
@@ -390,5 +530,5 @@ main = NodePath("../../..")
 level_screen = NodePath("../LevelScreen")
 activate = true
 
-[connection signal="pressed" from="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/Button" to="CanvasLayer/UI/LevelScreen" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="CanvasLayer/UI/LevelScreen" method="_on_play_pressed"]
 [connection signal="animation_finished" from="CanvasLayer/UI/AnimationPlayer" to="CanvasLayer/UI/AnimationPlayer" method="_on_animation_finished"]
