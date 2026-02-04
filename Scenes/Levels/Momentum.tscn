@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://d2p1nmbkfogfu"]
+
+[ext_resource type="PackedScene" uid="uid://bp4ot4t75mw16" path="res://Scenes/BaseLevel.tscn" id="1_cklyt"]
+[ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_bbf63"]
+[ext_resource type="PackedScene" uid="uid://c83kcii5cge5" path="res://Scenes/ShortRail.tscn" id="3_11pq3"]
+
+[node name="Level" unique_id=1515485159 instance=ExtResource("1_cklyt")]
+index = 3
+
+[node name="Player" parent="." index="4" unique_id=993666105]
+position = Vector2(-2086, -1033)
+
+[node name="Goal" parent="." index="6" unique_id=347924917]
+position = Vector2(-2082, -1196)
+
+[node name="LongRail2" parent="." index="7" unique_id=273301631 instance=ExtResource("2_bbf63")]
+position = Vector2(-2154.9998, -664)
+rotation = 1.5597284
+
+[node name="LongRail3" parent="." index="8" unique_id=209115544 instance=ExtResource("2_bbf63")]
+position = Vector2(-1957.0002, -230.0001)
+rotation = 0.7417594
+
+[node name="LongRail4" parent="." index="9" unique_id=1414895892 instance=ExtResource("2_bbf63")]
+position = Vector2(-1507, -60)
+
+[node name="LongRail5" parent="." index="10" unique_id=2036857155 instance=ExtResource("2_bbf63")]
+position = Vector2(-1006, -60)
+
+[node name="LongRail6" parent="." index="11" unique_id=1159794723 instance=ExtResource("2_bbf63")]
+position = Vector2(-496, -60)
+
+[node name="ShortRail" parent="." index="12" unique_id=1206965029 instance=ExtResource("3_11pq3")]
+position = Vector2(-208, -60)
+
+[node name="ShortRail2" parent="." index="13" unique_id=1938609536 instance=ExtResource("3_11pq3")]
+position = Vector2(-140, -75)
+rotation = -0.43633232
+
+[node name="ShortRail3" parent="." index="14" unique_id=2110785481 instance=ExtResource("3_11pq3")]
+position = Vector2(-85, -117)
+rotation = -0.87266463
+
+[node name="ShortRail4" parent="." index="15" unique_id=1505228364 instance=ExtResource("3_11pq3")]
+position = Vector2(-52.999996, -177.99998)
+rotation = -1.3089969
+
+[node name="ShortRail5" parent="." index="16" unique_id=699513439 instance=ExtResource("3_11pq3")]
+position = Vector2(-44, -245)
+rotation = -1.5707964
