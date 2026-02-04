@@ -8,5 +8,8 @@ func setup(with:LevelData):
 	# Set some labels somewhere using the data.
 	text = with.level_name
 
+func _process(delta: float) -> void: if data:
+	text = data.level_name + " - BEST: " + Global.time_as_display(data.best_time())
+
 func _other_selected(): disabled = false
 func  _this_selected(): disabled = true

@@ -56,19 +56,11 @@ rotation = 0.6981317
 position = Vector2(279, 39)
 rotation = 2.4486346
 
-[node name="LongRail14" parent="." index="17" unique_id=2021702591 instance=ExtResource("2_msm3a")]
-position = Vector2(514, -365)
-rotation = 1.7453293
-
-[node name="LongRail15" parent="." index="18" unique_id=227900782 instance=ExtResource("2_msm3a")]
-position = Vector2(433.00006, -826)
-rotation = 1.0471976
-
-[node name="LongRail10" parent="." index="19" unique_id=523359656 instance=ExtResource("2_msm3a")]
+[node name="LongRail10" parent="." index="17" unique_id=523359656 instance=ExtResource("2_msm3a")]
 position = Vector2(384, 555)
 
-[node name="LongRail11" parent="." index="20" unique_id=915853296 instance=ExtResource("2_msm3a")]
+[node name="LongRail11" parent="." index="18" unique_id=915853296 instance=ExtResource("2_msm3a")]
 position = Vector2(892, 555)
 
-[node name="LongRail12" parent="." index="21" unique_id=2122256474 instance=ExtResource("2_msm3a")]
+[node name="LongRail12" parent="." index="19" unique_id=2122256474 instance=ExtResource("2_msm3a")]
 position = Vector2(1395, 555)

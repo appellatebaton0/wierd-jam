@@ -1,6 +1,8 @@
 class_name RunTimer extends Label
 # Tracks how long the player has been in a level, and displays it.
 
+@onready var animator:Animator = get_tree().get_first_node_in_group("Animator")
+
 # Time in seconds
 var time := 0.0
 var paused = false
@@ -15,7 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	time += delta
+	if not animator.current_animation == "Game -> Level": time += delta
 	
 	text = Global.time_as_display(time)
 

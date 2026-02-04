@@ -96,13 +96,7 @@ func _on_level_selected(data:LevelData) -> void:
 	
 	level_title_lab.text = data.level_name
 	attempts_lab.text = "ATTEMPTS: " + str(len(data.attempts))
-	
-	var best_time := 0.0
-	for attempt in data.attempts:
-		if attempt.time < best_time or best_time == 0:
-			best_time = attempt.time
-	
-	best_time_lab.text = "BEST TIME: " + Global.time_as_display(best_time)
+	best_time_lab.text = "BEST TIME: " + Global.time_as_display(data.best_time())
 	
 	# Clear existing attempt entries and add in the real ones.
 	for child in attempt_box.get_children(): child.queue_free()

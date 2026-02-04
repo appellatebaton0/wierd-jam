@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 			# Choose the jump direction based on which is closer to that direction.
 			var jump_direction = closest([a,b], rail_to_player)
 			
-			velocity += jump_direction * jump_height
+			velocity += jump_direction * mag(velocity)
 			
 			jump_buffering = 0.0
 			

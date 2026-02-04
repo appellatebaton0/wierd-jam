@@ -16,3 +16,11 @@ class Attempt:
 	func _init() -> void:
 		time   = Global.run_timer.time
 		deaths = Global.run_timer.deaths
+
+func best_time() -> float:
+	var best = 5999.99
+	for attempt in attempts:
+		if attempt.time < best or best == 0.0:
+			best = attempt.time
+	
+	return best
