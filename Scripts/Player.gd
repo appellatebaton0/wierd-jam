@@ -27,6 +27,9 @@ func _physics_process(delta: float) -> void:
 	jump_buffering = move_toward(jump_buffering, 0, delta)
 	if Input.is_action_just_pressed("Jump"): jump_buffering = JUMP_BUFFER
 	
+	if snapped_to and velocity != direction * grind_speed:
+		print("! -> ", velocity)
+	
 	# Grinding
 	if snapped_to: 
 		velocity = direction * grind_speed
@@ -46,6 +49,8 @@ func _physics_process(delta: float) -> void:
 			velocity += jump_direction * jump_height
 			
 			jump_buffering = 0.0
+			
+			snapped_to = null
 	
 	# Freefall
 	else:
@@ -57,10 +62,13 @@ func _physics_process(delta: float) -> void:
 	if not DEBUG: rotation += deg_to_rad(sqrt(pow(velocity.x,2) + pow(velocity.y, 2)) / 40)
 	
 	move_and_slide()
+	
+	%Label.rotation = -rotation
+	%Label.text = str(snapped_to)
 
 func _on_rail_enter(rail:Node2D): 
 	if   rail is DeathRail: Global.reset_level.emit() # Die.
-	elif rail is Rail:      snap_to(rail) # Snap to this rail.
+	elif rail is Rail: snap_to(rail) # Snap to this rail.
 func _on_rail_exit (rail:Node2D): if snapped_to == rail: snapped_to = null
 
 func snap_to(rail:Rail):

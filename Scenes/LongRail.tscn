@@ -5,28 +5,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u1rq"]
 size = Vector2(512, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n6a2"]
-size = Vector2(512, 48)
-
 [node name="LongRail" type="CharacterBody2D" unique_id=1357488898]
 collision_mask = 0
 script = ExtResource("1_1u1rq")
 
 [node name="Poly" type="Polygon2D" parent="." unique_id=18666168]
-color = Color(0.61, 0.61, 0.61, 1)
+color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745674482]
 shape = SubResource("RectangleShape2D_1u1rq")
-debug_color = Color(0, 0.5950001, 0.7, 0)
-
-[node name="RailSnap" type="Area2D" parent="." unique_id=12025911]
-unique_name_in_owner = true
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RailSnap" unique_id=567593294]
-shape = SubResource("RectangleShape2D_2n6a2")
 debug_color = Color(0, 0.5950001, 0.7, 0)
 
 [node name="Label" type="Label" parent="." unique_id=199043349]

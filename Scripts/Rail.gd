@@ -8,12 +8,6 @@ class_name Rail extends CharacterBody2D
 
 @onready var player:Player = get_tree().get_first_node_in_group("Player")
 
-@onready var rail_snap := get_rail_snap()
-func get_rail_snap() -> Area2D:
-	for child in get_children():
-		if child is Area2D: return child
-	return null
-
 ## TRANSFORMS
 
 const TRANSFORM = preload("res://Scenes/Transform.tscn")
@@ -55,8 +49,21 @@ func _ready() -> void:
 		
 		Global.reset_level.connect(_on_reset)
 		_on_reset()
+		
+		rail_snap.body_entered.connect(_on_player_ente)
+		rail_snap.body_exited.connect(_on_player_exit)
+
+func _on_player_ente(player:Node2D): if player is Player: player._on_rail_enter(self)
+func _on_player_exit(player:Node2D): if player is Player: player._on_rail_exit(self)
 
 func _physics_process(delta: float) -> void:
+	
+	for child in get_children(): if child is Area2D: 
+		var unre := EditorInterface.get_editor_undo_redo()
+		
+		unre.create_action("NO.")
+		unre.add_do_method(child, "queue_free")
+		unre.commit_action()
 	
 	# IF anything's gone wrong or this just shouldn't be done, then don't do it.
 	if Engine.is_editor_hint(): return
