@@ -9,4 +9,5 @@ func _on_body_entered(body: Node2D) -> void: if body is Player: # It should alwa
 	
 	animator._end_level()
 	
+	%Touch.emitting = true	
 	pass

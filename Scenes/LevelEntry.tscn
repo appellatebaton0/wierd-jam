@@ -3,10 +3,21 @@
 [ext_resource type="Script" uid="uid://b8f7djd6nvqag" path="res://Scripts/LevelEntry.gd" id="1_re8m5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re8m5"]
-bg_color = Color(0.32915837, 0.3291584, 0.32915837, 1)
+bg_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyg08"]
+bg_color = Color(0.27569968, 0.27569968, 0.27569965, 1)
+border_width_left = 20
+border_color = Color(0.38928655, 0.38928664, 0.38928658, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lbfu"]
+bg_color = Color(0.45064855, 0.45064825, 0.45064813, 1)
+border_width_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxhfk"]
 bg_color = Color(0.23753902, 0.23753917, 0.23753902, 1)
+border_width_left = 20
+border_color = Color(0.30507714, 0.30507717, 0.30507708, 1)
 
 [node name="LevelEntry" type="Button" unique_id=502237417]
 custom_minimum_size = Vector2(0, 50)
@@ -17,6 +28,8 @@ focus_mode = 0
 theme_override_colors/font_color = Color(0.73333335, 0.73333335, 0.73333335, 1)
 theme_override_colors/font_disabled_color = Color(0.5372549, 0.5372549, 0.5372549, 0.32941177)
 theme_override_styles/normal = SubResource("StyleBoxFlat_re8m5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nyg08")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6lbfu")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_jxhfk")
 text = "LEVELNAME"
 script = ExtResource("1_re8m5")

@@ -48,6 +48,7 @@ fill_to = Vector2(0.6495727, 0.7307692)
 radius = 30.0
 
 [node name="Player" type="CharacterBody2D" unique_id=993666105 groups=["Player"]]
+z_index = 1
 rotation = 3.1381004
 collision_layer = 2
 collision_mask = 5
