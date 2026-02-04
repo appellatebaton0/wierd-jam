@@ -336,20 +336,21 @@ func update_today_time(wakatime_cli) -> void:
 	# Get today's time from Hackatime
 	var exit_code: int = OS.execute("curl", ["-H", "Authorization: Bearer " + get_api_key(), "https://hackatime.hackclub.com/api/v1/users/my/stats?start_date="+Time.get_date_string_from_system()+"T06:00:00Z&features=projects&limit=100"], output)
 
-	output = JSON.parse_string(output[0]) # Parse it into a dictionary
-	
-	# Convert it and combine different categories into
-	if exit_code == 0:
-		current_time = convert_time(find_project_time(output["data"]["projects"]))
-	else:
-		current_time = "Wakatime"
-	
-	# print("upd time to: " + current_time)
-	# print("real: ", output)
-	var resp = []
-	OS.execute(wakatime_cli, ["--help"], resp, true)
-	# print("log: ", resp[0])
-	call_deferred("_update_panel_label", current_time, current_time)
+	if output[0] != "":
+		output = JSON.parse_string(output[0]) # Parse it into a dictionary
+		
+		# Convert it and combine different categories into
+		if exit_code == 0:
+			current_time = convert_time(find_project_time(output["data"]["projects"]))
+		else:
+			current_time = "Wakatime"
+		
+		# print("upd time to: " + current_time)
+		# print("real: ", output)
+		var resp = []
+		OS.execute(wakatime_cli, ["--help"], resp, true)
+		# print("log: ", resp[0])
+		call_deferred("_update_panel_label", current_time, current_time)
 
 func find_project_time(from) -> String:
 	# Find the time for the current project from a list of all projects.

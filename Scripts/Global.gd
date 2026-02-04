@@ -2,6 +2,7 @@ extends Node
 
 @warning_ignore("unused_signal")
 signal reset_level # Resets the level. (Duh.)
+signal loaded_level # Emitted when a new level is loaded.
 
 var run_timer:RunTimer
 

@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	for child in get_children(): if child is ColorRect: 
 		rects.append(child)
-		rect_seeds.append(randf_range(-2, -2.25))
+		rect_seeds.append(randf_range(-3, -1.25))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

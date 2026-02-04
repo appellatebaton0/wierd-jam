@@ -64,7 +64,7 @@ func create_attempt_from(data:LevelData, index:int) -> void:
 	
 	attempt_box.add_child(new)
 	
-	new.text = "ATTEMPT %s | TIME %s | DEATHS %s" % [index, Global.time_as_display(attempt.time), Global.digi(attempt.deaths)]
+	new.text = "ATTEMPT %s | TIME %s | DEATHS %s" % [index + 1, Global.time_as_display(attempt.time), Global.digi(attempt.deaths)]
 
 func _on_level_selected(data:LevelData) -> void:
 	

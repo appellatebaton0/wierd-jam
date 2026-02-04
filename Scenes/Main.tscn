@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bekv7j6pldbj" path="res://Scripts/Animator.gd" id="3_kln2b"]
 [ext_resource type="Script" uid="uid://b8n7go8ccxjco" path="res://Scripts/AnimationOverlay.gd" id="3_rgh2o"]
 [ext_resource type="Script" uid="uid://2fbsksjmy0sx" path="res://Scripts/RunTimer.gd" id="7_jw32o"]
-[ext_resource type="Script" uid="uid://kq22o1w8r82l" path="res://Scripts/LevelScreeen.gd" id="8_vy5pj"]
+[ext_resource type="Script" uid="uid://kq22o1w8r82l" path="res://Scripts/LevelScreen.gd" id="8_vy5pj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kln2b"]
 
@@ -383,10 +383,11 @@ offset_top = 800.0
 offset_right = -204.99902
 offset_bottom = 900.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI" unique_id=964604758 node_paths=PackedStringArray("main") groups=["Animator"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI" unique_id=964604758 node_paths=PackedStringArray("main", "level_screen") groups=["Animator"]]
 libraries/ = SubResource("AnimationLibrary_pbw6q")
 script = ExtResource("3_kln2b")
 main = NodePath("../../..")
+level_screen = NodePath("../LevelScreen")
 activate = true
 
 [connection signal="pressed" from="CanvasLayer/UI/LevelScreen/HBoxContainer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/Button" to="CanvasLayer/UI/LevelScreen" method="_on_play_pressed"]

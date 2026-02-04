@@ -4,6 +4,8 @@ class_name Animator extends AnimationPlayer
 # Where to put levels.
 @export var main:Node
 
+@export var level_screen:LevelScreen
+
 var current_level_data:LevelData
 var current_level_instance:Node
 
@@ -32,9 +34,13 @@ func _on_activate(to:bool) -> void: if to:
 			main.add_child(level)
 			
 			current_level_instance = level
+			
+			Global.loaded_level.emit()
 		"Level End":
 			current_level_data.store_attempt()
 			
 			current_level_instance.queue_free()
 			current_level_instance = null
+			
+			level_screen._on_level_selected(current_level_data)
 	

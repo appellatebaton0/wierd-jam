@@ -10,6 +10,7 @@ var deaths := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.reset_level.connect(_on_reset)
+	Global.loaded_level.connect(_on_level_loaded)
 	Global.run_timer = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,5 +27,6 @@ func _on_reset() -> void:
 	deaths += 1
 
 # NOTE: NOT HOOKED UP.
-func _on_level_selected() -> void:
+func _on_level_loaded() -> void:
+	time = 0
 	deaths = 0
