@@ -44,13 +44,18 @@ func load_levels() -> void:
 	
 	var ran = range(len(files))
 	var index = 0
-	while len(files) > 0 and index < 100:
-		for file in files:
-			var instance = load(LEVEL_PATH + file).instantiate()
-			
-			print(instance)
-			if instance is Level: if instance.index == index: 
-				real_files.append(files.pop_at(files.find(file)))
+	
+	var instances:Array[Level]
+	for file in files: instances.append(load(LEVEL_PATH + file).instantiate())
+	
+	while len(files) > 0: 
+		for level in instances:
+			if level.index == index: 
+				var i = instances.find(level)
+				
+				instances.pop_at(i)
+				
+				real_files.append(files.pop_at(i))
 		
 		index += 1
 	
