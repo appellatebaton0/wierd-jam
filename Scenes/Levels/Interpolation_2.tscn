@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://bbpyaeereun6f"]
+
+[ext_resource type="PackedScene" uid="uid://bp4ot4t75mw16" path="res://Scenes/BaseLevel.tscn" id="1_fu5aq"]
+[ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_su475"]
+[ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="3_85guk"]
+[ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="4_oun06"]
+
+[node name="Level" unique_id=1515485159 instance=ExtResource("1_fu5aq")]
+index = 6
+
+[node name="Polygon2D" parent="Parallax2D2" parent_id_path=PackedInt32Array(1941711672) index="0" unique_id=1754250498]
+polygon = PackedVector2Array(7500, -1500, 7500, 1500, -7500, 1500, -7500, -1500, -7500, -1290.6558, -7236.2866, -1646.123, -7063.3535, -1356.6499, -6684.4995, -1696.3662, -6542.3896, -1323.2549, -6311.012, -1684.4492, -5998.496, -1326.8866, -5630.294, -1706.4214, -5391.2056, -1250.17, -5137.8975, -1629.4845, -4970.2637, -1350.1543, -4795.2363, -1642.778, -4565.8633, -1392.118, -4327.9785, -1669.7278, -3986.5686, -1275.1516, -3773.5647, -1672.1967, -3578.7207, -1285.7915, -3377.3772, -1692.9928, -3145.0093, -1380.578, -2973.878, -1741.2307, -2649.9373, -1391.0828, -2335.6667, -1669.7843, -2089.2622, -1250.942, -1952.0479, -1719.595, -1610.8793, -1381.6978, -1485.3586, -1710.4717, -1158.67, -1386.1261, -872.8975, -1652.5575, -598.38385, -1314.6635, -368.61896, -1636.2993, -134.51901, -1381.4365, 13.312221, -1627.5342, 288.69498, -1287.8307, 601.6071, -1654.311, 1000.59717, -1366.8132, 1146.5071, -1734.6478, 1464.9915, -1337.2742, 1753.7662, -1650.0573, 1936.7926, -1281.9331, 2138.0876, -1626.5992, 2267.1833, -1322.7952, 2624.5837, -1701.9136, 2875.4053, -1300.3761, 3047.56, -1716.7081, 3192.1892, -1379.954, 3385.2893, -1649.0227, 3550.685, -1367.873, 3855.2466, -1611.2338, 4052.9377, -1293.907, 4225.497, -1641.2059, 4539.6196, -1348.835, 4857.0146, -1741.715, 5159.705, -1334.893, 5434.225, -1735.6354, 5679.781, -1337.3544, 5924.4907, -1716.3123, 6071.0166, -1398.9719, 6314.289, -1737.8513, 6560.1597, -1300.345, 6929.8267, -1706.18, 7263.9956, -1394.8717)
+
+[node name="Polygon2D" parent="Parallax2D" parent_id_path=PackedInt32Array(27294607) index="0" unique_id=1216577211]
+position = Vector2(-34, 1427)
+polygon = PackedVector2Array(7500, -1500, 7500, 1500, -7500, 1500, -7500, -1500, -7500, -1281.1564, -7226.4634, -1630.2003, -6923.3003, -1319.733, -6688.9814, -1717.7554, -6487.4756, -1346.2021, -6169.2686, -1718.7626, -5777.8657, -1369.3785, -5441.368, -1732.6886, -5130.1113, -1321.3071, -4857.9507, -1676.6183, -4550.9097, -1326.8864, -4254.9517, -1643.4719, -4048.9575, -1309.8391, -3741.8997, -1639.2709, -3543.8384, -1380.7947, -3183.5044, -1654.4781, -2852.2405, -1291.1705, -2634.746, -1619.5809, -2492.5225, -1398.0833, -2182.5083, -1666.3704, -1838.9976, -1306.409, -1567.6327, -1711.7142, -1303.9772, -1282.1766, -1044.2236, -1601.0238, -781.45465, -1304.8549, -415.28717, -1728.0084, -258.12668, -1344.4668, 4.127305, -1659.493, 126.87854, -1264.3584, 287.9433, -1669.8956, 484.3102, -1375.3529, 855.5288, -1664.5051, 1092.6903, -1286.2452, 1214.1094, -1689.908, 1472.1874, -1347.496, 1798.1879, -1744.9457, 2083.6416, -1328.6211, 2437.6025, -1706.8408, 2657.24, -1315.9774, 2868.489, -1678.1877, 3069.188, -1308.3927, 3326.3652, -1711.7996, 3517.7588, -1358.8022, 3856.4575, -1642.3447, 4062.837, -1328.4846, 4393.2534, -1673.3745, 4640.654, -1303.2885, 5012.65, -1708.6664, 5259.2876, -1285.9802, 5568.9043, -1727.1952, 5779.8896, -1369.2827, 6151.2544, -1736.0917, 6496.7227, -1325.6671, 6668.5913, -1626.4841, 6913.9937, -1392.442, 7123.8223, -1663.2596, 7488.0464, -1302.9221)
+
+[node name="Polygon2D" parent="Parallax2D3" parent_id_path=PackedInt32Array(291028766) index="0" unique_id=1980736197]
+polygon = PackedVector2Array(7500, -1500, 7500, 1500, -7500, 1500, -7500, -1500, -7500, -1312.999, -7327.41, -1665.4414, -7023.484, -1303.2607, -6821.6016, -1682.658, -6648.26, -1297.2318, -6260.8833, -1741.7078, -6019.6924, -1294.2062, -5824.755, -1728.8776, -5653.498, -1250.3455, -5261.8467, -1652.2695, -4922.971, -1290.2449, -4691.81, -1701.549, -4521.962, -1265.1411, -4185.504, -1657.6791, -3999.2644, -1277.727, -3839.14, -1678.1272, -3564.6753, -1282.9675, -3320.9702, -1720.387, -3160.096, -1320.4619, -2963.8225, -1730.0798, -2638.7393, -1347.7501, -2497.5105, -1618.5146, -2126.6519, -1251.9478, -1930.7668, -1676.8585, -1781.0514, -1311.9501, -1617.7059, -1600.9733, -1452.7736, -1397.0226, -1215.3126, -1691.5428, -892.3733, -1311.9755, -577.4198, -1716.0028, -390.4268, -1294.3328, -228.92075, -1730.4756, 127.814384, -1310.3689, 397.3161, -1653.2471, 772.0029, -1287.0724, 1076.5387, -1713.7966, 1233.991, -1257.0293, 1559.3214, -1669.1993, 1877.314, -1274.8967, 2165.4836, -1678.305, 2482.3416, -1320.8649, 2864.385, -1607.7601, 2986.915, -1371.9712, 3176.4375, -1699.3987, 3438.6758, -1258.5505, 3689.9226, -1683.1144, 3999.9233, -1377.5194, 4321.886, -1612.0695, 4583.3267, -1379.2186, 4933.863, -1697.8854, 5285.7905, -1391.8557, 5470.8438, -1600.1083, 5757.592, -1359.2213, 6073.77, -1715.9647, 6267.371, -1347.1589, 6589.246, -1712.075, 6783.0293, -1272.2441, 6985.021, -1722.8566, 7364.749, -1339.5198)
+
+[node name="Player" parent="." index="5" unique_id=993666105]
+position = Vector2(-2055.0005, 173.99994)
+
+[node name="Goal" parent="." index="7" unique_id=347924917]
+position = Vector2(355, 725)
+
+[node name="LongRail" parent="." index="8" unique_id=1357488898 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
+position = Vector2(-2077, 461)
+rotation = 0.73183453
+points = [NodePath("Point 0"), NodePath("Point 1"), NodePath(""), NodePath("Point 2"), NodePath("Point 4")]
+initial_wait = 1.4
+
+[node name="Point 0" type="Polygon2D" parent="LongRail" index="3" unique_id=616858566 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+next_wait = 1.5
+pos = Vector2(-2077, 461)
+rot = 0.73183453
+
+[node name="Point 1" type="Polygon2D" parent="LongRail" index="4" unique_id=329234996 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(856.30347, -1165.6865)
+rotation = 0.8527091
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+next_wait = 2.0
+pos = Vector2(-661, 166.00018)
+rot = 1.5845437
+
+[node name="Point 2" type="Polygon2D" parent="LongRail" index="5" unique_id=1692318207 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(670.29364, -1354.8146)
+rotation = -0.72854
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+pos = Vector2(-673, -99)
+rot = 0.0032945038
+
+[node name="Point 4" type="Polygon2D" parent="LongRail" index="6" unique_id=1676443346 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(1656.6997, -1182.964)
+rotation = -0.045091838
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+pos = Vector2(-54, 687.9999)
+rot = 0.6867427
+
+[node name="LongRail2" parent="." index="9" unique_id=326905385 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
+position = Vector2(-1642, 629)
+points = [NodePath("Point 0"), NodePath("Point 1"), NodePath(""), NodePath("Point 3")]
+initial_wait = 2.0
+
+[node name="Point 0" type="Polygon2D" parent="LongRail2" index="3" unique_id=1260706922 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+next_wait = 1.5
+pos = Vector2(-1642, 629)
+
+[node name="Point 1" type="Polygon2D" parent="LongRail2" index="4" unique_id=1486735535 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(87, -438)
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+next_wait = 2.0
+pos = Vector2(-1555, 191)
+
+[node name="Point 3" type="Polygon2D" parent="LongRail2" index="5" unique_id=1954433610 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(1617, -1102)
+rotation = 0.8283926
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+pos = Vector2(-25, -473)
+rot = 0.82839257
+
+[node name="LongRail3" parent="." index="10" unique_id=1736850549 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
+position = Vector2(-1144, 629)
+points = [NodePath("Point 0"), NodePath("Point 1"), NodePath(""), NodePath(""), NodePath("Point 4")]
+initial_wait = 2.4
+
+[node name="Point 0" type="Polygon2D" parent="LongRail3" index="3" unique_id=337043735 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+next_wait = 2.0
+pos = Vector2(-1144, 629)
+
+[node name="Point 1" type="Polygon2D" parent="LongRail3" index="4" unique_id=1350068152 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(-894, -860.99994)
+rotation = 1.5652223
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+next_wait = 2.0
+pos = Vector2(-2038, -231.99994)
+rot = 1.5652223
+
+[node name="Point 4" type="Polygon2D" parent="LongRail3" index="5" unique_id=716070174 instance=ExtResource("3_85guk")]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(1259.0002, -399)
+rotation = 1.8958097
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
+script = ExtResource("4_oun06")
+pos = Vector2(115.000244, 230)
+rot = 1.8958097

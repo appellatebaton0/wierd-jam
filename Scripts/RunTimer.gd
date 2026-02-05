@@ -21,14 +21,14 @@ func _process(delta: float) -> void:
 	
 	text = Global.time_as_display(time)
 
-
-
 # Reset the timer when the player dies.
 func _on_reset() -> void: 
+	print("RESET")
 	time = 0
 	deaths += 1
 
 # NOTE: NOT HOOKED UP.
 func _on_level_loaded() -> void:
+	print("LEVEL LOAD")
 	time = 0
 	deaths = 0
