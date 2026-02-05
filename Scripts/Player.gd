@@ -89,7 +89,7 @@ func closest(of:Array[Vector2], compared_to:Vector2):
 	var best_dot:float
 	
 	for vec2 in of:
-		var vec_dot := vec2.dot(compared_to)
+		var vec_dot := vec2.normalized().dot(compared_to)
 		
 		# IF the best doesn't exist, or this is better than that.
 		if not best or vec_dot > best_dot:
@@ -111,6 +111,8 @@ func _draw() -> void:
 	if not DEBUG: return
 	# Debug lines to show the direction and plane parallel. NOTE: Doesn't show correctly with rotation.
 	draw_line(Vector2.ZERO, -direction * 250, Color.RED, 15) 
+	
+	draw_line(Vector2.ZERO, -velocity.normalized() * 250, Color.AQUA, 10)
 	
 	if snapped_to:
 		# Get the two options for jump directions. (Perpendiculars to current dir).
