@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c8owosjuwdc1g" path="res://Scenes/MediumRail.tscn" id="3_7o0bt"]
 
 [node name="Level" unique_id=1515485159 instance=ExtResource("1_d8lem")]
-index = 5
+index = 3
 
 [node name="Player" parent="." index="5" unique_id=993666105]
 position = Vector2(-263, -182.00006)
@@ -83,6 +83,10 @@ rotation = 0.42413715
 position = Vector2(285, 736)
 rotation = 0.109984174
 
-[node name="MediumRail7" parent="." index="27" unique_id=99596974 instance=ExtResource("3_7o0bt")]
-position = Vector2(547.00006, -1047)
-rotation = 0.46212757
+[node name="LongRail10" parent="." index="27" unique_id=41721441 instance=ExtResource("2_aus6k")]
+position = Vector2(570, -1065)
+rotation = 0.40214676
+
+[node name="LongRail15" parent="." index="28" unique_id=1240439462 instance=ExtResource("2_aus6k")]
+position = Vector2(295, -1318.0001)
+rotation = 2.8809845
