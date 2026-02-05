@@ -4,9 +4,14 @@ class_name Camera extends Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	
+	Global.reset_level.connect(_on_reset)
+	_on_reset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	global_position = lerp(global_position, player.global_position + (0.2 * player.velocity), 0.1)
+	global_position = lerp(global_position, player.global_position + (0.3 * player.velocity), 0.09)
+
+func _on_reset():
+	print("R")
+	global_position = player.global_position

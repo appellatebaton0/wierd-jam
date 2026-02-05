@@ -2,6 +2,34 @@
 
 [ext_resource type="Script" uid="uid://bhc2qeqhghvs3" path="res://Scripts/Goal.gd" id="1_7hjqj"]
 
+[sub_resource type="Gradient" id="Gradient_7hjqj"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.85, 0.85, 0.85, 0.4)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ugxcw"]
+gradient = SubResource("Gradient_7hjqj")
+width = 32
+height = 32
+
+[sub_resource type="Curve" id="Curve_kmleq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.10942249, 1), 0.0, 0.0, 0, 0, Vector2(0.5851064, 0.7485269), -1.1981006, -1.1981006, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_hlgd5"]
+curve = SubResource("Curve_kmleq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fn8i1"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 465.84
+initial_velocity_max = 903.0
+orbit_velocity_min = 0.0660001
+orbit_velocity_max = 0.1970001
+gravity = Vector3(0, 0, 0)
+damping_min = 20.0
+damping_max = 20.0
+alpha_curve = SubResource("CurveTexture_hlgd5")
+
 [sub_resource type="Shader" id="Shader_ttkpa"]
 code = "shader_type canvas_item;
 
@@ -99,34 +127,20 @@ alpha_curve = SubResource("CurveTexture_l0ixq")
 [sub_resource type="CircleShape2D" id="CircleShape2D_6nn83"]
 radius = 45.044422
 
-[sub_resource type="Gradient" id="Gradient_7hjqj"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.85, 0.85, 0.85, 0.4)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ugxcw"]
-gradient = SubResource("Gradient_7hjqj")
-width = 32
-height = 32
-
-[sub_resource type="Curve" id="Curve_kmleq"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.10942249, 1), 0.0, 0.0, 0, 0, Vector2(0.5851064, 0.7485269), -1.1981006, -1.1981006, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_hlgd5"]
-curve = SubResource("Curve_kmleq")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fn8i1"]
-particle_flag_disable_z = true
-spread = 180.0
-initial_velocity_min = 106.56
-initial_velocity_max = 301.91
-gravity = Vector3(0, 0, 0)
-alpha_curve = SubResource("CurveTexture_hlgd5")
-
 [node name="Goal" type="Area2D" unique_id=347924917]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_7hjqj")
+
+[node name="Touch" type="GPUParticles2D" parent="." unique_id=1138650792]
+unique_name_in_owner = true
+emitting = false
+amount = 128
+texture = SubResource("GradientTexture2D_ugxcw")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_fn8i1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2032600080]
 material = SubResource("ShaderMaterial_gipfo")
@@ -142,13 +156,5 @@ process_material = SubResource("ParticleProcessMaterial_ttkpa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2116650374]
 shape = SubResource("CircleShape2D_6nn83")
-
-[node name="Touch" type="GPUParticles2D" parent="." unique_id=1138650792]
-unique_name_in_owner = true
-amount = 32
-texture = SubResource("GradientTexture2D_ugxcw")
-lifetime = 1.5
-explosiveness = 0.8
-process_material = SubResource("ParticleProcessMaterial_fn8i1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

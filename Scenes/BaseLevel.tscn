@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://dsu8ksqadgaqx" path="res://Scenes/Player.tscn" id="3_vwn5f"]
 [ext_resource type="Script" uid="uid://5v4fcc34jkgn" path="res://Scripts/DeathBorder.gd" id="6_3o770"]
 [ext_resource type="PackedScene" uid="uid://b40yvgijtwdv0" path="res://Scenes/Goal.tscn" id="7_6nn83"]
+[ext_resource type="Script" uid="uid://bd2htsg8qu1b0" path="res://Scripts/PlayerTrail.gd" id="7_yqp1w"]
+
+[sub_resource type="Curve" id="Curve_yqp1w"]
+_data = [Vector2(0, 1), 0.0, -0.8429971, 0, 0, Vector2(0.99081373, 0.020764232), -0.92043436, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_yqp1w"]
+colors = PackedColorArray(1, 1, 1, 0.76608187, 1, 1, 1, 0.19824052)
 
 [node name="Level" type="Node" unique_id=1515485159]
 script = ExtResource("1_1hb7a")
@@ -58,6 +66,17 @@ spike_range_x_max = 400.0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1231667601]
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("2_6nn83")
+
+[node name="PlayerTrail" type="Line2D" parent="." unique_id=2010338108]
+points = PackedVector2Array(-313, 239)
+width = 40.0
+width_curve = SubResource("Curve_yqp1w")
+default_color = Color(1, 1, 1, 0.28235295)
+gradient = SubResource("Gradient_yqp1w")
+joint_mode = 2
+script = ExtResource("7_yqp1w")
+count = 32
+lerp_amount = 0.5
 
 [node name="Player" parent="." unique_id=993666105 instance=ExtResource("3_vwn5f")]
 position = Vector2(217, -906)

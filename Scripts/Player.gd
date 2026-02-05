@@ -28,6 +28,8 @@ func _physics_process(delta: float) -> void:
 	jump_buffering = move_toward(jump_buffering, 0, delta)
 	if Input.is_action_just_pressed("Jump"): jump_buffering = JUMP_BUFFER
 	
+	velocity += get_gravity() * delta
+	
 	# Grinding
 	if snapped_to:
 		velocity = direction * max(grind_speed, on_snap_mag)
@@ -52,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Freefall
 	else:
-		velocity += get_gravity() * delta
+		
 		
 		# Set the current direction to the velocity (automatically normalized).
 		direction = velocity

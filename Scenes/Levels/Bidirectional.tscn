@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cae3vv3qbxj80"]
+
+[ext_resource type="PackedScene" uid="uid://bp4ot4t75mw16" path="res://Scenes/BaseLevel.tscn" id="1_1offj"]
+[ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_1kulb"]
+[ext_resource type="PackedScene" uid="uid://c83kcii5cge5" path="res://Scenes/ShortRail.tscn" id="3_ukn1q"]
+
+[node name="Level" unique_id=1515485159 instance=ExtResource("1_1offj")]
+index = 4
+
+[node name="Player" parent="." index="5" unique_id=993666105]
+position = Vector2(-1239, -629.00006)
+
+[node name="Goal" parent="." index="7" unique_id=347924917]
+position = Vector2(938, -92)
+
+[node name="LongRail" parent="." index="8" unique_id=1357488898 instance=ExtResource("2_1kulb")]
+position = Vector2(-1240, -101.99997)
+rotation = 0.7853982
+
+[node name="LongRail2" parent="." index="9" unique_id=821557253 instance=ExtResource("2_1kulb")]
+position = Vector2(-816, 75)
+
+[node name="LongRail3" parent="." index="10" unique_id=648219631 instance=ExtResource("2_1kulb")]
+position = Vector2(-313, 75)
+
+[node name="LongRail4" parent="." index="11" unique_id=609312977 instance=ExtResource("2_1kulb")]
+position = Vector2(175, -19.999996)
+rotation = -0.38925168
+
+[node name="LongRail5" parent="." index="12" unique_id=805483998 instance=ExtResource("2_1kulb")]
+position = Vector2(707, -109)
+rotation = 1.5707964
+
+[node name="LongRail6" parent="." index="13" unique_id=1725461868 instance=ExtResource("2_1kulb")]
+position = Vector2(707, -555)
+rotation = 1.5707964
+
+[node name="LongRail7" parent="." index="14" unique_id=1218246099 instance=ExtResource("2_1kulb")]
+position = Vector2(707, 181)
+rotation = 1.5707964
+
+[node name="ShortRail" parent="." index="15" unique_id=1518621753 instance=ExtResource("3_ukn1q")]
+position = Vector2(690, -826.99994)
+rotation = 0.87266463
+
+[node name="ShortRail2" parent="." index="16" unique_id=1443651364 instance=ExtResource("3_ukn1q")]
+position = Vector2(648, -852)
+rotation = 0.17453292
+
+[node name="ShortRail4" parent="." index="17" unique_id=332057658 instance=ExtResource("3_ukn1q")]
+position = Vector2(722, 447.99997)
+rotation = 0.87266463
+
+[node name="ShortRail5" parent="." index="18" unique_id=1146659835 instance=ExtResource("3_ukn1q")]
+position = Vector2(764, 473)
+rotation = 0.17453292
+
+[node name="ShortRail6" parent="." index="19" unique_id=525021814 instance=ExtResource("3_ukn1q")]
+position = Vector2(812, 465)
+rotation = -0.5235988
+
+[node name="ShortRail7" parent="." index="20" unique_id=922344796 instance=ExtResource("3_ukn1q")]
+position = Vector2(844, 428.00003)
+rotation = -1.2217305
+
+[node name="ShortRail8" parent="." index="21" unique_id=1994786896 instance=ExtResource("3_ukn1q")]
+position = Vector2(843.99994, 379.00003)
+rotation = -1.9198622
+
+[node name="Label" type="Label" parent="." index="22" unique_id=1747749717]
+offset_left = 82.0
+offset_top = -354.0
+offset_right = 380.0
+offset_bottom = -241.0
+theme_override_font_sizes/font_size = 40
+text = "HIT THE WALL 
+[WHILE FALLING]"
+horizontal_alignment = 1
