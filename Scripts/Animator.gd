@@ -3,7 +3,6 @@ class_name Animator extends AnimationPlayer
 
 # Where to put levels.
 @export var main:Node
-
 @export var level_screen:LevelScreen
 
 var current_level_data:LevelData

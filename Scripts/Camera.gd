@@ -13,5 +13,4 @@ func _process(_delta: float) -> void:
 	global_position = lerp(global_position, player.global_position + (0.3 * player.velocity), 0.09)
 
 func _on_reset():
-	print("R")
 	global_position = player.global_position

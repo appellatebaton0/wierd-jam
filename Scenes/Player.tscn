@@ -45,7 +45,7 @@ height = 48
 fill_to = Vector2(0.6495727, 0.7307692)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
-radius = 30.0
+radius = 34.0
 
 [node name="Player" type="CharacterBody2D" unique_id=993666105 groups=["Player"]]
 z_index = 1

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://c7n08ptqkc217"]
+
+[ext_resource type="PackedScene" uid="uid://bp4ot4t75mw16" path="res://Scenes/BaseLevel.tscn" id="1_d8lem"]
+[ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_aus6k"]
+[ext_resource type="PackedScene" uid="uid://c8owosjuwdc1g" path="res://Scenes/MediumRail.tscn" id="3_7o0bt"]
+
+[node name="Level" unique_id=1515485159 instance=ExtResource("1_d8lem")]
+index = 5
+
+[node name="Player" parent="." index="5" unique_id=993666105]
+position = Vector2(-263, -182.00006)
+
+[node name="Goal" parent="." index="7" unique_id=347924917]
+position = Vector2(1756, -204)
+
+[node name="LongRail" parent="." index="8" unique_id=1357488898 instance=ExtResource("2_aus6k")]
+position = Vector2(26.999985, 454)
+rotation = 0.38397244
+
+[node name="LongRail13" parent="." index="9" unique_id=1569164298 instance=ExtResource("2_aus6k")]
+position = Vector2(-300, 130)
+rotation = 1.1868238
+
+[node name="LongRail2" parent="." index="10" unique_id=699260705 instance=ExtResource("2_aus6k")]
+position = Vector2(502, 547)
+
+[node name="LongRail3" parent="." index="11" unique_id=1996953324 instance=ExtResource("2_aus6k")]
+position = Vector2(642, 547)
+
+[node name="LongRail5" parent="." index="12" unique_id=358550064 instance=ExtResource("2_aus6k")]
+position = Vector2(1147, 547)
+
+[node name="MediumRail" parent="." index="13" unique_id=1479337559 instance=ExtResource("3_7o0bt")]
+position = Vector2(1478, 501.00006)
+rotation = -0.5235988
+
+[node name="MediumRail2" parent="." index="14" unique_id=1484732383 instance=ExtResource("3_7o0bt")]
+position = Vector2(1603.0001, 376.00003)
+rotation = -1.0471976
+
+[node name="LongRail6" parent="." index="15" unique_id=853012036 instance=ExtResource("2_aus6k")]
+position = Vector2(1649, 45)
+rotation = 1.5707964
+
+[node name="LongRail7" parent="." index="16" unique_id=162837146 instance=ExtResource("2_aus6k")]
+position = Vector2(1378, -339)
+rotation = 1.5707964
+
+[node name="MediumRail3" parent="." index="17" unique_id=1544814590 instance=ExtResource("3_7o0bt")]
+position = Vector2(1333.0001, -670.00006)
+rotation = 1.0471976
+
+[node name="MediumRail4" parent="." index="18" unique_id=1340363652 instance=ExtResource("3_7o0bt")]
+position = Vector2(1209, -793.99994)
+rotation = 0.5235988
+
+[node name="LongRail8" parent="." index="19" unique_id=301702888 instance=ExtResource("2_aus6k")]
+position = Vector2(878, -840)
+
+[node name="LongRail9" parent="." index="20" unique_id=1056798421 instance=ExtResource("2_aus6k")]
+position = Vector2(878, -840)
+
+[node name="LongRail11" parent="." index="21" unique_id=1449357304 instance=ExtResource("2_aus6k")]
+position = Vector2(108, -851)
+
+[node name="MediumRail5" parent="." index="22" unique_id=990170884 instance=ExtResource("3_7o0bt")]
+position = Vector2(-223, -805)
+rotation = -0.5235988
+
+[node name="MediumRail6" parent="." index="23" unique_id=245054607 instance=ExtResource("3_7o0bt")]
+position = Vector2(-348, -680)
+rotation = -1.0471976
+
+[node name="LongRail12" parent="." index="24" unique_id=2126125074 instance=ExtResource("2_aus6k")]
+position = Vector2(-394, -349)
+rotation = 1.5707964
+
+[node name="LongRail4" parent="." index="25" unique_id=1500057557 instance=ExtResource("2_aus6k")]
+position = Vector2(-169, 604)
+rotation = 0.42413715
+
+[node name="LongRail14" parent="." index="26" unique_id=2130681385 instance=ExtResource("2_aus6k")]
+position = Vector2(285, 736)
+rotation = 0.109984174
+
+[node name="MediumRail7" parent="." index="27" unique_id=99596974 instance=ExtResource("3_7o0bt")]
+position = Vector2(547.00006, -1047)
+rotation = 0.46212757
