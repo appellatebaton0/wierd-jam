@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bp4ot4t75mw16" path="res://Scenes/BaseLevel.tscn" id="1_dxgjp"]
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_upnbr"]
 [ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="3_bub18"]
-[ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="4_rtbuq"]
+[ext_resource type="PackedScene" uid="uid://c6fvd8mqb1gxq" path="res://Scenes/Arrow.tscn" id="4_bub18"]
 
 [node name="Level" unique_id=1515485159 instance=ExtResource("1_dxgjp")]
 index = 5
@@ -29,31 +29,30 @@ rotation = 0.4230758
 points = [NodePath("Point 0"), NodePath("Point 1"), NodePath("Point 2")]
 initial_wait = 1.0
 
-[node name="Point 0" type="Polygon2D" parent="LongRail" index="3" unique_id=616858566 instance=ExtResource("3_bub18")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 0" parent="LongRail" index="3" unique_id=616858566 instance=ExtResource("3_bub18")]
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_rtbuq")
 next_interpol_time = 1.0
 next_wait = 0.7
 pos = Vector2(209, -744)
 rot = 0.4230758
 
-[node name="Point 1" type="Polygon2D" parent="LongRail" index="4" unique_id=1201560991 instance=ExtResource("3_bub18")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 1" parent="LongRail" index="4" unique_id=1201560991 instance=ExtResource("3_bub18")]
 position = Vector2(1296.8525, 656.4327)
 rotation = -0.8824251
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_rtbuq")
 pos = Vector2(1122, 387.00012)
 rot = -0.45934933
 
-[node name="Point 2" type="Polygon2D" parent="LongRail" index="5" unique_id=275106493 instance=ExtResource("3_bub18")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 2" parent="LongRail" index="5" unique_id=275106493 instance=ExtResource("3_bub18")]
 position = Vector2(-30.09224, 1854.9006)
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_rtbuq")
 pos = Vector2(-580, 935)
 rot = 0.4230758
+
+[node name="Arrow" parent="." index="9" unique_id=1475176454 instance=ExtResource("4_bub18")]
+position = Vector2(937, 357.00003)
+rotation = 0.747236
+scale = Vector2(0.73447603, 0.8862059)

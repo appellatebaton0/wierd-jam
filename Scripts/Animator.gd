@@ -36,7 +36,6 @@ func _on_activate(to:bool) -> void: if to:
 			
 			Global.loaded_level.emit()
 		"Level End":
-			print("STORING ATTEMPT ")
 			current_level_data.store_attempt()
 			
 			current_level_instance.queue_free()

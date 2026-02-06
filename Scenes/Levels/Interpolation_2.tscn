@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://5v4fcc34jkgn" path="res://Scripts/DeathBorder.gd" id="2_fu5aq"]
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_su475"]
 [ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="3_85guk"]
+[ext_resource type="PackedScene" uid="uid://c6fvd8mqb1gxq" path="res://Scenes/Arrow.tscn" id="5_su475"]
 
 [node name="Level" unique_id=1515485159 instance=ExtResource("1_fu5aq")]
 index = 6
@@ -138,3 +139,13 @@ color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
 pos = Vector2(115.000244, 230)
 rot = 1.8958097
+
+[node name="Arrow" parent="." index="13" unique_id=1475176454 instance=ExtResource("5_su475")]
+position = Vector2(-1192, 481.00006)
+rotation = 2.6078756
+scale = Vector2(0.8298436, 1.056627)
+
+[node name="Arrow2" parent="." index="14" unique_id=1750739451 instance=ExtResource("5_su475")]
+position = Vector2(-781, 176.00006)
+rotation = 0.70967245
+scale = Vector2(0.8298436, 1.056627)

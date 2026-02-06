@@ -129,6 +129,11 @@ func _on_reset() -> void:
 		global_position = curr.pos
 		rotation = curr.rot
 	lerp_amnt = 0.0
+	
+	# Clear all the aftereffects
+	for effect in effect_pool:
+		effect_pool.erase(effect)
+		effect.queue_free()
 
 ## Lerp, but the amount is eased.
 func lerp_ease(a:Variant, b:Variant, l:float, e:float) -> Variant:
