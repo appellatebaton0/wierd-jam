@@ -23,7 +23,6 @@ var selected_level:LevelData
 
 func _ready() -> void: 
 	load_levels()
-		
 
 ## Loads all the levels into LevelData, and makes entries for each of them.
 func load_levels() -> void:
@@ -59,9 +58,17 @@ func load_levels() -> void:
 		
 		index += 1
 	
+	var first = true
+	
 	for file in real_files:
-		var data = create_data_from(LEVEL_PATH + file)
-		create_entry_from(data)
+		var data := create_data_from(LEVEL_PATH + file)
+		var entry := create_entry_from(data)
+		
+		if first:
+			_on_level_selected(data)
+			entry._this_selected()
+			
+			first = false
 
 func create_data_from(path:StringName) -> LevelData:
 	var new = LevelData.new()
@@ -73,7 +80,7 @@ func create_data_from(path:StringName) -> LevelData:
 	
 	return new
 
-func create_entry_from(data:LevelData) -> void:
+func create_entry_from(data:LevelData) -> LevelEntry:
 	var new:LevelEntry = LEVEL_ENTRY_SCENE.instantiate()
 	
 	level_entry_box.add_child(new)
@@ -81,6 +88,8 @@ func create_entry_from(data:LevelData) -> void:
 	new.setup(data)
 	
 	new.pressed.connect(_on_level_selected.bind(data))
+	
+	return new
 
 func create_attempt_from(data:LevelData, index:int) -> void:
 	var attempt = data.attempts[index]
