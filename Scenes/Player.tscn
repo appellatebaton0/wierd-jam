@@ -36,10 +36,19 @@ shader = SubResource("Shader_rpqav")
 shader_parameter/u = 2.025
 
 [sub_resource type="Gradient" id="Gradient_s7307"]
-colors = PackedColorArray(0, 0.17254902, 0.8039216, 1, 1, 0, 0, 1)
+colors = PackedColorArray(0.74, 0.74, 0.74, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_av2a1"]
 gradient = SubResource("Gradient_s7307")
+width = 48
+height = 48
+fill_to = Vector2(0.6495727, 0.7307692)
+
+[sub_resource type="Gradient" id="Gradient_rpqav"]
+colors = PackedColorArray(0.13, 0.13, 0.13, 1, 0.51, 0.51, 0.51, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kyqiw"]
+gradient = SubResource("Gradient_rpqav")
 width = 48
 height = 48
 fill_to = Vector2(0.6495727, 0.7307692)
@@ -63,6 +72,12 @@ shape = SubResource("CircleShape2D_rpqav")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=500600916]
 material = SubResource("ShaderMaterial_kyqiw")
 texture = SubResource("GradientTexture2D_av2a1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=844773947]
+material = SubResource("ShaderMaterial_kyqiw")
+position = Vector2(-13.999915, -0.048891656)
+scale = Vector2(0.268408, 0.268408)
+texture = SubResource("GradientTexture2D_kyqiw")
 
 [node name="RailDetector" type="Area2D" parent="." unique_id=1744867002]
 
