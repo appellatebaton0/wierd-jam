@@ -23,6 +23,8 @@ func _process(delta: float) -> void:
 
 # Reset the timer when the player dies.
 func _on_reset() -> void: 
+	if animator.is_playing(): return
+	
 	time = 0
 	deaths += 1
 

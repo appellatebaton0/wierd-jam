@@ -12,5 +12,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	global_position = lerp(global_position, player.global_position + (0.3 * player.velocity), 0.09)
 
+	# Zoom in just a little bit when going fast.
+	var z = lerp(zoom.x, 0.5 + (abs(player.mag(player.velocity)) / 15000), 0.1)
+	zoom = Vector2(z,z)
+
 func _on_reset():
 	global_position = player.global_position
