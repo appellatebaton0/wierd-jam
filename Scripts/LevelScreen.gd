@@ -34,7 +34,7 @@ func load_levels() -> void:
 		var file_name = dir.get_next()
 		while file_name != "":
 			if not dir.current_is_dir():
-				file_name.replace(".remap", "") # NO.
+				file_name = file_name.replace(".remap", "") # NO. REMAP.
 				files.append(file_name)
 			file_name = dir.get_next()
 	else: print("An error occurred when trying to access the path.")
