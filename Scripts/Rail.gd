@@ -51,14 +51,6 @@ func _ready() -> void:
 		_on_reset()
 
 func _physics_process(delta: float) -> void:
-	
-	for child in get_children(): if child is Area2D: 
-		var unre := EditorInterface.get_editor_undo_redo()
-		
-		unre.create_action("NO.")
-		unre.add_do_method(child, "queue_free")
-		unre.commit_action()
-	
 	# IF anything's gone wrong or this just shouldn't be done, then don't do it.
 	if Engine.is_editor_hint(): return
 	
@@ -159,8 +151,8 @@ func _add_transform():
 	# Fix the rotation.
 	# rotation = 0.0
 
-var last:Vector2
-func _process(_delta: float) -> void: if Engine.is_editor_hint():
-	if last != position:
-		last = position
-		queue_redraw()
+#var last:Vector2
+#func _process(_delta: float) -> void: if Engine.is_editor_hint():
+	#if last != position:
+		#last = position
+		#queue_redraw()

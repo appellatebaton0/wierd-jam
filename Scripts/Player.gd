@@ -28,9 +28,12 @@ func _physics_process(delta: float) -> void:
 	jump_buffering = move_toward(jump_buffering, 0, delta)
 	if Input.is_action_just_pressed("Jump"): jump_buffering = JUMP_BUFFER
 	
+	
 	# Grinding
 	if snapped_to:
 		velocity = direction * max(grind_speed, on_snap_mag)
+		
+		
 		
 		if jump_buffering: # Jump
 			
