@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bbpyaeereun6f"]
 
 [ext_resource type="PackedScene" uid="uid://bp4ot4t75mw16" path="res://Scenes/BaseLevel.tscn" id="1_fu5aq"]
+[ext_resource type="Script" uid="uid://5v4fcc34jkgn" path="res://Scripts/DeathBorder.gd" id="2_fu5aq"]
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_su475"]
 [ext_resource type="PackedScene" uid="uid://b46f20mibw1h3" path="res://Scenes/Transform.tscn" id="3_85guk"]
-[ext_resource type="Script" uid="uid://c86lscdglgeil" path="res://Scripts/Transform.gd" id="4_oun06"]
 
 [node name="Level" unique_id=1515485159 instance=ExtResource("1_fu5aq")]
 index = 6
@@ -21,117 +21,120 @@ polygon = PackedVector2Array(7500, -1500, 7500, 1500, -7500, 1500, -7500, -1500,
 [node name="Player" parent="." index="5" unique_id=993666105]
 position = Vector2(-2055.0005, 173.99994)
 
-[node name="Goal" parent="." index="7" unique_id=347924917]
+[node name="DeathBorder2" type="Node2D" parent="." index="7" unique_id=566317153]
+position = Vector2(4195, 5)
+scale = Vector2(1.0000001, 1.0000001)
+script = ExtResource("2_fu5aq")
+LINE_COLOR = Color(1, 0, 0.22352941, 1)
+LINE_WIDTH = 10.0
+MAIN_LENGTH = 15000
+TYPE_LENGTH = 80
+orientation = 0
+metadata/_custom_type_script = "uid://5v4fcc34jkgn"
+
+[node name="DeathBorder3" type="Node2D" parent="." index="8" unique_id=1799008587]
+position = Vector2(-4271, 5)
+scale = Vector2(1.0000001, 1.0000001)
+script = ExtResource("2_fu5aq")
+LINE_COLOR = Color(1, 0, 0.22352941, 1)
+LINE_WIDTH = 10.0
+MAIN_LENGTH = 15000
+TYPE_LENGTH = 80
+orientation = 0
+type = 1
+metadata/_custom_type_script = "uid://5v4fcc34jkgn"
+
+[node name="Goal" parent="." index="9" unique_id=347924917]
 position = Vector2(355, 725)
 
-[node name="LongRail" parent="." index="8" unique_id=1357488898 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
+[node name="LongRail" parent="." index="10" unique_id=1357488898 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
 position = Vector2(-2077, 461)
 rotation = 0.73183453
-points = [NodePath("Point 0"), NodePath("Point 1"), NodePath(""), NodePath("Point 2"), NodePath("Point 4")]
+points = [NodePath("Point 0"), NodePath("Point 1"), null, NodePath("Point 2"), NodePath("Point 4")]
 initial_wait = 1.4
 
-[node name="Point 0" type="Polygon2D" parent="LongRail" index="3" unique_id=616858566 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 0" parent="LongRail" index="3" unique_id=616858566 instance=ExtResource("3_85guk")]
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 next_wait = 1.5
 pos = Vector2(-2077, 461)
 rot = 0.73183453
 
-[node name="Point 1" type="Polygon2D" parent="LongRail" index="4" unique_id=329234996 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 1" parent="LongRail" index="4" unique_id=329234996 instance=ExtResource("3_85guk")]
 position = Vector2(856.30347, -1165.6865)
 rotation = 0.8527091
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 next_wait = 2.0
 pos = Vector2(-661, 166.00018)
-rot = 1.5845437
+rot = 1.5845436
 
-[node name="Point 2" type="Polygon2D" parent="LongRail" index="5" unique_id=1692318207 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 2" parent="LongRail" index="5" unique_id=1692318207 instance=ExtResource("3_85guk")]
 position = Vector2(670.29364, -1354.8146)
 rotation = -0.72854
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 pos = Vector2(-673, -99)
 rot = 0.0032945038
 
-[node name="Point 4" type="Polygon2D" parent="LongRail" index="6" unique_id=1676443346 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 4" parent="LongRail" index="6" unique_id=1676443346 instance=ExtResource("3_85guk")]
 position = Vector2(1656.6997, -1182.964)
 rotation = -0.045091838
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 pos = Vector2(-54, 687.9999)
 rot = 0.6867427
 
-[node name="LongRail2" parent="." index="9" unique_id=326905385 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
+[node name="LongRail2" parent="." index="11" unique_id=326905385 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
 position = Vector2(-1642, 629)
-points = [NodePath("Point 0"), NodePath("Point 1"), NodePath(""), NodePath("Point 3")]
+points = [NodePath("Point 0"), NodePath("Point 1"), null, NodePath("Point 3")]
 initial_wait = 2.0
 
-[node name="Point 0" type="Polygon2D" parent="LongRail2" index="3" unique_id=1260706922 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 0" parent="LongRail2" index="3" unique_id=1260706922 instance=ExtResource("3_85guk")]
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 next_wait = 1.5
 pos = Vector2(-1642, 629)
 
-[node name="Point 1" type="Polygon2D" parent="LongRail2" index="4" unique_id=1486735535 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 1" parent="LongRail2" index="4" unique_id=1486735535 instance=ExtResource("3_85guk")]
 position = Vector2(87, -438)
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 next_wait = 2.0
 pos = Vector2(-1555, 191)
 
-[node name="Point 3" type="Polygon2D" parent="LongRail2" index="5" unique_id=1954433610 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 3" parent="LongRail2" index="5" unique_id=1954433610 instance=ExtResource("3_85guk")]
 position = Vector2(1617, -1102)
 rotation = 0.8283926
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 pos = Vector2(-25, -473)
-rot = 0.82839257
+rot = 0.8283926
 
-[node name="LongRail3" parent="." index="10" unique_id=1736850549 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
+[node name="LongRail3" parent="." index="12" unique_id=1736850549 node_paths=PackedStringArray("points") instance=ExtResource("2_su475")]
 position = Vector2(-1144, 629)
-points = [NodePath("Point 0"), NodePath("Point 1"), NodePath(""), NodePath(""), NodePath("Point 4")]
+points = [NodePath("Point 0"), NodePath("Point 1"), null, null, NodePath("Point 4")]
 initial_wait = 2.4
 
-[node name="Point 0" type="Polygon2D" parent="LongRail3" index="3" unique_id=337043735 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 0" parent="LongRail3" index="3" unique_id=337043735 instance=ExtResource("3_85guk")]
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 next_wait = 2.0
 pos = Vector2(-1144, 629)
 
-[node name="Point 1" type="Polygon2D" parent="LongRail3" index="4" unique_id=1350068152 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 1" parent="LongRail3" index="4" unique_id=1350068152 instance=ExtResource("3_85guk")]
 position = Vector2(-894, -860.99994)
 rotation = 1.5652223
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 next_wait = 2.0
 pos = Vector2(-2038, -231.99994)
 rot = 1.5652223
 
-[node name="Point 4" type="Polygon2D" parent="LongRail3" index="5" unique_id=716070174 instance=ExtResource("3_85guk")]
-modulate = Color(1, 1, 1, 0.62352943)
+[node name="Point 4" parent="LongRail3" index="5" unique_id=716070174 instance=ExtResource("3_85guk")]
 position = Vector2(1259.0002, -399)
 rotation = 1.8958097
 color = Color(0.6, 0.6, 0.6, 1)
 polygon = PackedVector2Array(-256, -16, -256, 16, 256, 16, 256, -16)
-script = ExtResource("4_oun06")
 pos = Vector2(115.000244, 230)
 rot = 1.8958097

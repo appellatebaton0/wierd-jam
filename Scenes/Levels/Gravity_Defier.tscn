@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bp4ot4t75mw16" path="res://Scenes/BaseLevel.tscn" id="1_wto8n"]
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_msm3a"]
+[ext_resource type="PackedScene" uid="uid://c8owosjuwdc1g" path="res://Scenes/MediumRail.tscn" id="3_h3cm2"]
 
 [node name="Level" unique_id=1515485159 instance=ExtResource("1_wto8n")]
 index = 2
@@ -16,11 +17,8 @@ polygon = PackedVector2Array(7500, -1500, 7500, 1500, -7500, 1500, -7500, -1500,
 [node name="Polygon2D" parent="Parallax2D3" parent_id_path=PackedInt32Array(291028766) index="0" unique_id=1980736197]
 polygon = PackedVector2Array(7500, -1500, 7500, 1500, -7500, 1500, -7500, -1500, -7500, -1353.279, -7283.0845, -1681.598, -7028.2524, -1388.6863, -6856.309, -1643.4576, -6458.8853, -1334.2545, -6326.7944, -1627.6603, -6150.2407, -1344.632, -5875.0005, -1614.7617, -5492.4175, -1259.3502, -5111.226, -1720.5955, -4855.6875, -1292.7875, -4647.977, -1712.7389, -4299.084, -1375.9463, -3924.9504, -1729.5734, -3714.6287, -1294.0211, -3538.115, -1641.7478, -3174.165, -1279.0737, -2862.2766, -1728.5103, -2625.801, -1315.8119, -2498.304, -1662.6273, -2342.3804, -1301.6527, -2209.4084, -1620.8871, -2027.439, -1267.4353, -1713.1135, -1720.814, -1587.0278, -1345.7021, -1216.6692, -1625.672, -829.7189, -1305.5188, -496.8303, -1710.1802, -103.02523, -1369.798, 79.814186, -1684.3699, 443.74396, -1313.2275, 825.31635, -1733.0299, 1208.3241, -1265.8478, 1506.0065, -1624.6432, 1814.4227, -1333.8458, 2122.23, -1614.4956, 2418.3303, -1311.9053, 2774.4998, -1696.2227, 3153.0173, -1392.4949, 3361.5474, -1699.898, 3587.549, -1399.4998, 3952.0166, -1683.0839, 4324.356, -1379.6821, 4543.8086, -1653.8196, 4927.2334, -1283.4957, 5109.8228, -1673.757, 5385.8237, -1370.6918, 5588.6987, -1707.1782, 5884.2256, -1380.5792, 6236.6104, -1699.1461, 6505.608, -1357.8741, 6688.261, -1626.055, 6853.264, -1370.525, 6980.226, -1663.2933, 7328.24, -1387.0356)
 
-[node name="Player" parent="." index="4" unique_id=993666105]
+[node name="Player" parent="." index="5" unique_id=993666105]
 position = Vector2(-3087, -41.00006)
-
-[node name="Goal" parent="." index="6" unique_id=347924917]
-position = Vector2(1275, 422)
 
 [node name="LongRail" parent="." index="7" unique_id=1357488898 instance=ExtResource("2_msm3a")]
 position = Vector2(-3153.0002, 326.9999)
@@ -64,3 +62,23 @@ position = Vector2(892, 555)
 
 [node name="LongRail12" parent="." index="19" unique_id=2122256474 instance=ExtResource("2_msm3a")]
 position = Vector2(1395, 555)
+
+[node name="Goal" parent="." index="20" unique_id=347924917]
+position = Vector2(3225, -297)
+
+[node name="LongRail14" parent="." index="21" unique_id=609177490 instance=ExtResource("2_msm3a")]
+position = Vector2(1823, 178)
+rotation = 1.5707964
+
+[node name="LongRail15" parent="." index="22" unique_id=946627595 instance=ExtResource("2_msm3a")]
+position = Vector2(1523, -138)
+rotation = 1.5707964
+
+[node name="LongRail16" parent="." index="23" unique_id=526802871 instance=ExtResource("2_msm3a")]
+position = Vector2(2026, -374)
+
+[node name="LongRail17" parent="." index="24" unique_id=1369073336 instance=ExtResource("2_msm3a")]
+position = Vector2(3029, -208)
+
+[node name="MediumRail" parent="." index="25" unique_id=597157224 instance=ExtResource("3_h3cm2")]
+position = Vector2(2398, -49)

@@ -23,12 +23,9 @@ func _process(delta: float) -> void:
 
 # Reset the timer when the player dies.
 func _on_reset() -> void: 
-	print("RESET")
 	time = 0
 	deaths += 1
 
-# NOTE: NOT HOOKED UP.
 func _on_level_loaded() -> void:
-	print("LEVEL LOAD")
 	time = 0
 	deaths = 0
