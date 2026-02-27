@@ -4,15 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dffj877vhhx4u" path="res://Scenes/LongRail.tscn" id="2_aus6k"]
 [ext_resource type="PackedScene" uid="uid://c8owosjuwdc1g" path="res://Scenes/MediumRail.tscn" id="3_7o0bt"]
 [ext_resource type="PackedScene" uid="uid://c6fvd8mqb1gxq" path="res://Scenes/Arrow.tscn" id="4_aus6k"]
+[ext_resource type="Script" uid="uid://bdrp7ecxbskf5" path="res://Scripts/Spline.gd" id="5_7o0bt"]
 
 [node name="Level" unique_id=1515485159 instance=ExtResource("1_d8lem")]
 index = 3
 
-[node name="Player" parent="." index="5" unique_id=993666105]
+[node name="Player" parent="." index="6" unique_id=993666105]
 position = Vector2(-263, -182.00006)
-
-[node name="Goal" parent="." index="7" unique_id=347924917]
-position = Vector2(1756, -204)
 
 [node name="LongRail" parent="." index="8" unique_id=1357488898 instance=ExtResource("2_aus6k")]
 position = Vector2(26.999985, 454)
@@ -83,7 +81,7 @@ rotation = 0.109984174
 
 [node name="LongRail10" parent="." index="26" unique_id=41721441 instance=ExtResource("2_aus6k")]
 position = Vector2(570, -1065)
-rotation = 0.40214676
+rotation = 0.9867868
 
 [node name="LongRail15" parent="." index="27" unique_id=1240439462 instance=ExtResource("2_aus6k")]
 position = Vector2(295, -1318.0001)
@@ -101,3 +99,40 @@ scale = Vector2(0.6435899, 0.7815013)
 
 [node name="MediumRail7" parent="." index="30" unique_id=1759523441 instance=ExtResource("3_7o0bt")]
 position = Vector2(819, 547)
+
+[node name="Goal" parent="." index="31" unique_id=347924917]
+position = Vector2(1756, -204)
+
+[node name="Spline2D" type="Line2D" parent="." index="32" unique_id=2118454019]
+position = Vector2(316, 527)
+points = PackedVector2Array(41, 7, 421, -30, 668, -233, 539, -615, 665, -1024, 451, -1144, 131, -1039, 17, -999, -87, -1024, -67, -1124, -161, -1290, -30, -1247, 149, -1240, 288, -1233, 376, -1223, 325, -1385)
+width = 40.0
+default_color = Color(0, 0, 0, 0)
+script = ExtResource("5_7o0bt")
+color = Color(0, 1, 1, 1)
+seg = 18.0
+metadata/_custom_type_script = "uid://bdrp7ecxbskf5"
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Spline2D" index="0" unique_id=1589709393]
+
+[node name="Spline2D3" type="Line2D" parent="." index="33" unique_id=1439336853]
+position = Vector2(105, 0)
+points = PackedVector2Array(2583, -1582, 2675, -982, 2221, -775, 1771, -1229)
+width = 30.0
+default_color = Color(0, 0, 0, 0)
+script = ExtResource("5_7o0bt")
+color = Color(0.6520202, 0.548665, 0.7851908, 1)
+metadata/_custom_type_script = "uid://bdrp7ecxbskf5"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Spline2D3" index="0" unique_id=552809254]
+
+[node name="Collider" type="CollisionPolygon2D" parent="Spline2D3/StaticBody2D" index="0" unique_id=762947340]
+z_index = -1
+polygon = PackedVector2Array(2578.1162, -1583.0714, 2563.2932, -1515.4935, 2545.813, -1453.348, 2525.6572, -1396.5083, 2502.837, -1344.9746, 2477.3655, -1298.7437, 2449.2554, -1257.8065, 2418.5168, -1222.1471, 2385.1536, -1191.7418, 2349.157, -1166.5632, 2310.5066, -1146.5854, 2269.1707, -1131.7925, 2225.1165, -1122.1814, 2178.3164, -1117.7615, 2128.7527, -1118.549, 2076.4182, -1124.5616, 2021.313, -1135.8156, 1963.4418, -1152.323, 1902.811, -1174.0927, 1839.4279, -1201.1306, 1773.195, -1233.4924, 1768.805, -1224.5076, 1835.2621, -1192.0396, 1899.1489, -1164.7872, 1960.3683, -1142.8071, 2018.927, -1126.1044, 2074.8318, -1114.6884, 2128.0872, -1108.5712, 2178.6938, -1107.7686, 2226.6433, -1112.2986, 2271.9192, -1122.1775, 2314.4934, -1137.4146, 2354.3328, -1158.0068, 2391.4065, -1183.9381, 2425.693, -1215.183, 2457.1846, -1251.7135, 2485.8845, -1293.5063, 2511.8027, -1340.5454, 2534.9526, -1392.8218, 2555.3472, -1450.3319, 2572.9968, -1513.0765, 2587.8838, -1580.9286)
+
+[node name="Spline2D2" type="Line2D" parent="." index="34" unique_id=215029426]
+points = PackedVector2Array(46, -850, -413, -822, -583, -1020, -477, -1377, -528, -1803, -327, -2037, 61, -1675, 437, -1413, 862, -1353, 873, -1785, 1186, -2059, 976, -2532, 740, -2399, 143, -2100, 334, -2808, 715, -2716, 1009, -2977, 1400, -2988, 2107, -2758, 2552, -2715, 2827, -2463, 2618, -2198)
+width = 40.0
+default_color = Color(0, 0, 0, 0)
+script = ExtResource("5_7o0bt")
+metadata/_custom_type_script = "uid://bdrp7ecxbskf5"
